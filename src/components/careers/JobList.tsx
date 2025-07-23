@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, MapPin, Briefcase } from 'lucide-react';
+import Link from 'next/link';
 
 const jobPostings = [
   {
@@ -82,8 +83,10 @@ export function JobList() {
               </div>
             </CardContent>
             <CardFooter>
-              <Button>
-                Apply Now <ArrowRight className="ml-2 h-4 w-4" />
+              <Button asChild>
+                <a href={`mailto:hi@arrdublu.us?subject=Application for ${selectedJob.title}`}>
+                  Apply Now <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
               </Button>
             </CardFooter>
           </Card>
@@ -92,4 +95,3 @@ export function JobList() {
     </div>
   );
 }
-
