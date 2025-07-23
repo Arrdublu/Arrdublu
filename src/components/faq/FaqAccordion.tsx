@@ -24,6 +24,18 @@ const faqItems = [
         answer: "Absolutely. While we offer curated packages, we understand that every client's needs are unique. Please contact our support team to discuss your specific requirements, and we can create a custom service proposal for you."
     },
     {
+        question: "What is the typical turnaround time for a project?",
+        answer: "Turnaround times vary depending on the scope of the project. A Comprehensive SEO Audit typically takes 5-7 business days, while a full Brand Identity Suite can take 2-3 weeks. We will provide a detailed timeline with your project proposal."
+    },
+    {
+        question: "How do I get started with a service?",
+        answer: "The best way to start is by purchasing a service directly from our website. For custom projects or if you're unsure where to begin, please fill out our support form, and one of our specialists will get in touch to schedule a consultation."
+    },
+    {
+        question: "Do you offer ongoing support or retainers?",
+        answer: "Yes, we offer monthly retainer packages for ongoing SEO management, content creation, and social media support. Please contact us to discuss your needs, and we can create a custom retainer agreement."
+    },
+    {
         question: "What is your refund policy?",
         answer: "Due to the nature of our digital services, we generally do not offer refunds once work has commenced. However, client satisfaction is our top priority. If you have concerns about a service, please contact us immediately so we can address the issue. You can view our full Terms & Conditions for more details."
     }
