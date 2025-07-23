@@ -42,10 +42,17 @@ export function SupportForm() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    const mailtoLink = `mailto:hi@arrdublu.us?subject=${encodeURIComponent(
+      values.subject
+    )}&body=${encodeURIComponent(
+      `Name: ${values.name}\nEmail: ${values.email}\n\nMessage:\n${values.message}`
+    )}`;
+    
+    window.location.href = mailtoLink;
+
     toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. We'll get back to you shortly.",
+      title: "Opening Email Client",
+      description: "Your message has been prepared. Please send it from your email application.",
     });
     form.reset();
   }
@@ -126,4 +133,3 @@ export function SupportForm() {
     </Card>
   );
 }
-
