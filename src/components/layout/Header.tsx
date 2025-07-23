@@ -15,8 +15,8 @@ export function SiteHeader() {
 
   const navItems = [
     { href: '/', label: 'Home' },
+    { href: '/work', label: 'Work' },
     { href: '/orders', label: 'Orders' },
-    { href: '/admin', label: 'Admin' },
   ];
 
   return (

@@ -12,6 +12,7 @@ const Footer = () => {
             <h3 className="font-bold mb-4 text-foreground">General Inquiries</h3>
             <ul>
               <li className="mb-2 hover:text-primary transition-colors"><Link href="/contact">Contact</Link></li>
+              <li className="mb-2 hover:text-primary transition-colors"><Link href="/admin">Resident</Link></li>
             </ul>
           </div>
           <div>
