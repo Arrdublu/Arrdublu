@@ -9,7 +9,7 @@ import { Badge } from '../ui/badge';
 const featuredArticle = {
   title: 'Special Ops: The Art of Covert Creative Campaigns',
   category: 'Special Operations',
-  image: 'https://placehold.co/1200x600.png',
+  image: 'https://images.unsplash.com/photo-1516131206008-dd041a372dd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
   dataAiHint: 'secret agent creative',
   excerpt: 'Dive deep into the strategies behind our most successful and unconventional creative campaigns. Discover how we blend stealth, precision, and artistry to deliver results that make a massive impact without making a sound.',
   url: '/discover/arrdublu-mag/special-ops-creative-campaigns',

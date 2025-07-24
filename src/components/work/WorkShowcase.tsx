@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -11,7 +12,7 @@ const projects = [
     id: 'project-1',
     title: 'E-commerce SEO Overhaul',
     category: 'SEO',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
     description: 'Increased organic traffic by 150% in 6 months for a major online retailer through a comprehensive SEO strategy.',
     link: '#',
     dataAiHint: 'ecommerce website',
@@ -20,7 +21,7 @@ const projects = [
     id: 'project-2',
     title: 'Startup Brand Identity',
     category: 'Creative',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
     description: 'Developed a complete brand identity, including logo, messaging, and visual guidelines for a new tech startup.',
     link: '#',
     dataAiHint: 'brand logo',
@@ -29,7 +30,7 @@ const projects = [
     id: 'project-3',
     title: 'Luxury Hotel Photography',
     category: 'Lifestyle',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
     description: 'Captured stunning imagery for a new luxury hotel, showcasing its architecture, amenities, and unique atmosphere.',
     link: '#',
     dataAiHint: 'luxury hotel',
@@ -38,7 +39,7 @@ const projects = [
     id: 'project-4',
     title: 'SaaS Content Marketing',
     category: 'SEO',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
     description: 'Created a content marketing engine that drove a 300% increase in qualified leads for a B2B SaaS company.',
     link: '#',
     dataAiHint: 'saas dashboard',
