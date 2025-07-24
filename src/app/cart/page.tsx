@@ -27,7 +27,12 @@ export default function CartPage() {
   const handleCheckout = async () => {
     setIsLoading(true);
     try {
-      const { id: sessionId } = await createCheckoutSession(cartItems);
+      const checkoutItems = cartItems.map(item => ({
+        id: item.service.id,
+        quantity: item.quantity,
+      }));
+
+      const { id: sessionId } = await createCheckoutSession(checkoutItems);
       const stripe = await stripePromise;
       if (!stripe) {
         throw new Error('Stripe.js has not loaded yet.');

@@ -4,7 +4,7 @@
 import { redirect } from 'next/navigation';
 import Stripe from 'stripe';
 import { getServiceRecommendations } from '@/ai/flows/service-recommendation';
-import { getServicesByIds } from '@/lib/data';
+import { getServiceById, getServicesByIds } from '@/lib/data';
 import type { Service, CartItem } from '@/lib/types';
 import { headers } from 'next/headers';
 
@@ -38,7 +38,12 @@ export async function getRecommendedServicesAction(
   }
 }
 
-export async function createCheckoutSession(cartItems: CartItem[]): Promise<{ id: string }> {
+type CheckoutItem = {
+    id: string;
+    quantity: number;
+};
+
+export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id: string }> {
   if (!process.env.STRIPE_SECRET_KEY) {
     throw new Error('STRIPE_SECRET_KEY is not set');
   }
@@ -47,18 +52,24 @@ export async function createCheckoutSession(cartItems: CartItem[]): Promise<{ id
     apiVersion: '2024-06-20',
   });
 
-  const lineItems = cartItems.map(item => ({
-    price_data: {
-      currency: 'usd',
-      product_data: {
-        name: item.service.name,
-        description: item.service.description,
-        images: [item.service.image],
-      },
-      unit_amount: item.service.price * 100, // Stripe expects the amount in cents
-    },
-    quantity: item.quantity,
-  }));
+  const lineItems = items.map(item => {
+    const service = getServiceById(item.id);
+    if (!service) {
+        throw new Error(`Service with id ${item.id} not found.`);
+    }
+    return {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: service.name,
+            description: service.description,
+            images: [service.image],
+          },
+          unit_amount: service.price * 100, // Stripe expects the amount in cents
+        },
+        quantity: item.quantity,
+    }
+  });
   
   const host = headers().get('origin') || 'http://localhost:3000';
 
