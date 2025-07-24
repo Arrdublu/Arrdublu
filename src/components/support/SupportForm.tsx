@@ -59,10 +59,7 @@ export function SupportForm() {
 
   return (
     <Card>
-        <CardHeader>
-            <CardTitle className="font-headline">Send us a message</CardTitle>
-        </CardHeader>
-        <CardContent>
+        <CardContent className="pt-6">
             <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
