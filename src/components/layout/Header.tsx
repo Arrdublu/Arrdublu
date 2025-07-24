@@ -1,13 +1,21 @@
+
 'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingBag, ChevronDown } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { CartSheet } from '@/components/cart/CartSheet';
 import { useCart } from '@/context/CartProvider';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -15,9 +23,17 @@ export function SiteHeader() {
 
   const navItems = [
     { href: '/', label: 'Home' },
-    { href: '/work', label: 'Work' },
     { href: '/orders', label: 'Orders' },
   ];
+  
+  const discoverItems = [
+    { href: '/discover/whats-new', label: 'What\'s New' },
+    { href: '/discover/our-story', label: 'Our Story' },
+    { href: '/discover/arrdublu-mag', label: 'Arrdublu Mag' },
+    { href: '/discover/timeless', label: 'Timeless' },
+    { href: '/discover/brands', label: 'Brands' },
+    { href: '/discover/events', label: 'Events' },
+  ]
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -38,6 +54,18 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-foreground/60 hover:text-foreground/80 transition-colors focus:outline-none">
+              Discover <ChevronDown className="h-4 w-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              {discoverItems.map((item) => (
+                 <DropdownMenuItem key={item.href} asChild>
+                    <Link href={item.href}>{item.label}</Link>
+                 </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <CartSheet>
