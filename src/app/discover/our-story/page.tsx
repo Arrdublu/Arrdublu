@@ -1,18 +1,18 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Timeline } from '@/components/our-story/Timeline';
 
 export default function OurStoryPage() {
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-4xl font-headline font-bold text-primary mb-8">Our Story</h1>
-      <Card>
-        <CardHeader>
-          <CardTitle>The Arrdublu Journey</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-muted-foreground">Learn more about our mission, vision, and the team behind Arrdublu.</p>
-        </CardContent>
-      </Card>
+      <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary">
+          Our Story
+        </h1>
+        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-foreground/80">
+          From a simple idea to a thriving creative hub, follow our journey and see the milestones that shaped us.
+        </p>
+      </div>
+      <Timeline />
     </div>
   );
 }
