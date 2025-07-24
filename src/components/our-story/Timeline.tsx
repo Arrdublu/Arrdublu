@@ -29,42 +29,38 @@ export function Timeline() {
   return (
     <div className="relative max-w-3xl mx-auto">
       <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border" aria-hidden="true" />
-      <div className="space-y-12">
+      <div className="space-y-12 relative">
         {timelineEvents.map((event, index) => (
-          <div key={index} className="relative flex items-center">
-            <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-              {index % 2 !== 0 && (
-                <div className="flex justify-start">
-                    <Badge variant="outline" className="text-lg font-bold text-primary border-primary">
-                        {event.year}
-                    </Badge>
-                </div>
-              )}
+          <div key={index} className="relative flex items-center justify-center">
+            {/* Year Badge */}
+            <div className={`w-1/2 flex ${index % 2 === 0 ? 'justify-end pr-8' : 'justify-start pl-8'}`}>
+               <Badge variant="outline" className="text-lg font-bold text-primary border-primary z-10">
+                  {event.year}
+                </Badge>
             </div>
-            <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background" />
-            <div className={`w-1/2 ${index % 2 === 0 ? 'pl-8' : 'pr-8'}`}>
-                {index % 2 === 0 ? (
-                    <div className="flex justify-start">
-                         <Badge variant="outline" className="text-lg font-bold text-primary border-primary">
-                            {event.year}
-                        </Badge>
-                    </div>
-                ) : <div /> }
-            </div>
+             {/* Timeline Dot */}
+            <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-20" />
+            {/* Spacer */}
+            <div className="w-1/2" />
           </div>
         ))}
-      </div>
-       <div className="mt-8 space-y-8">
-        {timelineEvents.map((event, index) => (
-          <Card key={index} className={`shadow-lg hover:shadow-xl transition-shadow ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'} w-[calc(50%-1rem)]`}>
-             <CardHeader>
-                <CardTitle className="font-headline text-xl text-primary">{event.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <p className="text-muted-foreground">{event.description}</p>
-            </CardContent>
-          </Card>
-        ))}
+         {/* Event Cards */}
+        <div className="absolute top-0 left-0 w-full h-full">
+            {timelineEvents.map((event, index) => (
+                 <div key={index} className="absolute w-full" style={{top: `${index * 3}rem`}}>
+                     <div className={`relative w-1/2 p-4 ${index % 2 === 0 ? 'pr-8' : 'pl-8 ml-auto'}`}>
+                        <Card className="shadow-lg hover:shadow-xl transition-shadow">
+                            <CardHeader>
+                                <CardTitle className="font-headline text-xl text-primary">{event.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">{event.description}</p>
+                            </CardContent>
+                        </Card>
+                     </div>
+                 </div>
+            ))}
+        </div>
       </div>
     </div>
   );
