@@ -6,7 +6,7 @@ const timelineEvents = [
   {
     year: '2018',
     title: 'The Spark of an Idea',
-    description: 'Arrdublu was founded by a small group of passionate creatives and tech enthusiasts with a shared vision: to provide high-quality, impactful media services that help brands tell their unique stories.',
+    description: 'Arrdublu was founded by Ramone C. Wynter, a passionate creative and tech enthusiast with a vision: to provide high-quality, impactful media services that help brands tell their unique stories.',
   },
   {
     year: '2020',

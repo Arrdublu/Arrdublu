@@ -1,3 +1,4 @@
+
 // src/components/layout/Footer.tsx
 
 import Link from 'next/link';
@@ -45,7 +46,10 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center mt-8 text-foreground/60">
-          © {new Date().getFullYear()} Arrdublu. All rights reserved.
+          <p>© {new Date().getFullYear()} Arrdublu. All rights reserved.</p>
+          <p>
+            Developed by <a href="https://www.linkedin.com/in/ramone-wynter-a783053b/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Ramone C. Wynter</a>
+          </p>
         </div>
       </div>
     </footer>
