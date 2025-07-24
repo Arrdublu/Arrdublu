@@ -85,36 +85,6 @@ export const services: Service[] = [
   },
 ];
 
-export const orders: Order[] = [
-  {
-    id: 'ORD-001',
-    date: '2023-10-26',
-    total: 1699,
-    status: 'Completed',
-    items: [
-      { service: services[2], quantity: 1 },
-      { service: services[0], quantity: 1 },
-    ],
-  },
-  {
-    id: 'ORD-002',
-    date: '2023-11-15',
-    total: 750,
-    status: 'Completed',
-    items: [{ service: services[3], quantity: 1 }],
-  },
-  {
-    id: 'ORD-003',
-    date: '2024-01-05',
-    total: 1550,
-    status: 'Processing',
-    items: [
-      { service: services[4], quantity: 1 },
-      { service: services[5], quantity: 1 },
-    ],
-  },
-];
-
 export function getServiceById(id: string): Service | undefined {
   return services.find((service) => service.id === id);
 }
