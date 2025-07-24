@@ -63,7 +63,6 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
           product_data: {
             name: service.name,
             description: service.description,
-            images: [service.image],
           },
           unit_amount: service.price * 100, // Stripe expects the amount in cents
         },
