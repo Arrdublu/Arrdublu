@@ -4,12 +4,12 @@ export function Logo() {
     <svg width="150" height="40" viewBox="0 0 150 40" xmlns="http://www.w3.org/2000/svg" className="font-headline">
       <style>
         {`
-          .arr-text { fill: #1c3e6c; }
-          .dublu-text { fill: #3b82f6; }
-          .dot1 { fill: #6b4a39; }
-          .dot2 { fill: #edc4b2; }
-          .dot3 { fill: #f9dcd1; }
-          .tagline-text { fill: #6b7280; }
+          .arr-text { fill: hsl(var(--primary)); }
+          .dublu-text { fill: hsl(var(--primary)); }
+          .dot1 { fill: hsl(var(--accent)); }
+          .dot2 { fill: hsl(var(--accent)); }
+          .dot3 { fill: hsl(var(--accent)); }
+          .tagline-text { fill: hsl(var(--muted-foreground)); }
         `}
       </style>
       <text x="0" y="22" fontSize="24" className="arr-text font-bold">Arr</text>
