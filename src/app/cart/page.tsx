@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -7,10 +8,45 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Trash2 } from 'lucide-react';
+import { createCheckoutSession } from '@/lib/actions';
+import { loadStripe } from '@stripe/stripe-js';
+import { useToast } from '@/hooks/use-toast';
+import { useState } from 'react';
+
+// Make sure to add your publishable key to your .env file
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+);
 
 export default function CartPage() {
   const { cartItems, removeFromCart, getCartTotal } = useCart();
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
   const total = getCartTotal();
+  
+  const handleCheckout = async () => {
+    setIsLoading(true);
+    try {
+      const { id: sessionId } = await createCheckoutSession(cartItems);
+      const stripe = await stripePromise;
+      if (!stripe) {
+        throw new Error('Stripe.js has not loaded yet.');
+      }
+      const { error } = await stripe.redirectToCheckout({ sessionId });
+      if (error) {
+        throw new Error(error.message);
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      toast({
+        title: 'Checkout Error',
+        description: error instanceof Error ? error.message : 'An unexpected error occurred.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -80,7 +116,14 @@ export default function CartPage() {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button size="lg" className="w-full bg-primary hover:bg-primary/90">Proceed to Checkout</Button>
+                <Button 
+                  size="lg" 
+                  className="w-full bg-primary hover:bg-primary/90"
+                  onClick={handleCheckout}
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Processing...' : 'Proceed to Checkout'}
+                </Button>
               </CardFooter>
             </Card>
           </div>
