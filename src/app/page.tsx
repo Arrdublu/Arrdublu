@@ -1,9 +1,12 @@
+
 import { services } from '@/lib/data';
 import { ServiceCard } from '@/components/services/ServiceCard';
 import { Recommendations } from '@/components/services/Recommendations';
+import { CustomRequestForm } from '@/components/services/CustomRequestForm';
+import { Separator } from '@/components/ui/separator';
 
 export default function Home() {
-  const categories = ['SEO', 'Creative', 'Lifestyle'];
+  const categories = ['Creative', 'Lifestyle', 'SEO'];
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,6 +38,22 @@ export default function Home() {
           </section>
         );
       })}
+
+      <Separator className="my-16" />
+
+      <section className="py-12">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-headline font-semibold text-primary">
+            Need Something Different?
+          </h2>
+          <p className="mt-4 text-lg max-w-2xl mx-auto text-foreground/80">
+            If you have a unique request or need a custom package, please let us know. We're happy to discuss your project.
+          </p>
+        </div>
+        <div className="max-w-2xl mx-auto">
+            <CustomRequestForm />
+        </div>
+      </section>
       
       <Recommendations />
     </div>

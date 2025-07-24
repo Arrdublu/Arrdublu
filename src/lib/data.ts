@@ -1,3 +1,4 @@
+
 import type { Service, Order } from './types';
 
 export const services: Service[] = [
@@ -70,6 +71,15 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'Tell your story through compelling video. From concept to final cut, we produce high-quality promotional videos that captivate your audience and communicate your brand message effectively.',
     price: 2500,
+    image: 'https://placehold.co/600x400.png',
+    previews: ['https://placehold.co/800x600.png', 'https://placehold.co/800x600.png'],
+  },
+  {
+    id: 'makeup-cosmetics',
+    name: 'MakeUp/Production Cosmetics',
+    category: 'Creative',
+    description: 'Professional makeup and cosmetics services for film, photo shoots, and events. Our artists ensure talent looks flawless on camera.',
+    price: 800,
     image: 'https://placehold.co/600x400.png',
     previews: ['https://placehold.co/800x600.png', 'https://placehold.co/800x600.png'],
   },
