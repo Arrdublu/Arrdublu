@@ -27,28 +27,65 @@ const timelineEvents = [
 
 export function Timeline() {
   return (
-    <div className="relative max-w-3xl mx-auto">
+    <div className="relative max-w-3xl mx-auto py-8">
       <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border" aria-hidden="true" />
-      <div className="space-y-12 relative">
+      <div className="relative space-y-16">
         {timelineEvents.map((event, index) => (
-          <div key={index} className="relative flex items-center justify-center">
-            {/* Year Badge */}
-            <div className={`w-1/2 flex ${index % 2 === 0 ? 'justify-end pr-8' : 'justify-start pl-8'}`}>
-               <Badge variant="outline" className="text-lg font-bold text-primary border-primary z-10">
-                  {event.year}
-                </Badge>
+          <div key={index} className="relative">
+            <div className="flex items-center">
+              {/* Card on one side */}
+              <div className={`w-1/2 p-4 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                {index % 2 !== 0 && (
+                  <Card className="shadow-lg hover:shadow-xl transition-shadow invisible">
+                      <CardHeader>
+                          <CardTitle className="font-headline text-xl text-primary">{event.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                          <p className="text-muted-foreground">{event.description}</p>
+                      </CardContent>
+                  </Card>
+                )}
+              </div>
+              {/* Dot in the middle */}
+              <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10" />
+               {/* Card on the other side */}
+              <div className={`w-1/2 p-4 ${index % 2 === 0 ? 'pl-8' : 'pr-8'}`}>
+                 {index % 2 === 0 && (
+                  <Card className="shadow-lg hover:shadow-xl transition-shadow invisible">
+                      <CardHeader>
+                          <CardTitle className="font-headline text-xl text-primary">{event.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                          <p className="text-muted-foreground">{event.description}</p>
+                      </CardContent>
+                  </Card>
+                )}
+              </div>
             </div>
-             {/* Timeline Dot */}
-            <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-20" />
-            {/* Spacer */}
-            <div className="w-1/2" />
-          </div>
-        ))}
-         {/* Event Cards */}
-        <div className="absolute top-0 left-0 w-full h-full">
-            {timelineEvents.map((event, index) => (
-                 <div key={index} className="absolute w-full" style={{top: `${index * 3}rem`}}>
-                     <div className={`relative w-1/2 p-4 ${index % 2 === 0 ? 'pr-8' : 'pl-8 ml-auto'}`}>
+
+            {/* Positioned elements */}
+            <div className="absolute top-1/2 -translate-y-1/2 w-full flex items-center">
+                {/* Year Badge */}
+                <div className={`w-1/2 flex items-center ${index % 2 === 0 ? 'justify-end pr-12' : 'justify-start pl-12'}`}>
+                    {index % 2 !== 0 && (
+                        <Badge variant="outline" className="text-lg font-bold text-primary border-primary z-10">
+                            {event.year}
+                        </Badge>
+                    )}
+                </div>
+                <div className="w-auto" />
+                <div className={`w-1/2 flex items-center ${index % 2 === 0 ? 'justify-start pl-12' : 'justify-end pr-12'}`}>
+                    {index % 2 === 0 && (
+                        <Badge variant="outline" className="text-lg font-bold text-primary border-primary z-10">
+                            {event.year}
+                        </Badge>
+                    )}
+                </div>
+            </div>
+
+             <div className="absolute top-1/2 -translate-y-1/2 w-full flex items-start">
+                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12' : 'pl-12'}`}>
+                     {index % 2 === 0 && (
                         <Card className="shadow-lg hover:shadow-xl transition-shadow">
                             <CardHeader>
                                 <CardTitle className="font-headline text-xl text-primary">{event.title}</CardTitle>
@@ -57,10 +94,24 @@ export function Timeline() {
                                 <p className="text-muted-foreground">{event.description}</p>
                             </CardContent>
                         </Card>
-                     </div>
-                 </div>
-            ))}
-        </div>
+                     )}
+                </div>
+                <div className="w-auto" />
+                 <div className={`w-1/2 ${index % 2 === 0 ? 'pl-12' : 'pr-12'}`}>
+                     {index % 2 !== 0 && (
+                        <Card className="shadow-lg hover:shadow-xl transition-shadow">
+                            <CardHeader>
+                                <CardTitle className="font-headline text-xl text-primary">{event.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">{event.description}</p>
+                            </CardContent>
+                        </Card>
+                     )}
+                </div>
+             </div>
+          </div>
+        ))}
       </div>
     </div>
   );
