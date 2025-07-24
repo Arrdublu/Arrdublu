@@ -15,6 +15,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Logo } from './Logo';
 
 
 export function SiteHeader() {
@@ -39,7 +40,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <span className="font-bold font-headline text-lg text-primary">Arrdublu</span>
+          <Logo />
         </Link>
         <nav className="flex items-center gap-6 text-sm">
           {navItems.map((item) => (

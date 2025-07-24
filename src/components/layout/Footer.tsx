@@ -3,6 +3,7 @@
 
 import Link from 'next/link';
 import { Instagram, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Logo } from './Logo';
 
 const Footer = () => {
   return (
@@ -10,11 +11,9 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-foreground/80">
           <div>
-            <h3 className="font-bold mb-4 text-foreground">General Inquiries</h3>
-            <ul>
-              <li className="mb-2 hover:text-primary transition-colors"><Link href="/contact">Contact</Link></li>
-              <li className="mb-2 hover:text-primary transition-colors"><Link href="/admin">Resident</Link></li>
-            </ul>
+            <div className='mb-4'>
+             <Logo />
+            </div>
           </div>
           <div>
             <h3 className="font-bold mb-4 text-foreground">Legal</h3>
