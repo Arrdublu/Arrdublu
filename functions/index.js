@@ -1,3 +1,4 @@
+
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const nodemailer = require("nodemailer");
@@ -18,7 +19,7 @@ const transporter = nodemailer.createTransport({
 const sendConfirmationEmail = async (orderData) => {
     const customerEmail = orderData.customerEmail || "customer@example.com"; // Fallback for testing
     
-    // Recalculate total amount for verification
+    // Recalculate total amount for verification to ensure data integrity
     const calculatedTotal = orderData.items.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
     const mailOptions = {
