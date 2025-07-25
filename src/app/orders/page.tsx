@@ -1,7 +1,6 @@
-
 'use client';
 import { useEffect, useState, Suspense } from 'react';
-import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
+import { collection, query, where, getDocs, orderBy, DocumentSnapshot } from 'firebase/firestore';
 import { firestore } from '@/lib/firebase';
 import { useSearchParams } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -26,20 +25,19 @@ function OrdersPageContent() {
     const fetchOrders = async () => {
       try {
         setLoading(true);
-        // In a real app, you'd secure this with user authentication
         const ordersRef = collection(firestore, 'orders');
         const q = query(ordersRef, orderBy('createdAt', 'desc'));
         const querySnapshot = await getDocs(q);
 
         const fetchedOrders: Order[] = [];
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach((doc: DocumentSnapshot) => {
             const data = doc.data();
             fetchedOrders.push({
                 id: doc.id,
-                date: data.createdAt?.toDate() ? format(data.createdAt.toDate(), 'MMMM d, yyyy') : 'Date not available',
-                total: data.totalAmount,
-                status: data.status,
-                items: data.items,
+                date: data?.createdAt?.toDate() ? format(data.createdAt.toDate(), 'MMMM d, yyyy') : 'Date not available',
+                total: data?.totalAmount,
+                status: data?.status,
+                items: data?.items,
             });
         });
         setOrders(fetchedOrders);
@@ -97,45 +95,45 @@ function OrdersPageContent() {
         </Card>
       ) : (
         <div className="space-y-8">
-            {orders.map((order) => (
-                <Card key={order.id} className="overflow-hidden">
-                    <CardHeader className="bg-muted/50 flex-row justify-between items-center py-4 px-6">
-                        <div>
-                            <p className="font-semibold">Order ID: {order.id}</p>
-                            <p className="text-sm text-muted-foreground">Date: {order.date}</p>
-                        </div>
-                        <Badge variant={order.status === 'paid' ? 'default' : 'secondary'} className="capitalize">
-                            {order.status}
-                        </Badge>
-                    </CardHeader>
-                    <CardContent className="p-6 space-y-4">
-                       {order.items.map((item, index) => (
-                           <div key={index} className="flex justify-between items-center">
-                               <div>
-                                   <p className="font-semibold">{item.name}</p>
-                                   <p className="text-sm text-muted-foreground">Quantity: {item.quantity}</p>
-                               </div>
-                               <p className="font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+               {orders.map((order) => (
+                   <Card key={order.id} className="overflow-hidden">
+                       <CardHeader className="bg-muted/50 flex-row justify-between items-center py-4 px-6">
+                           <div>
+                               <p className="font-semibold">Order ID: {order.id}</p>
+                               <p className="text-sm text-muted-foreground">Date: {order.date}</p>
                            </div>
-                       ))}
-                    </CardContent>
-                    <CardFooter className="bg-muted/50 py-4 px-6">
-                        <div className="w-full flex justify-end">
-                            <p className="text-lg font-bold">Total: ${order.total.toFixed(2)}</p>
-                        </div>
-                    </CardFooter>
-                </Card>
-            ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-export default function OrdersPage() {
-  return (
-    <Suspense fallback={<div>Loading orders...</div>}>
-      <OrdersPageContent />
-    </Suspense>
-  );
-}
+                           <Badge variant={order.status === 'paid' ? 'default' : 'secondary'} className="capitalize">
+                               {order.status}
+                           </Badge>
+                       </CardHeader>
+                       <CardContent className="p-6 space-y-4">
+                          {order.items.map((item, index) => (
+                              <div key={index} className="flex justify-between items-center">
+                                  <div>
+                                      <p className="font-semibold">{item.name}</p>
+                                      <p className="text-sm text-muted-foreground">Quantity: {item.quantity}</p>
+                                  </div>
+                                  <p className="font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+                              </div>
+                          ))}
+                       </CardContent>
+                       <CardFooter className="bg-muted/50 py-4 px-6">
+                           <div className="w-full flex justify-end">
+                               <p className="text-lg font-bold">Total: ${order.total.toFixed(2)}</p>
+                           </div>
+                       </CardFooter>
+                   </Card>
+               ))}
+           </div>
+         )}
+       </div>
+     );
+   }
+   
+   export default function OrdersPage() {
+     return (
+       <Suspense fallback={<div>Loading orders...</div>}>
+         <OrdersPageContent />
+       </Suspense>
+     );
+   }
