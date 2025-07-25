@@ -1,6 +1,6 @@
 
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
 import { firestore } from '@/lib/firebase';
 import { useSearchParams } from 'next/navigation';
@@ -13,7 +13,7 @@ import type { Order } from '@/lib/types';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
-export default function OrdersPage() {
+function OrdersPageContent() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get('session_id');
   const [orders, setOrders] = useState<Order[]>([]);
@@ -129,5 +129,13 @@ export default function OrdersPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function OrdersPage() {
+  return (
+    <Suspense fallback={<div>Loading orders...</div>}>
+      <OrdersPageContent />
+    </Suspense>
   );
 }
