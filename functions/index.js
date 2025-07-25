@@ -19,8 +19,8 @@ const transporter = nodemailer.createTransport({
 const sendConfirmationEmail = async (orderData) => {
     const customerEmail = orderData.customerEmail || "customer@example.com"; // Fallback for testing
     
-    // Recalculate total amount for verification to ensure data integrity
-    const calculatedTotal = orderData.items.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    // Use the total amount stored in the order, as it was calculated on the server before payment.
+    const totalAmount = orderData.totalAmount;
 
     const mailOptions = {
         from: `Arrdublu <${functions.config().gmail.email}>`,
@@ -55,7 +55,7 @@ const sendConfirmationEmail = async (orderData) => {
                 <tfoot>
                     <tr>
                         <td colspan="2" style="padding: 8px; text-align: right; font-weight: bold;">Total:</td>
-                        <td style="padding: 8px; text-align: right; font-weight: bold;">$${calculatedTotal.toFixed(2)}</td>
+                        <td style="padding: 8px; text-align: right; font-weight: bold;">$${totalAmount.toFixed(2)}</td>
                     </tr>
                 </tfoot>
             </table>
@@ -107,7 +107,8 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
                 const updatedOrderData = { 
                   id: orderId, 
                   ...orderData, 
-                  customerEmail: session.customer_details.email 
+                  customerEmail: session.customer_details.email,
+                  // The totalAmount from the original orderData is already correct
                 };
                 await sendConfirmationEmail(updatedOrderData);
 
