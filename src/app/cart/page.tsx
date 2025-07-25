@@ -31,15 +31,14 @@ export default function CartPage() {
         quantity: item.quantity,
       }));
 
-      const { id: sessionId } = await createCheckoutSession(checkoutItems);
-      const stripe = await stripePromise;
-      if (!stripe) {
-        throw new Error('Stripe.js has not loaded yet.');
+      const { url } = await createCheckoutSession(checkoutItems);
+      
+      if (url) {
+        window.location.href = url;
+      } else {
+        throw new Error('Could not create checkout session.');
       }
-      const { error } = await stripe.redirectToCheckout({ sessionId });
-      if (error) {
-        throw new Error(error.message);
-      }
+
     } catch (error) {
       console.error('Checkout error:', error);
       toast({

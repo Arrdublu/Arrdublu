@@ -15,7 +15,7 @@ type CheckoutItem = {
     quantity: number;
 };
 
-export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id: string }> {
+export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id: string, url: string | null }> {
   const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
   if (!stripeSecretKey) {
     throw new Error('STRIPE_SECRET_KEY is not set');
@@ -39,7 +39,6 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
       throw new Error(`Service with ID ${item.id} not found.`);
     }
 
-    // Use server-side price to prevent manipulation
     const unitAmount = service.price * 100;
     const itemTotal = service.price * item.quantity;
     totalAmount += itemTotal;
@@ -89,5 +88,5 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
     throw new Error('Failed to create Stripe session');
   }
 
-  return { id: session.id };
+  return { id: session.id, url: session.url };
 }
