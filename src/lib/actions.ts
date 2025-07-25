@@ -41,9 +41,6 @@ export async function getRecommendedServicesAction(
 type CheckoutItem = {
     id: string;
     quantity: number;
-    name: string;
-    price: number;
-    description: string;
 };
 
 export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id: string }> {
@@ -56,30 +53,41 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
   });
 
   const lineItems = items.map(item => {
+    const service = getServiceById(item.id);
+    if (!service) {
+      throw new Error(`Service with ID ${item.id} not found.`);
+    }
     return {
       price_data: {
         currency: 'usd',
         product_data: {
-          name: item.name,
-          description: item.description,
+          name: service.name,
+          description: service.description,
         },
-        unit_amount: item.price * 100,
+        unit_amount: service.price * 100,
       },
       quantity: item.quantity,
     }
   });
 
+  const orderItems = items.map(item => {
+      const service = getServiceById(item.id)!;
+      return {
+          itemId: service.id,
+          name: service.name,
+          quantity: item.quantity,
+          price: service.price
+      };
+  });
+
+  const totalAmount = orderItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
   const host = headers().get('origin') || 'http://localhost:9002';
   
   // Create an order document in Firestore
   const orderRef = await addDoc(collection(firestore, 'orders'), {
-    items: items.map(item => ({
-      itemId: item.id,
-      name: item.name,
-      quantity: item.quantity,
-      price: item.price,
-    })),
-    totalAmount: items.reduce((total, item) => total + item.price * item.quantity, 0),
+    items: orderItems,
+    totalAmount: totalAmount,
     status: 'pending',
     createdAt: serverTimestamp(),
   });
