@@ -10,6 +10,7 @@ interface CartContextType {
   viewedItems: string[];
   addToCart: (service: Service) => void;
   removeFromCart: (serviceId: string) => void;
+  updateQuantity: (serviceId: string, quantity: number) => void;
   getCartTotal: () => number;
   addViewedItem: (serviceId: string) => void;
   cartCount: number;
@@ -54,6 +55,15 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
           });
     }, 0);
   }, [toast]);
+
+  const updateQuantity = useCallback((serviceId: string, quantity: number) => {
+    if (quantity < 1) return;
+    setCartItems((prevItems) => 
+        prevItems.map(item => 
+            item.service.id === serviceId ? {...item, quantity: quantity} : item
+        )
+    )
+  }, []);
   
   const getCartTotal = useCallback(() => {
     return cartItems.reduce((total, item) => total + item.service.price * item.quantity, 0);
@@ -67,10 +77,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     });
   }, []);
 
-  const cartCount = cartItems.length;
+  const cartCount = cartItems.reduce((count, item) => count + item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ cartItems, viewedItems, addToCart, removeFromCart, getCartTotal, addViewedItem, cartCount }}>
+    <CartContext.Provider value={{ cartItems, viewedItems, addToCart, removeFromCart, updateQuantity, getCartTotal, addViewedItem, cartCount }}>
       {children}
     </CartContext.Provider>
   );

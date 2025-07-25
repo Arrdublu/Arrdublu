@@ -7,7 +7,7 @@ import { useCart } from '@/context/CartProvider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Trash2 } from 'lucide-react';
+import { Trash2, Plus, Minus } from 'lucide-react';
 import { createCheckoutSession } from '@/lib/actions';
 import { loadStripe } from '@stripe/stripe-js';
 import { useToast } from '@/hooks/use-toast';
@@ -18,7 +18,7 @@ const stripePromise = loadStripe(
 );
 
 export default function CartPage() {
-  const { cartItems, removeFromCart, getCartTotal } = useCart();
+  const { cartItems, removeFromCart, getCartTotal, updateQuantity } = useCart();
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const total = getCartTotal();
@@ -29,9 +29,6 @@ export default function CartPage() {
       const checkoutItems = cartItems.map(item => ({
         id: item.service.id,
         quantity: item.quantity,
-        name: item.service.name,
-        price: item.service.price,
-        description: item.service.description,
       }));
 
       const { id: sessionId } = await createCheckoutSession(checkoutItems);
@@ -74,27 +71,36 @@ export default function CartPage() {
               <CardContent className="p-0">
                 <div className="divide-y">
                   {cartItems.map((item) => (
-                    <div key={item.service.id} className="flex items-center p-6 space-x-4">
-                      <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg">
+                    <div key={item.service.id} className="grid grid-cols-5 items-center p-6 gap-4">
+                      <div className="relative h-24 w-24 col-span-1">
                         <Image
                           src={item.service.image}
                           alt={item.service.name}
                           fill
-                          className="object-cover"
+                          className="object-cover rounded-lg"
                           sizes="96px"
                           data-ai-hint={`${item.service.category.toLowerCase()} service`}
                         />
                       </div>
-                      <div className="flex-1">
+                      <div className="col-span-2">
                         <h2 className="font-headline text-lg font-semibold">{item.service.name}</h2>
-                        <p className="text-muted-foreground">{item.service.category}</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="font-semibold text-lg">${item.service.price.toFixed(2)}</p>
-                        <Button variant="ghost" size="sm" onClick={() => removeFromCart(item.service.id)} className="text-destructive hover:bg-destructive/10">
+                        <p className="text-muted-foreground text-sm">{item.service.category}</p>
+                         <Button variant="ghost" size="sm" onClick={() => removeFromCart(item.service.id)} className="text-destructive hover:bg-destructive/10 px-0 h-auto mt-1">
                           <Trash2 className="h-4 w-4 mr-1" />
                           Remove
                         </Button>
+                      </div>
+                       <div className="col-span-1 flex items-center justify-center gap-2">
+                         <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateQuantity(item.service.id, item.quantity - 1)} disabled={item.quantity <= 1}>
+                            <Minus className="h-4 w-4" />
+                         </Button>
+                         <span className="font-bold text-lg">{item.quantity}</span>
+                         <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateQuantity(item.service.id, item.quantity + 1)}>
+                            <Plus className="h-4 w-4" />
+                         </Button>
+                      </div>
+                      <div className="text-right col-span-1">
+                        <p className="font-semibold text-lg">${(item.service.price * item.quantity).toFixed(2)}</p>
                       </div>
                     </div>
                   ))}
@@ -103,7 +109,7 @@ export default function CartPage() {
             </Card>
           </div>
           <div className="md:col-span-1">
-            <Card>
+            <Card className="sticky top-24">
               <CardHeader>
                 <CardTitle className="font-headline">Order Summary</CardTitle>
               </CardHeader>
@@ -114,12 +120,15 @@ export default function CartPage() {
                 </div>
                 <div className="flex justify-between">
                   <span>Taxes</span>
-                  <span>Calculated at checkout</span>
+                  <span className='text-muted-foreground'>Calculated at checkout</span>
                 </div>
                 <Separator />
                 <div className="flex justify-between font-bold text-lg">
                   <span>Total</span>
                   <span>${total.toFixed(2)}</span>
+                </div>
+                 <div className="text-center pt-2">
+                  <p className="text-sm text-green-600 font-semibold">You're almost there!</p>
                 </div>
               </CardContent>
               <CardFooter>
