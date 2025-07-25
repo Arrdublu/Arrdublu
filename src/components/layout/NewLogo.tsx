@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 
 export function NewLogo() {
@@ -8,6 +9,7 @@ export function NewLogo() {
         width={150}
         height={40}
         priority
+        style={{ display: 'none' }}
     />
   );
 }
