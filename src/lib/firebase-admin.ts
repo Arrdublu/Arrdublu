@@ -9,7 +9,7 @@ if (!admin.apps.length) {
         credential: admin.credential.cert(serviceAccount),
       });
     } catch (error) {
-      console.error('Error parsing Firebase service account key:', error);
+      console.error('Error initializing Firebase Admin SDK:', error);
     }
   } else {
     console.warn('FIREBASE_SERVICE_ACCOUNT_KEY is not set. Firebase Admin SDK not initialized.');
