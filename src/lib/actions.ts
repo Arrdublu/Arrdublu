@@ -16,7 +16,8 @@ type CheckoutItem = {
 };
 
 export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id: string }> {
-  if (!process.env.STRIPE_SECRET_KEY) {
+  const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+  if (!stripeSecretKey) {
     throw new Error('STRIPE_SECRET_KEY is not set');
   }
 
@@ -24,7 +25,7 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
     throw new Error('Firebase Admin SDK not initialized. Cannot create order.');
   }
   
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  const stripe = new Stripe(stripeSecretKey, {
     apiVersion: '2024-06-20',
   });
 
@@ -38,7 +39,11 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
       throw new Error(`Service with ID ${item.id} not found.`);
     }
 
-    // For Stripe line items
+    // Use server-side price to prevent manipulation
+    const unitAmount = service.price * 100;
+    const itemTotal = service.price * item.quantity;
+    totalAmount += itemTotal;
+
     lineItems.push({
       price_data: {
         currency: 'usd',
@@ -47,25 +52,21 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
           description: service.description,
           images: [service.image],
         },
-        unit_amount: service.price * 100,
+        unit_amount: unitAmount,
       },
       quantity: item.quantity,
     });
-
-    // For Firestore order document
+    
     orderItems.push({
       itemId: service.id,
       name: service.name,
       quantity: item.quantity,
       price: service.price,
     });
-
-    totalAmount += service.price * item.quantity;
   }
 
   const host = headers().get('origin') || 'http://localhost:3000';
   
-  // Create an order document in Firestore using the Admin SDK
   const orderRef = await adminDb.collection('orders').add({
     items: orderItems,
     totalAmount: totalAmount,

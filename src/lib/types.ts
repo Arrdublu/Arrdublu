@@ -1,3 +1,4 @@
+
 export type Service = {
   id: string;
   name: string;
@@ -14,6 +15,7 @@ export type Order = {
   total: number;
   status: 'paid' | 'pending' | 'cancelled';
   items: {
+    itemId: string;
     name: string;
     price: number;
     quantity: number;
