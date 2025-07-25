@@ -1,5 +1,3 @@
-import {config} from 'dotenv';
-config({ path: '.env' });
 
 import type {NextConfig} from 'next';
 
@@ -27,7 +25,9 @@ const nextConfig: NextConfig = {
       }
     ],
   },
-  env: {}
+  env: {
+    FIREBASE_SERVICE_ACCOUNT_KEY: process.env.FIREBASE_SERVICE_ACCOUNT_KEY,
+  }
 };
 
 export default nextConfig;
