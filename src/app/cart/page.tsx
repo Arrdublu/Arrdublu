@@ -13,7 +13,6 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
 
-// Make sure to add your publishable key to your .env file
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
@@ -30,6 +29,9 @@ export default function CartPage() {
       const checkoutItems = cartItems.map(item => ({
         id: item.service.id,
         quantity: item.quantity,
+        name: item.service.name,
+        price: item.service.price,
+        description: item.service.description,
       }));
 
       const { id: sessionId } = await createCheckoutSession(checkoutItems);

@@ -4,17 +4,19 @@
 import { redirect } from 'next/navigation';
 import Stripe from 'stripe';
 import { getServiceRecommendations } from '@/ai/flows/service-recommendation';
-import { getServiceById, getServicesByIds } from '@/lib/data';
-import type { Service, CartItem } from '@/lib/types';
+import { getServicesByIds, getServiceById } from '@/lib/data';
+import type { Service } from '@/lib/types';
 import { headers } from 'next/headers';
+import { adminDb } from './firebase-admin';
+import { firestore } from './firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+
 
 export async function getRecommendedServicesAction(
   viewingHistory: string[],
   shoppingBagContents: string[]
 ): Promise<Service[]> {
   try {
-    // The GenAI flow might recommend items already in the cart or viewed.
-    // It's a simple model, so we'll filter them out here.
     const allInputIds = new Set([...viewingHistory, ...shoppingBagContents]);
 
     const recommendations = await getServiceRecommendations({
@@ -28,12 +30,10 @@ export async function getRecommendedServicesAction(
       return [];
     }
 
-    // Fetch full service details for the recommended IDs
     const recommendedServices = await getServicesByIds(filteredIds);
     return recommendedServices;
   } catch (error) {
     console.error('Error getting recommendations:', error);
-    // In case of an error, return an empty array to prevent crashing the client.
     return [];
   }
 }
@@ -41,36 +41,48 @@ export async function getRecommendedServicesAction(
 type CheckoutItem = {
     id: string;
     quantity: number;
+    name: string;
+    price: number;
+    description: string;
 };
 
 export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id: string }> {
   if (!process.env.STRIPE_SECRET_KEY) {
     throw new Error('STRIPE_SECRET_KEY is not set');
   }
-
+  
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2024-06-20',
   });
 
   const lineItems = items.map(item => {
-    const service = getServiceById(item.id);
-    if (!service) {
-        throw new Error(`Service with id ${item.id} not found.`);
-    }
     return {
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: service.name,
-            description: service.description,
-          },
-          unit_amount: service.price * 100, // Stripe expects the amount in cents
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: item.name,
+          description: item.description,
         },
-        quantity: item.quantity,
+        unit_amount: item.price * 100,
+      },
+      quantity: item.quantity,
     }
   });
+
+  const host = headers().get('origin') || 'http://localhost:9002';
   
-  const host = headers().get('origin') || 'http://localhost:3000';
+  // Create an order document in Firestore
+  const orderRef = await addDoc(collection(firestore, 'orders'), {
+    items: items.map(item => ({
+      itemId: item.id,
+      name: item.name,
+      quantity: item.quantity,
+      price: item.price,
+    })),
+    totalAmount: items.reduce((total, item) => total + item.price * item.quantity, 0),
+    status: 'pending',
+    createdAt: serverTimestamp(),
+  });
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
@@ -78,6 +90,9 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
     mode: 'payment',
     success_url: `${host}/orders?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${host}/cart`,
+    metadata: {
+      orderId: orderRef.id,
+    }
   });
   
   if (!session.id) {

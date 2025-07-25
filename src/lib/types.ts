@@ -12,9 +12,10 @@ export type Order = {
   id: string;
   date: string;
   total: number;
-  status: 'Completed' | 'Processing' | 'Cancelled';
+  status: 'paid' | 'pending' | 'cancelled';
   items: {
-    service: Pick<Service, 'id' | 'name' | 'price' | 'image'>;
+    name: string;
+    price: number;
     quantity: number;
   }[];
 };
