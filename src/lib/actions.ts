@@ -7,7 +7,7 @@ import { getServiceById } from '@/lib/data';
 import type { Service } from '@/lib/types';
 import { headers } from 'next/headers';
 import { adminDb } from './firebase-admin';
-import { serverTimestamp } from 'firebase/firestore';
+import { FieldValue } from 'firebase-admin/firestore';
 
 
 type CheckoutItem = {
@@ -71,7 +71,7 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
     items: orderItems,
     totalAmount: totalAmount,
     status: 'pending',
-    createdAt: serverTimestamp(),
+    createdAt: FieldValue.serverTimestamp(),
   });
 
   const session = await stripe.checkout.sessions.create({
