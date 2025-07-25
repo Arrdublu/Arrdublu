@@ -7,8 +7,7 @@ import { getServiceById } from '@/lib/data';
 import type { Service } from '@/lib/types';
 import { headers } from 'next/headers';
 import { adminDb } from './firebase-admin';
-import { firestore } from './firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { serverTimestamp } from 'firebase/firestore';
 
 
 type CheckoutItem = {
@@ -42,6 +41,7 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
         product_data: {
           name: service.name,
           description: service.description,
+          images: [service.image],
         },
         unit_amount: service.price * 100,
       },
@@ -59,10 +59,10 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
     totalAmount += service.price * item.quantity;
   }
 
-  const host = headers().get('origin') || 'http://localhost:9002';
+  const host = headers().get('origin') || 'http://localhost:3000';
   
-  // Create an order document in Firestore
-  const orderRef = await addDoc(collection(firestore, 'orders'), {
+  // Create an order document in Firestore using the Admin SDK
+  const orderRef = await adminDb.collection('orders').add({
     items: orderItems,
     totalAmount: totalAmount,
     status: 'pending',
@@ -86,3 +86,4 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
 
   return { id: session.id };
 }
+
