@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
@@ -25,27 +26,33 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.service.id === service.id);
       if (existingItem) {
-        toast({
-          title: "Already in Bag",
-          description: `${service.name} is already in your shopping bag.`,
-        });
+        setTimeout(() => {
+          toast({
+            title: "Already in Bag",
+            description: `${service.name} is already in your shopping bag.`,
+          });
+        }, 0);
         return prevItems;
       }
-      toast({
-        title: "Added to Bag",
-        description: `${service.name} has been added to your shopping bag.`,
-      });
+       setTimeout(() => {
+        toast({
+            title: "Added to Bag",
+            description: `${service.name} has been added to your shopping bag.`,
+        });
+      }, 0);
       return [...prevItems, { service, quantity: 1 }];
     });
   }, [toast]);
   
   const removeFromCart = useCallback((serviceId: string) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.service.id !== serviceId));
-    toast({
-        title: "Item Removed",
-        description: `The service has been removed from your bag.`,
-        variant: "destructive"
-      });
+    setTimeout(() => {
+        toast({
+            title: "Item Removed",
+            description: `The service has been removed from your bag.`,
+            variant: "destructive"
+          });
+    }, 0);
   }, [toast]);
   
   const getCartTotal = useCallback(() => {
