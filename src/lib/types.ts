@@ -9,17 +9,19 @@ export type Service = {
   previews: string[];
 };
 
+export type OrderItem = {
+  itemId: string;
+  name: string;
+  price: number;
+  quantity: number;
+};
+
 export type Order = {
   id: string;
   date: string;
   total: number;
   status: 'paid' | 'pending' | 'cancelled';
-  items: {
-    itemId: string;
-    name: string;
-    price: number;
-    quantity: number;
-  }[];
+  items: OrderItem[];
 };
 
 export type CartItem = {

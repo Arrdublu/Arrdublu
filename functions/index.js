@@ -18,22 +18,46 @@ const transporter = nodemailer.createTransport({
 const sendConfirmationEmail = async (orderData) => {
     const customerEmail = orderData.customerEmail || "customer@example.com"; // Fallback for testing
     const mailOptions = {
-        from: functions.config().gmail.email,
+        from: `Arrdublu <${functions.config().gmail.email}>`,
         to: customerEmail,
-        subject: "Order Confirmation",
-        html: `<h1>Thank you for your order!</h1>
-           <p>Your order details:</p>
-           <ul>
-             ${orderData.items
-               .map(
-                 (item) =>
-                   `<li>${item.name} (x${item.quantity}) - $${item.price.toFixed(
-                     2
-                   )}</li>`
-               )
-               .join("")}
-           </ul>
-           <p>Total: $${orderData.totalAmount.toFixed(2)}</p>`,
+        subject: "Your Arrdublu Order Confirmation",
+        html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+            <h2>Thank you for your order!</h2>
+            <p>Hi ${customerEmail.split('@')[0]},</p>
+            <p>We've received your order and are getting it ready. Here are the details:</p>
+            <h3>Order ID: ${orderData.id}</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="border-bottom: 1px solid #ddd; padding: 8px; text-align: left;">Item</th>
+                        <th style="border-bottom: 1px solid #ddd; padding: 8px; text-align: left;">Quantity</th>
+                        <th style="border-bottom: 1px solid #ddd; padding: 8px; text-align: right;">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${orderData.items
+                      .map(
+                        (item) =>
+                          `<tr>
+                             <td style="padding: 8px;">${item.name}</td>
+                             <td style="padding: 8px;">${item.quantity}</td>
+                             <td style="padding: 8px; text-align: right;">$${(item.price * item.quantity).toFixed(2)}</td>
+                           </tr>`
+                      )
+                      .join("")}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" style="padding: 8px; text-align: right; font-weight: bold;">Total:</td>
+                        <td style="padding: 8px; text-align: right; font-weight: bold;">$${orderData.totalAmount.toFixed(2)}</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <p>You can view your order history anytime by visiting your account page on our website.</p>
+            <p>Thanks again for your purchase!</p>
+            <p>The Arrdublu Team</p>
+        </div>`,
       };
 
   try {
@@ -65,19 +89,24 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
 
         try {
             const orderRef = admin.firestore().collection("orders").doc(orderId);
-            await orderRef.update({
-                status: "paid",
-                paymentIntentId: session.payment_intent,
-                customerEmail: session.customer_details.email,
-            });
-
             const orderDoc = await orderRef.get();
             const orderData = orderDoc.data();
 
-            if (orderData) {
-                await sendConfirmationEmail(orderData);
-            } else {
-                console.warn(`Order document not found for ID: ${orderId}`);
+            if (orderData && orderData.status === 'pending') {
+                 await orderRef.update({
+                    status: "paid",
+                    paymentIntentId: session.payment_intent,
+                    customerEmail: session.customer_details.email,
+                });
+                
+                const updatedOrderData = { id: orderId, ...orderData, customerEmail: session.customer_details.email };
+                await sendConfirmationEmail(updatedOrderData);
+
+            } else if (orderData) {
+                 console.warn(`Order ${orderId} was already processed.`);
+            }
+            else {
+                console.error(`Order document not found for ID: ${orderId}`);
             }
 
         } catch (error) {
