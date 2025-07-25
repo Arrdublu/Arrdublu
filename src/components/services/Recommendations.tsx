@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from 'react';
 import { useCart } from '@/context/CartProvider';
-import { getRecommendedServicesAction } from '@/lib/actions';
+import { getRecommendedServicesAction } from '@/lib/ai-actions';
 import type { Service } from '@/lib/types';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { ServiceCard } from './ServiceCard';

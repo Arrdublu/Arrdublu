@@ -3,40 +3,13 @@
 
 import { redirect } from 'next/navigation';
 import Stripe from 'stripe';
-import { getServiceRecommendations } from '@/ai/flows/service-recommendation';
-import { getServicesByIds, getServiceById } from '@/lib/data';
+import { getServiceById } from '@/lib/data';
 import type { Service } from '@/lib/types';
 import { headers } from 'next/headers';
 import { adminDb } from './firebase-admin';
 import { firestore } from './firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
-
-export async function getRecommendedServicesAction(
-  viewingHistory: string[],
-  shoppingBagContents: string[]
-): Promise<Service[]> {
-  try {
-    const allInputIds = new Set([...viewingHistory, ...shoppingBagContents]);
-
-    const recommendations = await getServiceRecommendations({
-      viewingHistory,
-      shoppingBagContents,
-    });
-    
-    const filteredIds = recommendations.recommendedServices.filter(id => !allInputIds.has(id));
-
-    if (filteredIds.length === 0) {
-      return [];
-    }
-
-    const recommendedServices = await getServicesByIds(filteredIds);
-    return recommendedServices;
-  } catch (error) {
-    console.error('Error getting recommendations:', error);
-    return [];
-  }
-}
 
 type CheckoutItem = {
     id: string;
