@@ -52,12 +52,18 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
     apiVersion: '2024-06-20',
   });
 
-  const lineItems = items.map(item => {
+  const orderItems: { itemId: string; name: string; quantity: number; price: number }[] = [];
+  const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
+  let totalAmount = 0;
+
+  for (const item of items) {
     const service = getServiceById(item.id);
     if (!service) {
       throw new Error(`Service with ID ${item.id} not found.`);
     }
-    return {
+
+    // For Stripe line items
+    lineItems.push({
       price_data: {
         currency: 'usd',
         product_data: {
@@ -67,20 +73,18 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
         unit_amount: service.price * 100,
       },
       quantity: item.quantity,
-    }
-  });
+    });
 
-  const orderItems = items.map(item => {
-      const service = getServiceById(item.id)!;
-      return {
-          itemId: service.id,
-          name: service.name,
-          quantity: item.quantity,
-          price: service.price
-      };
-  });
+    // For Firestore order document
+    orderItems.push({
+      itemId: service.id,
+      name: service.name,
+      quantity: item.quantity,
+      price: service.price,
+    });
 
-  const totalAmount = orderItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    totalAmount += service.price * item.quantity;
+  }
 
   const host = headers().get('origin') || 'http://localhost:9002';
   
