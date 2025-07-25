@@ -13,9 +13,13 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-);
+const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+
+if (!stripePublishableKey) {
+  console.error("Stripe publishable key is not set. Please check your .env.local file.");
+}
+
+const stripePromise = stripePublishableKey ? loadStripe(stripePublishableKey) : null;
 
 export default function CartPage() {
   const { cartItems, removeFromCart, getCartTotal, updateQuantity } = useCart();
@@ -25,6 +29,17 @@ export default function CartPage() {
   
   const handleCheckout = async () => {
     setIsLoading(true);
+
+    if (!stripePromise) {
+       toast({
+        title: 'Configuration Error',
+        description: 'Stripe is not configured. Please contact support.',
+        variant: 'destructive',
+      });
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const checkoutItems = cartItems.map(item => ({
         id: item.service.id,
@@ -135,7 +150,7 @@ export default function CartPage() {
                   size="lg" 
                   className="w-full bg-primary hover:bg-primary/90"
                   onClick={handleCheckout}
-                  disabled={isLoading}
+                  disabled={isLoading || !stripePromise}
                 >
                   {isLoading ? 'Processing...' : 'Proceed to Checkout'}
                 </Button>
