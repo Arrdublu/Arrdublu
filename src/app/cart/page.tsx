@@ -7,7 +7,7 @@ import { useCart } from '@/context/CartProvider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Trash2, Plus, Minus } from 'lucide-react';
+import { Trash2, Plus, Minus, Loader2 } from 'lucide-react';
 import { createCheckoutSession } from '@/lib/actions';
 import { loadStripe } from '@stripe/stripe-js';
 import { useToast } from '@/hooks/use-toast';
@@ -61,8 +61,7 @@ export default function CartPage() {
         description: error instanceof Error ? error.message : 'An unexpected error occurred.',
         variant: 'destructive',
       });
-    } finally {
-      setIsLoading(false);
+       setIsLoading(false);
     }
   };
 
@@ -100,17 +99,17 @@ export default function CartPage() {
                         <h2 className="font-headline text-lg font-semibold">{item.service.name}</h2>
                         <p className="text-muted-foreground text-sm">{item.service.category}</p>
                          <Button variant="ghost" size="sm" onClick={() => removeFromCart(item.service.id)} className="text-destructive hover:bg-destructive/10 px-0 h-auto mt-1">
-                          <Trash2 className="h-4 w-4 mr-1" />
+                          <Trash2 className="mr-1" />
                           Remove
                         </Button>
                       </div>
                        <div className="col-span-1 flex items-center justify-center gap-2">
                          <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateQuantity(item.service.id, item.quantity - 1)} disabled={item.quantity <= 1}>
-                            <Minus className="h-4 w-4" />
+                            <Minus />
                          </Button>
                          <span className="font-bold text-lg">{item.quantity}</span>
                          <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateQuantity(item.service.id, item.quantity + 1)}>
-                            <Plus className="h-4 w-4" />
+                            <Plus />
                          </Button>
                       </div>
                       <div className="text-right col-span-1">
@@ -141,9 +140,6 @@ export default function CartPage() {
                   <span>Total</span>
                   <span>${total.toFixed(2)}</span>
                 </div>
-                 <div className="text-center pt-2">
-                  <p className="text-sm text-green-600 font-semibold">You're almost there!</p>
-                </div>
               </CardContent>
               <CardFooter>
                 <Button 
@@ -152,6 +148,7 @@ export default function CartPage() {
                   onClick={handleCheckout}
                   disabled={isLoading || !stripePromise}
                 >
+                  {isLoading && <Loader2 className="animate-spin mr-2" />}
                   {isLoading ? 'Processing...' : 'Proceed to Checkout'}
                 </Button>
               </CardFooter>

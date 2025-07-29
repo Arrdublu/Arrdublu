@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -56,7 +57,7 @@ export function CartSheet({ children }: { children: React.ReactNode }) {
                         <span>${total.toFixed(2)}</span>
                     </div>
                     <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90">
-                        <Link href="/cart">View Cart & Checkout</Link>
+                        <Link href="/cart">Checkout</Link>
                     </Button>
                 </div>
             </SheetFooter>
