@@ -6,7 +6,7 @@ import Stripe from 'stripe';
 import { getServiceById } from '@/lib/data';
 import type { Service } from '@/lib/types';
 import { headers } from 'next/headers';
-import { initializeFirebaseAdmin } from './firebase-admin';
+import { adminDb } from './firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 
 
@@ -16,8 +16,6 @@ type CheckoutItem = {
 };
 
 export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id: string, url: string | null }> {
-  const { adminDb } = initializeFirebaseAdmin();
-
   const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
   if (!stripeSecretKey) {
     throw new Error('STRIPE_SECRET_KEY is not set');
@@ -86,7 +84,7 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
     }
   });
   
-  if (!session.id) {
+  if (!session.id || !session.url) {
     throw new Error('Failed to create Stripe session');
   }
 
