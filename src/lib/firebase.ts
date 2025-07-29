@@ -13,17 +13,23 @@ const firebaseConfig = {
 };
 
 let app: FirebaseApp;
-let firestore: Firestore | null = null;
+let firestore: Firestore;
 let auth: Auth;
 
-if (typeof window !== 'undefined') {
-    app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-    firestore = getFirestore(app);
-    auth = getAuth(app);
-} else {
-    // In a server-side context, you might not want to initialize the client SDK
-    // or you might want to use the Admin SDK instead.
-    // For this app, client-side firebase is all we need for this file.
+function initializeFirebase() {
+  if (typeof window !== 'undefined') {
+    if (!getApps().length) {
+      app = initializeApp(firebaseConfig);
+      firestore = getFirestore(app);
+      auth = getAuth(app);
+    } else {
+      app = getApp();
+      firestore = getFirestore(app);
+      auth = getAuth(app);
+    }
+  }
 }
+
+initializeFirebase();
 
 export { app, firestore, auth };

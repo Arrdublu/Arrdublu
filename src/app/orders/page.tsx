@@ -24,7 +24,7 @@ function OrdersPageContent() {
     const fetchOrders = async () => {
       try {
         if (!firestore) {
-            setError('Firebase is not initialized.');
+            setError('Firebase is not initialized. Please try refreshing the page.');
             setLoading(false);
             return;
         }
