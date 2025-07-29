@@ -1,3 +1,4 @@
+
 'use client';
 import { useEffect, useState, Suspense } from 'react';
 import { collection, query, orderBy, getDocs } from 'firebase/firestore';
@@ -22,6 +23,12 @@ function OrdersPageContent() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
+        if (!firestore) {
+            setError('Firebase is not initialized.');
+            setLoading(false);
+            return;
+        }
+
         setLoading(true);
         const ordersRef = collection(firestore, 'orders');
         const q = query(ordersRef, orderBy('createdAt', 'desc'));
@@ -45,6 +52,7 @@ function OrdersPageContent() {
             total: Number(data.totalAmount) || 0,
             status,
             items: (data.items || []).map((item: any) => ({
+              itemId: item.itemId,
               name: item.name || 'Unknown Item',
               quantity: Number(item.quantity) || 1,
               price: Number(item.price) || 0,
@@ -73,7 +81,6 @@ function OrdersPageContent() {
   if (loading) {
     return (
       <div className="container mx-auto px-4 py-12 text-center">
-        <span className="inline-block h-8 w-8 animate-spin text-primary">⟳</span>
         <p className="mt-2 text-lg text-muted-foreground">Loading your orders...</p>
       </div>
     );
@@ -95,7 +102,6 @@ function OrdersPageContent() {
       {showSuccess && (
         <Card className="mb-8 bg-green-50 border-green-200">
           <CardHeader className="flex flex-row items-center gap-4">
-            <span className="h-8 w-8 text-green-600">✓</span>
             <div>
               <CardTitle className="text-green-800">Payment Successful!</CardTitle>
               <CardDescription className="text-green-700">
@@ -115,8 +121,7 @@ function OrdersPageContent() {
       <h1 className="text-4xl font-headline font-bold text-primary mb-8">Your Orders</h1>
       {orders.length === 0 ? (
         <Card className="text-center py-20">
-          <CardContent className="flex flex-col items-center gap-4">
-            <span className="h-12 w-12 text-muted-foreground">🛍</span>
+          <CardContent className="flex flex-col items-center gap-4 pt-6">
             <h2 className="text-2xl font-semibold">You haven't placed any orders yet.</h2>
             <p className="text-muted-foreground">When you do, your orders will appear here.</p>
             <Button asChild className="mt-4">
