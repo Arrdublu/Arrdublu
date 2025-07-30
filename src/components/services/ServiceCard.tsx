@@ -1,14 +1,27 @@
+
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import type { Service } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '../ui/button';
+import { useCart } from '@/context/CartProvider';
 
 interface ServiceCardProps {
   service: Service;
 }
 
 export function ServiceCard({ service }: ServiceCardProps) {
+  const { addToCart } = useCart();
+  const router = useRouter();
+
+  const handleBuyNow = () => {
+    addToCart(service);
+    router.push('/cart');
+  };
+
   return (
     <Card className="flex flex-col overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl">
       <Link href={`/service/${service.id}`} className="block">
@@ -38,8 +51,8 @@ export function ServiceCard({ service }: ServiceCardProps) {
             <p className="text-lg font-semibold text-primary">
                 ${service.price}
             </p>
-            <Button asChild variant="outline" size="sm">
-                <Link href={`/service/${service.id}`}>View Details</Link>
+            <Button variant="outline" size="sm" onClick={handleBuyNow}>
+                Buy Now
             </Button>
         </div>
       </CardContent>
