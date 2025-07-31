@@ -110,7 +110,7 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
                   customerEmail: session.customer_details.email,
                   // The totalAmount from the original orderData is already correct
                 };
-                await sendConfirmationEmail(updatedOrderData);
+                sendConfirmationEmail(updatedOrderData);
 
             } else if (orderData) {
                  console.warn(`Order ${orderId} was already processed.`);
