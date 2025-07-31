@@ -22,9 +22,18 @@ export type Order = {
   total: number;
   status: 'paid' | 'pending' | 'cancelled';
   items: OrderItem[];
+  discountCode?: string;
+  discountAmount?: number;
 };
 
 export type CartItem = {
   service: Service;
   quantity: number;
+};
+
+export type Discount = {
+  id: string;
+  code: string;
+  type: 'percentage' | 'fixed';
+  value: number;
 };

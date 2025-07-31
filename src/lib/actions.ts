@@ -8,14 +8,17 @@ import type { Service } from '@/lib/types';
 import { headers } from 'next/headers';
 import { adminDb } from './firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
-
+import { verifyDiscountCode } from './discount-actions';
 
 type CheckoutItem = {
-    id: string;
-    quantity: number;
+  id: string;
+  quantity: number;
 };
 
-export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id: string, url: string | null }> {
+export async function createCheckoutSession(
+  items: CheckoutItem[],
+  discountCode?: string
+): Promise<{ id: string; url: string | null }> {
   const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
   if (!stripeSecretKey) {
     throw new Error('STRIPE_SECRET_KEY is not set');
@@ -24,14 +27,19 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
   if (!adminDb) {
     throw new Error('Firebase Admin SDK not initialized. Cannot create order.');
   }
-  
+
   const stripe = new Stripe(stripeSecretKey, {
     apiVersion: '2024-06-20',
   });
 
-  const orderItems: { itemId: string; name: string; quantity: number; price: number }[] = [];
+  const orderItems: {
+    itemId: string;
+    name: string;
+    quantity: number;
+    price: number;
+  }[] = [];
   const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
-  let totalAmount = 0;
+  let subtotal = 0;
 
   for (const item of items) {
     const service = getServiceById(item.id);
@@ -39,9 +47,7 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
       throw new Error(`Service with ID ${item.id} not found.`);
     }
 
-    const unitAmount = service.price * 100;
-    const itemTotal = service.price * item.quantity;
-    totalAmount += itemTotal;
+    subtotal += service.price * item.quantity;
 
     lineItems.push({
       price_data: {
@@ -51,11 +57,11 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
           description: service.description,
           images: [service.image],
         },
-        unit_amount: unitAmount,
+        unit_amount: service.price * 100,
       },
       quantity: item.quantity,
     });
-    
+
     orderItems.push({
       itemId: service.id,
       name: service.name,
@@ -64,8 +70,41 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
     });
   }
 
+  let totalAmount = subtotal;
+  let discountAmount = 0;
+  let stripeCouponId: string | undefined = undefined;
+
+  if (discountCode) {
+    try {
+      const discount = await verifyDiscountCode(discountCode);
+      const couponOptions: Stripe.CouponCreateParams = {
+        name: discount.code,
+        duration: 'once',
+      };
+
+      if (discount.type === 'percentage') {
+        couponOptions.percent_off = discount.value;
+        discountAmount = subtotal * (discount.value / 100);
+      } else {
+        couponOptions.amount_off = discount.value * 100;
+        couponOptions.currency = 'usd';
+        discountAmount = discount.value;
+      }
+
+      totalAmount = Math.max(0, subtotal - discountAmount);
+
+      const coupon = await stripe.coupons.create(couponOptions);
+      stripeCouponId = coupon.id;
+    } catch (error) {
+      // If discount is invalid, just proceed without it.
+      // The client-side should have already caught this, but this is a safeguard.
+      console.warn(`Invalid discount code "${discountCode}" provided during checkout creation. Proceeding without discount.`);
+      discountCode = undefined;
+    }
+  }
+
   const host = headers().get('origin') || 'http://localhost:3000';
-  
+
   const sessionConfig: Stripe.Checkout.SessionCreateParams = {
     payment_method_types: ['card'],
     line_items: lineItems,
@@ -74,19 +113,31 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
     cancel_url: `${host}/cart`,
   };
 
-  const orderRef = await adminDb.collection('orders').add({
+  if (stripeCouponId) {
+    sessionConfig.discounts = [{ coupon: stripeCouponId }];
+  }
+  
+  const orderData: any = {
     items: orderItems,
+    subtotal: subtotal,
     totalAmount: totalAmount,
     status: 'pending',
     createdAt: FieldValue.serverTimestamp(),
-  });
+  };
+
+  if (discountCode && discountAmount > 0) {
+    orderData.discountCode = discountCode;
+    orderData.discountAmount = discountAmount;
+  }
+
+  const orderRef = await adminDb.collection('orders').add(orderData);
   
   sessionConfig.metadata = {
     orderId: orderRef.id,
   };
 
   const session = await stripe.checkout.sessions.create(sessionConfig);
-  
+
   if (!session.id || !session.url) {
     throw new Error('Failed to create Stripe session');
   }
