@@ -14,26 +14,25 @@ import {
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Trash2, Plus, Minus, Loader2 } from 'lucide-react';
-import { createCheckoutSession } from '@/lib/actions';
-import { loadStripe } from '@stripe/stripe-js';
 import { useToast } from '@/hooks/use-toast';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { verifyDiscountCode } from '@/lib/discount-actions';
 import type { Discount } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription
+} from '@/components/ui/dialog';
+import { CheckoutForm } from '@/components/checkout/CheckoutForm';
+import { createPaymentIntent } from '@/lib/actions';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe, type Stripe } from '@stripe/stripe-js';
 
 const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-
-if (!stripePublishableKey) {
-  console.error(
-    'Stripe publishable key is not set. Please check your .env.local file.'
-  );
-}
-
-const stripePromise = stripePublishableKey
-  ? loadStripe(stripePublishableKey)
-  : null;
 
 export default function CartPage() {
   const { cartItems, removeFromCart, getCartTotal, updateQuantity } = useCart();
@@ -43,6 +42,20 @@ export default function CartPage() {
   const [discountError, setDiscountError] = useState<string | null>(null);
   const [isVerifyingDiscount, setIsVerifyingDiscount] = useState(false);
   const { toast } = useToast();
+
+  const [stripePromise, setStripePromise] = useState<Promise<Stripe | null> | null>(null);
+  const [clientSecret, setClientSecret] = useState<string | null>(null);
+  const [isCheckoutVisible, setIsCheckoutVisible] = useState(false);
+
+  useEffect(() => {
+    if (stripePublishableKey) {
+      setStripePromise(loadStripe(stripePublishableKey));
+    } else {
+      console.error(
+        'Stripe publishable key is not set. Please check your .env.local file.'
+      );
+    }
+  }, []);
 
   const subtotal = getCartTotal();
 
@@ -78,35 +91,17 @@ export default function CartPage() {
     }
   };
 
-  const handleCheckout = async () => {
+  const handleProceedToCheckout = async () => {
     setIsLoading(true);
-
-    if (!stripePromise) {
-      toast({
-        title: 'Configuration Error',
-        description: 'Stripe is not configured. Please contact support.',
-        variant: 'destructive',
-      });
-      setIsLoading(false);
-      return;
-    }
-
     try {
-      const checkoutItems = cartItems.map((item) => ({
-        id: item.service.id,
-        quantity: item.quantity,
-      }));
-
-      const { url } = await createCheckoutSession(
-        checkoutItems,
-        appliedDiscount?.code
-      );
-
-      if (url) {
-        window.location.href = url;
-      } else {
-        throw new Error('Could not create checkout session.');
+      if (cartItems.length === 0) {
+        throw new Error('Your cart is empty.');
       }
+      
+      const { clientSecret: newClientSecret } = await createPaymentIntent(cartItems, appliedDiscount?.code);
+      setClientSecret(newClientSecret);
+      setIsCheckoutVisible(true);
+
     } catch (error) {
       console.error('Checkout error:', error);
       toast({
@@ -117,11 +112,13 @@ export default function CartPage() {
             : 'An unexpected error occurred.',
         variant: 'destructive',
       });
-      setIsLoading(false);
+    } finally {
+        setIsLoading(false);
     }
   };
 
   return (
+    <>
     <div className="container mx-auto px-4 py-12">
       <h1 className="text-4xl font-headline font-bold text-primary mb-8">
         Your Shopping Bag
@@ -265,7 +262,7 @@ export default function CartPage() {
                 <Button
                   size="lg"
                   className="w-full bg-primary hover:bg-primary/90"
-                  onClick={handleCheckout}
+                  onClick={handleProceedToCheckout}
                   disabled={isLoading || !stripePromise}
                 >
                   {isLoading && <Loader2 className="animate-spin mr-2" />}
@@ -277,5 +274,22 @@ export default function CartPage() {
         </div>
       )}
     </div>
+
+    {isCheckoutVisible && clientSecret && stripePromise && (
+      <Dialog open={isCheckoutVisible} onOpenChange={setIsCheckoutVisible}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Complete Your Payment</DialogTitle>
+            <DialogDescription>
+              Enter your card details below to securely complete your purchase for ${total.toFixed(2)}.
+            </DialogDescription>
+          </DialogHeader>
+          <Elements stripe={stripePromise} options={{ clientSecret }}>
+            <CheckoutForm totalAmount={total} />
+          </Elements>
+        </DialogContent>
+      </Dialog>
+    )}
+    </>
   );
 }

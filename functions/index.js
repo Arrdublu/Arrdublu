@@ -86,11 +86,12 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
         return res.status(400).send(`Webhook Error: ${err.message}`);
     }
 
-    if (event.type === "checkout.session.completed") {
-        const session = event.data.object;
-        const orderId = session.metadata.orderId;
+    if (event.type === "payment_intent.succeeded") {
+        const paymentIntent = event.data.object;
+        const orderId = paymentIntent.metadata.orderId;
+        const customerEmail = paymentIntent.receipt_email;
 
-        console.log(`Processing order ${orderId} for session ${session.id}`);
+        console.log(`Processing order ${orderId} for PaymentIntent ${paymentIntent.id}`);
 
         try {
             const orderRef = admin.firestore().collection("orders").doc(orderId);
@@ -101,15 +102,14 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
                 if (orderData.status === 'pending') {
                     await orderRef.update({
                         status: "paid",
-                        paymentIntentId: session.payment_intent,
-                        customerEmail: session.customer_details.email,
+                        customerEmail: customerEmail,
                     });
                     
                     const updatedOrderData = { 
                       id: orderId, 
                       ...orderData, 
-                      customerEmail: session.customer_details.email,
-                      totalAmount: orderData.totalAmount // Explicitly pass totalAmount
+                      customerEmail: customerEmail,
+                      totalAmount: orderData.totalAmount
                     };
                     await sendConfirmationEmail(updatedOrderData);
                 } else {
@@ -120,7 +120,7 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
             }
 
         } catch (error) {
-            console.error("Error handling checkout.session.completed:", error);
+            console.error("Error handling payment_intent.succeeded:", error);
             return res.status(500).send("Internal Server Error");
         }
     }
