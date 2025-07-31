@@ -24,36 +24,37 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const { toast } = useToast();
 
   const addToCart = useCallback((service: Service) => {
+    let wasAdded = false;
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.service.id === service.id);
       if (existingItem) {
-        setTimeout(() => {
-          toast({
-            title: "Already in Bag",
-            description: `${service.name} is already in your shopping bag.`,
-          });
-        }, 0);
+        wasAdded = false;
         return prevItems;
       }
-       setTimeout(() => {
-        toast({
-            title: "Added to Bag",
-            description: `${service.name} has been added to your shopping bag.`,
-        });
-      }, 0);
+      wasAdded = true;
       return [...prevItems, { service, quantity: 1 }];
     });
+
+    if (wasAdded) {
+      toast({
+          title: "Added to Bag",
+          description: `${service.name} has been added to your shopping bag.`,
+      });
+    } else {
+      toast({
+        title: "Already in Bag",
+        description: `${service.name} is already in your shopping bag.`,
+      });
+    }
   }, [toast]);
   
   const removeFromCart = useCallback((serviceId: string) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.service.id !== serviceId));
-    setTimeout(() => {
-        toast({
-            title: "Item Removed",
-            description: `The service has been removed from your bag.`,
-            variant: "destructive"
-          });
-    }, 0);
+    toast({
+        title: "Item Removed",
+        description: `The service has been removed from your bag.`,
+        variant: "destructive"
+      });
   }, [toast]);
 
   const updateQuantity = useCallback((serviceId: string, quantity: number) => {
