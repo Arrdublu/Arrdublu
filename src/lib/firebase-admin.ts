@@ -1,36 +1,39 @@
 import * as admin from 'firebase-admin';
 
-let adminDb: admin.firestore.Firestore;
-let adminAuth: admin.auth.Auth;
+interface AdminApp {
+  db: admin.firestore.Firestore;
+  auth: admin.auth.Auth;
+}
 
-function initializeAdminApp() {
+function initializeAdminApp(): AdminApp {
   if (admin.apps.length > 0) {
     const app = admin.app();
-    adminDb = admin.firestore(app);
-    adminAuth = admin.auth(app);
-    return;
+    return {
+      db: admin.firestore(app),
+      auth: admin.auth(app),
+    };
   }
 
   const serviceAccountKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
 
   if (!serviceAccountKey) {
     throw new Error(
-      'CRITICAL: FIREBASE_SERVICE_ACCOUNT_KEY is not set in environment variables. The Admin SDK cannot be initialized. Please check your hosting configuration.'
+      'CRITICAL: FIREBASE_SERVICE_ACCOUNT_KEY is not set. The Admin SDK cannot be initialized.'
     );
   }
 
   try {
-    // Decode and parse the service account key
     const decodedKey = Buffer.from(serviceAccountKey, 'base64').toString('utf8');
     const serviceAccount = JSON.parse(decodedKey);
 
-    // Initialize the app
     const app = admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
     });
 
-    adminDb = admin.firestore(app);
-    adminAuth = admin.auth(app);
+    return {
+      db: admin.firestore(app),
+      auth: admin.auth(app),
+    };
   } catch (error: any) {
     console.error('Failed to parse/decode service account key or initialize Firebase Admin SDK:', error);
     throw new Error(
@@ -39,8 +42,6 @@ function initializeAdminApp() {
   }
 }
 
-// Initialize the app on module load
-initializeAdminApp();
-
+const { db: adminDb, auth: adminAuth } = initializeAdminApp();
 
 export { adminDb, adminAuth };
