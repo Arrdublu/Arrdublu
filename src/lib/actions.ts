@@ -69,6 +69,7 @@ export async function createPaymentIntent(
   const paymentIntent = await stripe.paymentIntents.create({
     amount: Math.round(totalAmount * 100), // Amount in cents
     currency: 'usd',
+    receipt_email: 'customer@example.com', // Placeholder, Stripe will use the email from the payment form if available
     metadata: {
       orderId: orderRef.id,
     },
@@ -83,3 +84,4 @@ export async function createPaymentIntent(
 
   return { clientSecret: paymentIntent.client_secret, orderId: orderRef.id };
 }
+
