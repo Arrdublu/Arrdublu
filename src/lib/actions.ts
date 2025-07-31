@@ -70,39 +70,6 @@ export async function createCheckoutSession(
     });
   }
 
-  let totalAmount = subtotal;
-  let discountAmount = 0;
-  let stripeCouponId: string | undefined = undefined;
-
-  if (discountCode) {
-    try {
-      const discount = await verifyDiscountCode(discountCode);
-      const couponOptions: Stripe.CouponCreateParams = {
-        name: discount.code,
-        duration: 'once',
-      };
-
-      if (discount.type === 'percentage') {
-        couponOptions.percent_off = discount.value;
-        discountAmount = subtotal * (discount.value / 100);
-      } else {
-        couponOptions.amount_off = discount.value * 100;
-        couponOptions.currency = 'usd';
-        discountAmount = discount.value;
-      }
-
-      totalAmount = Math.max(0, subtotal - discountAmount);
-
-      const coupon = await stripe.coupons.create(couponOptions);
-      stripeCouponId = coupon.id;
-    } catch (error) {
-      // If discount is invalid, just proceed without it.
-      // The client-side should have already caught this, but this is a safeguard.
-      console.warn(`Invalid discount code "${discountCode}" provided during checkout creation. Proceeding without discount.`);
-      discountCode = undefined;
-    }
-  }
-
   const host = headers().get('origin') || 'http://localhost:3000';
 
   const sessionConfig: Stripe.Checkout.SessionCreateParams = {
@@ -112,22 +79,47 @@ export async function createCheckoutSession(
     success_url: `${host}/orders?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${host}/cart`,
   };
-
-  if (stripeCouponId) {
-    sessionConfig.discounts = [{ coupon: stripeCouponId }];
-  }
   
   const orderData: any = {
     items: orderItems,
     subtotal: subtotal,
-    totalAmount: totalAmount,
+    totalAmount: subtotal, // Start with subtotal, will be adjusted if discount applies
     status: 'pending',
     createdAt: FieldValue.serverTimestamp(),
   };
 
-  if (discountCode && discountAmount > 0) {
-    orderData.discountCode = discountCode;
-    orderData.discountAmount = discountAmount;
+  if (discountCode) {
+    try {
+      const discount = await verifyDiscountCode(discountCode);
+      const couponOptions: Stripe.CouponCreateParams = {
+        name: discount.code,
+        duration: 'once',
+      };
+      
+      let discountAmount = 0;
+
+      if (discount.type === 'percentage') {
+        couponOptions.percent_off = discount.value;
+        discountAmount = subtotal * (discount.value / 100);
+      } else {
+        couponOptions.amount_off = discount.value * 100;
+        couponOptions.currency = 'usd';
+        discountAmount = discount.value;
+      }
+      
+      const coupon = await stripe.coupons.create(couponOptions);
+      sessionConfig.discounts = [{ coupon: coupon.id }];
+      
+      // Update order data with discount info
+      orderData.discountCode = discount.code;
+      orderData.discountAmount = discountAmount;
+      orderData.totalAmount = Math.max(0, subtotal - discountAmount);
+
+    } catch (error) {
+      // If discount is invalid, just proceed without it.
+      // The client-side should have already caught this, but this is a safeguard.
+      console.warn(`Invalid discount code "${discountCode}" provided during checkout creation. Proceeding without discount.`);
+    }
   }
 
   const orderRef = await adminDb.collection('orders').add(orderData);
