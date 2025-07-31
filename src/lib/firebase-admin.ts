@@ -1,35 +1,35 @@
 import * as admin from 'firebase-admin';
 
-let adminApp: admin.app.App;
+// This is a singleton pattern to ensure we only initialize the Firebase Admin SDK once.
+// This is crucial in a serverless environment where modules might be re-initialized.
+
+let adminDb: admin.firestore.Firestore;
+let adminAuth: admin.auth.Auth;
 
 if (!admin.apps.length) {
   const serviceAccountKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
   if (!serviceAccountKey) {
-    console.error(
-      'CRITICAL: FIREBASE_SERVICE_ACCOUNT_KEY is not set. The Admin SDK cannot be initialized.'
+    throw new Error(
+      'CRITICAL: FIREBASE_SERVICE_ACCOUNT_KEY is not set. The Admin SDK cannot be initialized. Please check your environment variables.'
     );
-    // In a real app, you might want to throw here, but to prevent crashing the server
-    // during development if the key is momentarily unavailable, we'll log a severe error.
-  } else {
-    try {
-      const decodedKey = Buffer.from(serviceAccountKey, 'base64').toString('utf8');
-      const serviceAccount = JSON.parse(decodedKey);
-
-      adminApp = admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-      });
-    } catch (error: any) {
-      console.error(
-        'Failed to parse/decode service account key or initialize Firebase Admin SDK:',
-        error
-      );
-    }
   }
-} else {
-  adminApp = admin.app();
+  try {
+    const decodedKey = Buffer.from(serviceAccountKey, 'base64').toString(
+      'utf8'
+    );
+    const serviceAccount = JSON.parse(decodedKey);
+
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+    });
+  } catch (error: any) {
+    throw new Error(
+      `Failed to parse/decode service account key or initialize Firebase Admin SDK: ${error.message}`
+    );
+  }
 }
 
-const adminDb = adminApp!?.firestore();
-const adminAuth = adminApp!?.auth();
+adminDb = admin.firestore();
+adminAuth = admin.auth();
 
 export { adminDb, adminAuth };
