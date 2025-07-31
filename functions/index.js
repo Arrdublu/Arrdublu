@@ -109,7 +109,7 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
                       id: orderId, 
                       ...orderData, 
                       customerEmail: session.customer_details.email,
-                      // The totalAmount from the original orderData is already correct
+                      totalAmount: orderData.totalAmount // Explicitly pass totalAmount
                     };
                     await sendConfirmationEmail(updatedOrderData);
                 } else {
