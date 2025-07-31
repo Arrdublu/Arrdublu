@@ -67,10 +67,15 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
   const discountThreshold = 200;
   const discountRate = 0.10; // 10%
   let discountedAmount = totalAmount;
-  let sessionConfig: Stripe.Checkout.SessionCreateParams = {
+
+  const host = (await headers()).get('origin') || 'http://localhost:3000';
+  
+  const sessionConfig: Stripe.Checkout.SessionCreateParams = {
     payment_method_types: ['card'],
     line_items: lineItems,
     mode: 'payment',
+    success_url: `${host}/orders?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${host}/cart`,
   };
 
   if (totalAmount >= discountThreshold) {
@@ -86,8 +91,6 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
     sessionConfig.discounts = [{ coupon: coupon.id }];
   }
 
-  const host = (await headers()).get('origin') || 'http://localhost:3000';
-  
   const orderRef = await adminDb.collection('orders').add({
     items: orderItems,
     totalAmount: totalAmount,
@@ -96,8 +99,6 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
     createdAt: FieldValue.serverTimestamp(),
   });
   
-  sessionConfig.success_url = `${host}/orders?session_id={CHECKOUT_SESSION_ID}`;
-  sessionConfig.cancel_url = `${host}/cart`;
   sessionConfig.metadata = {
     orderId: orderRef.id,
     totalAmount: totalAmount.toString(),
