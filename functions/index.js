@@ -95,27 +95,27 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
         try {
             const orderRef = admin.firestore().collection("orders").doc(orderId);
             const orderDoc = await orderRef.get();
-            const orderData = orderDoc.data();
-
-            if (orderData && orderData.status === 'pending') {
-                 await orderRef.update({
-                    status: "paid",
-                    paymentIntentId: session.payment_intent,
-                    customerEmail: session.customer_details.email,
-                });
-                
-                const updatedOrderData = { 
-                  id: orderId, 
-                  ...orderData, 
-                  customerEmail: session.customer_details.email,
-                  // The totalAmount from the original orderData is already correct
-                };
-                sendConfirmationEmail(updatedOrderData);
-
-            } else if (orderData) {
-                 console.warn(`Order ${orderId} was already processed.`);
-            }
-            else {
+            
+            if (orderDoc.exists) {
+                const orderData = orderDoc.data();
+                if (orderData.status === 'pending') {
+                    await orderRef.update({
+                        status: "paid",
+                        paymentIntentId: session.payment_intent,
+                        customerEmail: session.customer_details.email,
+                    });
+                    
+                    const updatedOrderData = { 
+                      id: orderId, 
+                      ...orderData, 
+                      customerEmail: session.customer_details.email,
+                      // The totalAmount from the original orderData is already correct
+                    };
+                    await sendConfirmationEmail(updatedOrderData);
+                } else {
+                    console.warn(`Order ${orderId} was already in status: ${orderData.status}.`);
+                }
+            } else {
                 console.error(`Order document not found for ID: ${orderId}`);
             }
 
