@@ -25,9 +25,6 @@ const nextConfig: NextConfig = {
       }
     ],
   },
-  env: {
-    FIREBASE_SERVICE_ACCOUNT_KEY: process.env.FIREBASE_SERVICE_ACCOUNT_KEY,
-  },
   allowedDevOrigins: [
     'https://ide.cloud.google.com',
     'https://console.cloud.google.com',
