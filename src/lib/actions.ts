@@ -68,7 +68,7 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
   const discountRate = 0.10; // 10%
   let discountedAmount = totalAmount;
 
-  const host = (await headers()).get('origin') || 'http://localhost:3000';
+  const host = headers().get('origin') || 'http://localhost:3000';
   
   const sessionConfig: Stripe.Checkout.SessionCreateParams = {
     payment_method_types: ['card'],
