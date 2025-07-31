@@ -64,60 +64,54 @@ export async function createCheckoutSession(items: CheckoutItem[]): Promise<{ id
     });
   }
 
-  let discountedAmount = totalAmount;
   const discountThreshold = 200;
   const discountRate = 0.10; // 10%
+  let discountedAmount = totalAmount;
+  let sessionConfig: Stripe.Checkout.SessionCreateParams = {
+    payment_method_types: ['card'],
+    line_items: lineItems,
+    mode: 'payment',
+  };
 
   if (totalAmount >= discountThreshold) {
     const discountAmount = totalAmount * discountRate;
     discountedAmount = totalAmount - discountAmount;
-
-    // Add a negative line item for the discount
-    lineItems.push({
-      price_data: {
-        currency: 'usd',
-        product_data: {
-          name: 'Discount',
-          description: '10% discount on orders over $200',
-        },
-        unit_amount: -Math.round(discountAmount * 100), // Amount in cents, negative for discount
-      },
-      quantity: 1,
+    
+    const coupon = await stripe.coupons.create({
+      percent_off: discountRate * 100,
+      duration: 'once',
+      name: '10% order discount',
     });
+    
+    sessionConfig.discounts = [{ coupon: coupon.id }];
   }
 
-  const host = headers().get('origin') || 'http://localhost:3000';
+  const host = (await headers()).get('origin') || 'http://localhost:3000';
   
   const orderRef = await adminDb.collection('orders').add({
     items: orderItems,
     totalAmount: totalAmount,
-    discountedAmount: discountedAmount, // Store discounted amount
+    discountedAmount: discountedAmount,
     status: 'pending',
     createdAt: FieldValue.serverTimestamp(),
   });
+  
+  sessionConfig.success_url = `${host}/orders?session_id={CHECKOUT_SESSION_ID}`;
+  sessionConfig.cancel_url = `${host}/cart`;
+  sessionConfig.metadata = {
+    orderId: orderRef.id,
+    totalAmount: totalAmount.toString(),
+    discountedAmount: discountedAmount.toString(),
+  };
 
-  const session = await stripe.checkout.sessions.create({
-    payment_method_types: ['card'],
-    line_items: lineItems,
-    mode: 'payment',
-    success_url: `${host}/orders?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${host}/cart`,
-    metadata: {
-      orderId: orderRef.id,
-      totalAmount: totalAmount.toString(), // Store original total for reference
-      discountedAmount: discountedAmount.toString(), // Store discounted amount for reference
-    }
-  });
+  const session = await stripe.checkout.sessions.create(sessionConfig);
   
   if (!session.id || !session.url) {
     throw new Error('Failed to create Stripe session');
   }
 
-  // Update the order in Firebase with the Stripe session ID and potentially the final amount
   await orderRef.update({
     stripeSessionId: session.id,
-    // Optionally update totalAmount to discountedAmount here if you want the stored value to reflect the discount
-    // totalAmount: discountedAmount,
   });
 
   return { id: session.id, url: session.url };

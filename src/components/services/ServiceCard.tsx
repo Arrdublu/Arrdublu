@@ -17,13 +17,15 @@ export function ServiceCard({ service }: ServiceCardProps) {
   const { addToCart } = useCart();
   const router = useRouter();
 
-  const handleBuyNow = () => {
+  const handleBuyNow = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
     addToCart(service);
     router.push('/cart');
   };
 
   return (
-    <Card className="flex flex-col overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl">
+    <Card className="flex flex-col overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl group">
       <Link href={`/service/${service.id}`} className="block">
         <div className="aspect-video relative overflow-hidden">
           <Image
