@@ -3,25 +3,18 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import type { Service } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { useCart } from '@/context/CartProvider';
 
 interface ServiceCardProps {
   service: Service;
 }
 
 export function ServiceCard({ service }: ServiceCardProps) {
-  const { addToCart } = useCart();
-  const router = useRouter();
 
-  const handleBuyNow = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const handleBuyNowClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.stopPropagation();
-    addToCart(service);
-    router.push('/cart');
   };
   
   return (
@@ -53,8 +46,10 @@ export function ServiceCard({ service }: ServiceCardProps) {
             <p className="text-lg font-semibold text-primary">
                 ${service.price}
             </p>
-            <Button variant="outline" size="sm" onClick={handleBuyNow}>
-                Buy Now
+            <Button variant="outline" size="sm" asChild>
+                <a href={service.paymentLink} target="_blank" rel="noopener noreferrer" onClick={handleBuyNowClick}>
+                    Buy Now
+                </a>
             </Button>
         </div>
       </CardContent>
