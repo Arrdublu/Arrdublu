@@ -14,13 +14,16 @@ if (!admin.apps.length) {
     );
   }
   try {
-    const decodedKey = Buffer.from(serviceAccountKey, 'base64').toString(
+    // Sanitize the key by removing any newline characters before decoding.
+    const sanitizedKey = serviceAccountKey.replace(/\\n/g, '');
+    const decodedKey = Buffer.from(sanitizedKey, 'base64').toString(
       'utf8'
     );
     const serviceAccount = JSON.parse(decodedKey);
 
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
+      databaseURL: 'https://arrdublu-3-default-rtdb.firebaseio.com'
     });
   } catch (error: any) {
     throw new Error(
