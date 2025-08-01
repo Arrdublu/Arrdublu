@@ -13,8 +13,17 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service }: ServiceCardProps) {
 
-  const handleBuyNowClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.stopPropagation();
+  const handleBookNowClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Prevent the card's link from being triggered
+    e.stopPropagation(); 
+
+    if (service.paymentLink === '#') {
+      e.preventDefault();
+      // Optionally, you can add a toast notification here to inform the user
+      // that this service needs to be booked differently, e.g., via the main cart.
+      console.log(`Booking for ${service.name} should be handled through the cart.`);
+      // For this example, we'll let the user add it to the cart via the main service page.
+    }
   };
   
   return (
@@ -47,7 +56,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
                 ${service.price}
             </p>
             <Button variant="outline" size="sm" asChild>
-                <a href={service.paymentLink} target="_blank" rel="noopener noreferrer" onClick={handleBuyNowClick}>
+                <a href={service.paymentLink} target="_blank" rel="noopener noreferrer" onClick={handleBookNowClick}>
                     Book Now
                 </a>
             </Button>
