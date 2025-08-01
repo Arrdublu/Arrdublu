@@ -6,18 +6,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import type { Service } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { useCart } from '@/context/CartProvider';
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'stripe-buy-button': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-        'buy-button-id': string;
-        'publishable-key': string;
-      };
-    }
-  }
-}
 
 interface ServiceCardProps {
   service: Service;
@@ -33,15 +23,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
     addToCart(service);
     router.push('/cart');
   };
-
-  const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-
-  if (!publishableKey) {
-    console.error('Stripe publishable key is not set.');
-    // You might want to render a disabled state or null
-    return null;
-  }
-
+  
   return (
     <Card className="flex flex-col overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl group">
       <Link href={`/service/${service.id}`} className="block">
@@ -71,11 +53,9 @@ export function ServiceCard({ service }: ServiceCardProps) {
             <p className="text-lg font-semibold text-primary">
                 ${service.price}
             </p>
-            <stripe-buy-button
-              buy-button-id={service.buyButtonId}
-              publishable-key={publishableKey}
-            >
-            </stripe-buy-button>
+            <Button variant="outline" size="sm" onClick={handleBuyNow}>
+                Buy Now
+            </Button>
         </div>
       </CardContent>
     </Card>

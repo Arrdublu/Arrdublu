@@ -7,7 +7,6 @@ export type Service = {
   price: number;
   image: string;
   previews: string[];
-  buyButtonId: string;
 };
 
 export type OrderItem = {

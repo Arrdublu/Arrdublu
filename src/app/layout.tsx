@@ -7,7 +7,6 @@ import { SiteHeader } from '@/components/layout/Header';
 import { SiteFooter } from '@/components/layout/Footer';
 import { CartProvider } from '@/context/CartProvider';
 import { Toaster } from '@/components/ui/toaster';
-import Script from 'next/script';
 
 const alegreya = Alegreya({
   subsets: ['latin'],
@@ -33,7 +32,6 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap"
           rel="stylesheet"
         />
-        <Script async src="https://js.stripe.com/v3/buy-button.js" />
       </head>
       <body
         className={cn(
