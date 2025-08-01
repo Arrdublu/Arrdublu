@@ -48,7 +48,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
             </p>
             <Button variant="outline" size="sm" asChild>
                 <a href={service.paymentLink} target="_blank" rel="noopener noreferrer" onClick={handleBuyNowClick}>
-                    Buy Now
+                    Book Now
                 </a>
             </Button>
         </div>
