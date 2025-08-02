@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Instagram, Facebook, Twitter, Linkedin } from 'lucide-react';
-import { NewLogo } from './NewLogo';
+import { Logo } from './Logo';
 
 // Store social media links and developer info in constants for easier updates
 const SOCIAL_MEDIA_LINKS = {
@@ -24,7 +24,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-foreground/80">
           <div>
             <div className="mb-4">
-              <NewLogo />
+              <Logo />
             </div>
           </div>
           <div>
