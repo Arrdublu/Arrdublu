@@ -12,7 +12,7 @@ if (!admin.apps.length) {
   }
 
   try {
-    const parsedKey = JSON.parse(serviceAccountKey);
+    const parsedKey = JSON.parse(serviceAccountKey.trim());
     app = admin.initializeApp({
       credential: admin.credential.cert(parsedKey),
       databaseURL:
@@ -21,14 +21,14 @@ if (!admin.apps.length) {
     console.log('Firebase Admin SDK initialized successfully.');
   } catch (error: any) {
     console.error(
-      'CRITICAL: Failed to parse service account key or initialize Firebase Admin SDK.',
+      'CRITICAL: Failed to parse FIREBASE_SERVICE_ACCOUNT_KEY as JSON or initialize Firebase Admin SDK.',
       {
         errorMessage: error.message,
         // Only log a snippet for security reasons
         keySnippet: serviceAccountKey.substring(0, 40) + '...', 
       }
     );
-    // Throw an error to prevent the application from running with a misconfigured SDK.
+    // Throw a more specific error to prevent the application from running with a misconfigured SDK.
     throw new Error('Could not initialize Firebase Admin SDK. Please check the service account key and server logs.');
   }
 } else {
