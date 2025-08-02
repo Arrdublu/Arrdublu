@@ -3,26 +3,30 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import type { Service } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { useCart } from '@/context/CartProvider';
 
 interface ServiceCardProps {
   service: Service;
 }
 
 export function ServiceCard({ service }: ServiceCardProps) {
+  const { addToCart } = useCart();
+  const router = useRouter();
 
-  const handleBookNowClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Prevent the card's link from being triggered
-    e.stopPropagation(); 
+  const handleBookNowClick = (e: React.MouseEvent) => {
+    // Prevent the parent Link from navigating
+    e.preventDefault();
+    e.stopPropagation();
 
-    if (service.paymentLink === '#') {
-      e.preventDefault();
-      // Optionally, you can add a toast notification here to inform the user
-      // that this service needs to be booked differently, e.g., via the main cart.
-      console.log(`Booking for ${service.name} should be handled through the cart.`);
-      // For this example, we'll let the user add it to the cart via the main service page.
+    if (service.paymentLink && service.paymentLink !== '#') {
+      window.open(service.paymentLink, '_blank', 'noopener,noreferrer');
+    } else {
+      addToCart(service);
+      router.push('/cart');
     }
   };
   
@@ -55,10 +59,8 @@ export function ServiceCard({ service }: ServiceCardProps) {
             <p className="text-lg font-semibold text-primary">
                 ${service.price}
             </p>
-            <Button variant="outline" size="sm" asChild>
-                <a href={service.paymentLink} target="_blank" rel="noopener noreferrer" onClick={handleBookNowClick}>
-                    Book Now
-                </a>
+            <Button variant="outline" size="sm" onClick={handleBookNowClick}>
+                Book Now
             </Button>
         </div>
       </CardContent>
