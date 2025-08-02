@@ -8,11 +8,8 @@ if (!admin.apps.length) {
   console.log("Attempting to initialize Firebase Admin SDK...");
   try {
     // The Admin SDK will automatically look for GOOGLE_APPLICATION_CREDENTIALS
-    // environment variable or firebase-adminsdk-<project-id>-<hash>-admin.json file
-    app = admin.initializeApp({
-      databaseURL:
-        'https://arrdublu-3-default-rtdb.europe-west1.firebasedatabase.app',
-    });
+    // environment variable or the service account key file to get configuration.
+    app = admin.initializeApp();
     console.log('Firebase Admin SDK initialized successfully.');
   } catch (error: any) {
     console.error(
