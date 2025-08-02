@@ -6,30 +6,19 @@ let app: admin.app.App;
 
 if (!admin.apps.length) {
   console.log("Attempting to initialize Firebase Admin SDK...");
-  const serviceAccountKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
-
-  if (!serviceAccountKey) {
-    throw new Error('CRITICAL: FIREBASE_SERVICE_ACCOUNT_KEY environment variable is not set. The Admin SDK cannot be initialized.');
-  }
-
   try {
-    // Decode the Base64 encoded service account key before parsing
-    const decodedKey = Buffer.from(serviceAccountKey, 'base64').toString('utf-8');
-    const parsedKey = JSON.parse(decodedKey);
-    
+    // The Admin SDK will automatically look for GOOGLE_APPLICATION_CREDENTIALS
+    // environment variable or firebase-adminsdk-<project-id>-<hash>-admin.json file
     app = admin.initializeApp({
-      credential: admin.credential.cert(parsedKey),
       databaseURL:
         'https://arrdublu-3-default-rtdb.europe-west1.firebasedatabase.app',
     });
     console.log('Firebase Admin SDK initialized successfully.');
   } catch (error: any) {
     console.error(
-      'CRITICAL: Failed to parse FIREBASE_SERVICE_ACCOUNT_KEY or initialize Firebase Admin SDK.',
+      'CRITICAL: Failed to initialize Firebase Admin SDK.',
       {
         errorMessage: error.message,
-        // Only log a snippet for security reasons
-        keySnippet: serviceAccountKey.substring(0, 40) + '...', 
       }
     );
     // Throw a more specific error to prevent the application from running with a misconfigured SDK.
