@@ -1,15 +1,22 @@
 
 import * as admin from 'firebase-admin';
 
-// This is a singleton pattern to ensure we only initialize the Firebase Admin SDK once.
 let app: admin.app.App;
 
 if (!admin.apps.length) {
   console.log("Attempting to initialize Firebase Admin SDK...");
   try {
-    // The Admin SDK will automatically look for GOOGLE_APPLICATION_CREDENTIALS
-    // environment variable or the service account key file to get configuration.
-    app = admin.initializeApp();
+    const serviceAccountString = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+    if (!serviceAccountString) {
+      throw new Error(
+        'GOOGLE_APPLICATION_CREDENTIALS environment variable is not set.'
+      );
+    }
+    const serviceAccount = JSON.parse(serviceAccountString);
+
+    app = admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+    });
     console.log('Firebase Admin SDK initialized successfully.');
   } catch (error: any) {
     console.error(
@@ -18,7 +25,6 @@ if (!admin.apps.length) {
         errorMessage: error.message,
       }
     );
-    // Throw a more specific error to prevent the application from running with a misconfigured SDK.
     throw new Error('Could not initialize Firebase Admin SDK. Please check the service account key and server logs.');
   }
 } else {
