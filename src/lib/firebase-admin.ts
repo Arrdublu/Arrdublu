@@ -1,43 +1,40 @@
 
 import * as admin from 'firebase-admin';
 
-let app: admin.app.App;
+let adminDb: admin.firestore.Firestore;
+let adminAuth: admin.auth.Auth;
 
 if (!admin.apps.length) {
-  console.log("Attempting to initialize Firebase Admin SDK...");
+  console.log("Initializing Firebase Admin SDK...");
   try {
     const serviceAccountString = process.env.GOOGLE_APPLICATION_CREDENTIALS;
     if (!serviceAccountString) {
-      throw new Error(
-        'GOOGLE_APPLICATION_CREDENTIALS environment variable is not set.'
-      );
+      throw new Error('GOOGLE_APPLICATION_CREDENTIALS is not set.');
     }
     const serviceAccount = JSON.parse(serviceAccountString);
 
-    app = admin.initializeApp({
+    admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
     });
+    
     console.log('Firebase Admin SDK initialized successfully.');
   } catch (error: any) {
-    console.error( 
+    console.error(
       'CRITICAL: Failed to initialize Firebase Admin SDK.',
-      {
-        errorMessage: error.message,
-      }
+      { errorMessage: error.message }
     );
-    throw new Error('Could not initialize Firebase Admin SDK. Please check the service account key and server logs.');
+    // In a real-world scenario, you might want to alert or handle this more gracefully.
+    // For now, we'll let it throw to prevent the app from running in a broken state.
+    throw new Error('Could not initialize Firebase Admin SDK. Check server logs.');
   }
-} else {
-  app = admin.app();
-  console.log('Re-using existing Firebase Admin SDK instance.');
 }
 
-const adminDb = app ? admin.firestore() : undefined;
-const adminAuth = app ? admin.auth() : undefined;
+adminDb = admin.firestore();
+adminAuth = admin.auth();
 
 if (!adminDb || !adminAuth) {
-    console.error("Firebase Admin DB or Auth is not available. This will cause issues with Firestore and Auth operations.");
+    // This should theoretically not be reached if initializeApp succeeds.
+    console.error("CRITICAL: Firebase Admin DB or Auth is not available after initialization.");
 }
-
 
 export { adminDb, adminAuth };
