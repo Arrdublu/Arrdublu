@@ -14,9 +14,9 @@ interface ServicePageProps {
   };
 }
 
-export default function ServicePage({ params: { id } }: ServicePageProps) {
+export default function ServicePage({ params }: ServicePageProps) {
   const { getFormattedPrice } = useCart();
-  const service = getServiceById(id);
+  const service = getServiceById(params.id);
 
   if (!service) {
     notFound();
