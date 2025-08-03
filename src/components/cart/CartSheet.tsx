@@ -40,7 +40,7 @@ export function CartSheet({ children }: { children: React.ReactNode }) {
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-md">{item.service.name}</h3>
-                      <p className="text-sm text-muted-foreground">${item.service.price.toFixed(2)}</p>
+                      <p className="text-sm text-muted-foreground">${item.service.price.toFixed(2)} USD</p>
                     </div>
                     <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.service.id)}>
                       <Trash2 className="h-4 w-4 text-destructive" />
@@ -54,7 +54,7 @@ export function CartSheet({ children }: { children: React.ReactNode }) {
                 <div className="w-full space-y-4">
                     <div className="flex justify-between text-lg font-semibold">
                         <span>Total</span>
-                        <span>${total.toFixed(2)}</span>
+                        <span>${total.toFixed(2)} USD</span>
                     </div>
                     <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90">
                         <Link href="/cart">Checkout</Link>

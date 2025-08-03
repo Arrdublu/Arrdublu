@@ -61,7 +61,7 @@ export function CheckoutForm({ totalAmount }: CheckoutFormProps) {
       <PaymentElement />
       <Button disabled={isLoading || !stripe || !elements} className="w-full mt-6">
         {isLoading && <Loader2 className="animate-spin mr-2" />}
-        <span>{isLoading ? 'Processing...' : `Pay $${totalAmount.toFixed(2)}`}</span>
+        <span>{isLoading ? 'Processing...' : `Pay $${totalAmount.toFixed(2)} USD`}</span>
       </Button>
     </form>
   );

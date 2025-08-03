@@ -47,7 +47,7 @@ const sendConfirmationEmail = async (orderData) => {
                           `<tr>
                              <td style="padding: 8px;">${item.name}</td>
                              <td style="padding: 8px;">${item.quantity}</td>
-                             <td style="padding: 8px; text-align: right;">$${(item.price * item.quantity).toFixed(2)}</td>
+                             <td style="padding: 8px; text-align: right;">$${(item.price * item.quantity).toFixed(2)} USD</td>
                            </tr>`
                       )
                       .join("")}
@@ -55,7 +55,7 @@ const sendConfirmationEmail = async (orderData) => {
                 <tfoot>
                     <tr>
                         <td colspan="2" style="padding: 8px; text-align: right; font-weight: bold;">Total:</td>
-                        <td style="padding: 8px; text-align: right; font-weight: bold;">$${totalAmount.toFixed(2)}</td>
+                        <td style="padding: 8px; text-align: right; font-weight: bold;">$${totalAmount.toFixed(2)} USD</td>
                     </tr>
                 </tfoot>
             </table>
