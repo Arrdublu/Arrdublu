@@ -200,7 +200,7 @@ export default function CartPage() {
                       </div>
                       <div className="text-right col-span-1">
                         <p className="font-semibold text-lg">
-                          ${(item.service.price * item.quantity).toFixed(2)} USD
+                          ${(item.service.price * item.quantity).toFixed(2)}
                         </p>
                       </div>
                     </div>
@@ -238,12 +238,12 @@ export default function CartPage() {
                 <Separator />
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span>${subtotal.toFixed(2)} USD</span>
+                  <span>${subtotal.toFixed(2)}</span>
                 </div>
                 {appliedDiscount && (
                    <div className="flex justify-between text-green-600">
                     <span>Discount <Badge variant="secondary" className="ml-1">{appliedDiscount.code}</Badge></span>
-                    <span>-${discountAmount.toFixed(2)} USD</span>
+                    <span>-${discountAmount.toFixed(2)}</span>
                   </div>
                 )}
                 <div className="flex justify-between">
@@ -255,7 +255,7 @@ export default function CartPage() {
                 <Separator />
                 <div className="flex justify-between font-bold text-lg">
                   <span>Total</span>
-                  <span>${total.toFixed(2)} USD</span>
+                  <span>${total.toFixed(2)}</span>
                 </div>
               </CardContent>
               <CardFooter>
@@ -281,7 +281,7 @@ export default function CartPage() {
           <DialogHeader>
             <DialogTitle>Complete Your Payment</DialogTitle>
             <DialogDescription>
-              Enter your card details below to securely complete your purchase for ${total.toFixed(2)} USD.
+              Enter your card details below to securely complete your purchase for ${total.toFixed(2)}.
             </DialogDescription>
           </DialogHeader>
           <Elements stripe={stripePromise} options={{ clientSecret }}>

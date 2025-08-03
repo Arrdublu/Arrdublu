@@ -45,7 +45,7 @@ export default function ServicePage({ params }: ServicePageProps) {
 
         <div className="flex flex-col gap-6">
           <h1 className="text-4xl font-headline font-bold text-primary">{service.name}</h1>
-          <p className="text-2xl font-semibold text-accent-foreground/80">${service.price.toFixed(2)} USD</p>
+          <p className="text-2xl font-semibold text-accent-foreground/80">${service.price.toFixed(2)}</p>
           <div className="prose prose-lg text-foreground/80 max-w-none">
             <p>{service.description}</p>
           </div>

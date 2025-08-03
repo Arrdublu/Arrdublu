@@ -57,7 +57,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
         </CardDescription>
         <div className="flex justify-between items-center mt-auto pt-4 border-t">
             <p className="text-lg font-semibold text-primary">
-                ${service.price.toFixed(2)} USD
+                ${service.price.toFixed(2)}
             </p>
             <Button variant="outline" size="sm" onClick={handleBookNowClick}>
                 Book Now

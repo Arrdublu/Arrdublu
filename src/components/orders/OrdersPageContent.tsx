@@ -156,7 +156,7 @@ export function OrdersPageContent() {
                       <TableRow key={index}>
                         <TableCell className="font-medium px-6">{item.name}</TableCell>
                         <TableCell>{item.quantity}</TableCell>
-                        <TableCell className="text-right px-6">${(item.price * item.quantity).toFixed(2)} USD</TableCell>
+                        <TableCell className="text-right px-6">${(item.price * item.quantity).toFixed(2)}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -164,7 +164,7 @@ export function OrdersPageContent() {
               </CardContent>
               <CardFooter className="bg-muted/50 py-4 px-6 mt-0">
                 <div className="w-full flex justify-end">
-                  <p className="text-lg font-bold">Total: ${order.total.toFixed(2)} USD</p>
+                  <p className="text-lg font-bold">Total: ${order.total.toFixed(2)}</p>
                 </div>
               </CardFooter>
             </Card>
