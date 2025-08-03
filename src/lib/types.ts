@@ -8,6 +8,7 @@ export type Service = {
   image: string;
   previews: string[];
   paymentLink?: string;
+  unit?: 'hr';
 };
 
 export type OrderItem = {

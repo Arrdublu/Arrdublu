@@ -58,6 +58,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
         <div className="flex justify-between items-center mt-auto pt-4 border-t">
             <p className="text-lg font-semibold text-primary">
                 {getFormattedPrice(service.price)}
+                {service.unit === 'hr' && <span className="text-sm font-normal text-muted-foreground">/hr</span>}
             </p>
             <Button variant="outline" size="sm" onClick={handleBookNowClick}>
                 Book Now

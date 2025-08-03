@@ -162,6 +162,10 @@ export default function CartPage() {
                         <p className="text-muted-foreground text-sm">
                           {item.service.category}
                         </p>
+                         <p className="text-sm">
+                          {getFormattedPrice(item.service.price)}
+                          {item.service.unit === 'hr' && <span className="text-muted-foreground">/hr</span>}
+                        </p>
                         <Button
                           variant="ghost"
                           size="sm"
@@ -184,9 +188,16 @@ export default function CartPage() {
                         >
                           <Minus />
                         </Button>
-                        <span className="font-bold text-lg">
-                          {item.quantity}
-                        </span>
+                        <div className="text-center">
+                          <span className="font-bold text-lg">
+                            {item.quantity}
+                          </span>
+                           {item.service.unit === 'hr' && (
+                            <p className="text-xs text-muted-foreground -mt-1">
+                              {item.quantity > 1 ? 'hours' : 'hour'}
+                            </p>
+                          )}
+                        </div>
                         <Button
                           variant="outline"
                           size="icon"

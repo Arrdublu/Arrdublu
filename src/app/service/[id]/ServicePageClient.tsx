@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -41,7 +42,10 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
 
         <div className="flex flex-col gap-6">
           <h1 className="text-4xl font-headline font-bold text-primary">{service.name}</h1>
-          <p className="text-2xl font-semibold text-accent-foreground/80">{getFormattedPrice(service.price)}</p>
+          <p className="text-2xl font-semibold text-accent-foreground/80">
+            {getFormattedPrice(service.price)}
+            {service.unit === 'hr' && <span className="text-lg font-normal text-muted-foreground">/hr</span>}
+            </p>
           <div className="prose prose-lg text-foreground/80 max-w-none">
             <p>{service.description}</p>
           </div>
