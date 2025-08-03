@@ -60,7 +60,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
                 ${service.price}
             </p>
             <Button variant="outline" size="sm" onClick={handleBookNowClick}>
-                Book Now
+                Check Out
             </Button>
         </div>
       </CardContent>
