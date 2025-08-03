@@ -8,36 +8,36 @@ import {
 
 const faqItems = [
     {
-        question: "What types of media services do you offer?",
-        answer: "We offer a comprehensive range of media services, including SEO optimization, creative content production (branding, visuals, video), and lifestyle photography. Our goal is to provide everything you need to elevate your brand's digital presence."
+        question: "What specific services fall under your 'Creative', 'Lifestyle', and 'SEO' categories?",
+        answer: "Our services are designed to be comprehensive. In 'Creative,' we offer Brand Identity Suites, Social Media Visual Packs, and Promotional Video Production. 'Lifestyle' includes Artisanal Portrait Sessions and Lifestyle Product Photography. Our 'SEO' category covers everything from a Comprehensive SEO Audit and Strategic Keyword Research to a full Content Marketing Strategy."
     },
     {
-        question: "How does the SEO audit service work?",
-        answer: "Our Comprehensive SEO Audit is a deep-dive analysis of your website. We examine technical factors, on-page content, and off-page authority. You'll receive a detailed report with prioritized, actionable recommendations to improve your search engine rankings."
+        question: "How does the hourly billing work for services like Event Photography?",
+        answer: "For services like Event Photography and Videography, you book us by the hour. When you add the service to your bag, you can adjust the quantity to match the number of hours you need us for your event. The total cost is automatically calculated in your cart."
     },
     {
-        question: "What is included in the Brand Identity Suite?",
-        answer: "The Brand Identity Suite is a complete package to define your visual brand. It includes a custom logo, a defined color palette, typography guidelines, and a full brand style guide to ensure consistency across all your marketing materials."
+        question: "What is the process after I purchase a service like the 'Brand Identity Suite'?",
+        answer: "Once you purchase a service, our team will contact you within one business day via the email you provided at checkout. We'll schedule an initial consultation to discuss your vision, goals, and project requirements. From there, we'll outline a project timeline and keep you updated at every stage."
     },
     {
-        question: "Can I customize a service package?",
-        answer: "Absolutely. While we offer curated packages, we understand that every client's needs are unique. Please contact our support team to discuss your specific requirements, and we can create a custom service proposal for you."
+        question: "Can I request a service that isn't listed on your site?",
+        answer: "Absolutely. We love unique challenges. Please use the 'Custom Request Form' on our homepage to send us the details of your project. We'll review it and get back to you to discuss how we can bring your vision to life."
     },
     {
         question: "What is the typical turnaround time for a project?",
-        answer: "Turnaround times vary depending on the scope of the project. A Comprehensive SEO Audit typically takes 5-7 business days, while a full Brand Identity Suite can take 2-3 weeks. We will provide a detailed timeline with your project proposal."
+        answer: "Turnaround times vary depending on the service's scope. A Comprehensive SEO Audit typically takes 5-7 business days. A full Brand Identity Suite can take 2-3 weeks from the initial consultation to final delivery. For hourly services, the work is performed on the scheduled day. We will always provide a detailed timeline with your project proposal."
     },
     {
-        question: "How do I get started with a service?",
-        answer: "The best way to start is by purchasing a service directly from our website. For custom projects or if you're unsure where to begin, please fill out our support form, and one of our specialists will get in touch to schedule a consultation."
+        question: "How do discount codes work?",
+        answer: "You can apply a valid discount code in your shopping bag before proceeding to checkout. The discount, whether it's a percentage or a fixed amount, will be calculated and subtracted from your subtotal. Only one discount code can be used per order."
     },
     {
-        question: "Do you offer ongoing support or retainers?",
-        answer: "Yes, we offer monthly retainer packages for ongoing SEO management, content creation, and social media support. Please contact us to discuss your needs, and we can create a custom retainer agreement."
+        question: "Do you offer ongoing support or retainers for services like SEO?",
+        answer: "Yes, we believe in long-term partnerships. We offer monthly retainer packages for ongoing SEO management, content creation, and social media support. If you're interested in a retainer, please fill out our support form to schedule a consultation."
     },
     {
         question: "What is your refund policy?",
-        answer: "Due to the nature of our digital services, we generally do not offer refunds once work has commenced. However, client satisfaction is our top priority. If you have concerns about a service, please contact us immediately so we can address the issue. You can view our full Terms & Conditions for more details."
+        answer: "Due to the digital nature of our services and the upfront creative work involved, we do not offer refunds once a project has commenced. However, client satisfaction is our absolute priority. If you have any concerns about a service, please contact us immediately so we can find a solution. You can view our full Terms & Conditions for more details."
     }
 ]
 
@@ -49,8 +49,8 @@ export function FaqAccordion() {
                 <AccordionTrigger className="text-lg font-semibold text-left hover:no-underline">
                     {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-base text-foreground/80">
-                    {item.answer}
+                <AccordionContent className="text-base text-foreground/80 prose prose-lg max-w-none">
+                    <p>{item.answer}</p>
                 </AccordionContent>
             </AccordionItem>
         ))}
