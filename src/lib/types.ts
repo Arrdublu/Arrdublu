@@ -25,6 +25,7 @@ export type Order = {
   items: OrderItem[];
   discountCode?: string;
   discountAmount?: number;
+  currency?: string;
 };
 
 export type CartItem = {
@@ -37,4 +38,10 @@ export type Discount = {
   code: string;
   type: 'percentage' | 'fixed';
   value: number;
+};
+
+export type Currency = 'USD' | 'EUR' | 'GBP' | 'JPY';
+
+export type ExchangeRates = {
+  [key in Currency]: number;
 };

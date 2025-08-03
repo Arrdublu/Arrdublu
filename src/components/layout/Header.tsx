@@ -14,13 +14,18 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu"
 import { Logo } from './Logo';
+import type { Currency } from '@/lib/types';
 
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const { cartCount } = useCart();
+  const { cartCount, currency, setCurrency } = useCart();
 
   const navItems = [
     { href: '/', label: 'Home' },
@@ -68,7 +73,25 @@ export function SiteHeader() {
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>
-        <div className="flex flex-1 items-center justify-end space-x-4">
+        <div className="flex flex-1 items-center justify-end space-x-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm" className="text-foreground/80">
+                {currency}
+                <ChevronDown className="h-4 w-4 ml-1" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Select Currency</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuRadioGroup value={currency} onValueChange={(value) => setCurrency(value as Currency)}>
+                <DropdownMenuRadioItem value="USD">USD - US Dollar</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="EUR">EUR - Euro</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="GBP">GBP - British Pound</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="JPY">JPY - Japanese Yen</DropdownMenuRadioItem>
+              </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <CartSheet>
             <Button variant="ghost" size="icon" className="relative">
               <ShoppingBag className="h-5 w-5 text-primary" />

@@ -8,10 +8,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { format } from 'date-fns';
-import type { Order, OrderItem } from '@/lib/types';
+import type { Order, OrderItem, Currency, ExchangeRates } from '@/lib/types';
 import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { CheckCircle } from 'lucide-react';
+import { formatCurrency } from '@/lib/utils';
+
+// Mock exchange rates should be consistent with the provider
+const MOCK_RATES: ExchangeRates = {
+  USD: 1,
+  EUR: 0.92,
+  GBP: 0.79,
+  JPY: 157,
+};
 
 export function OrdersPageContent() {
   const searchParams = useSearchParams();
@@ -20,6 +29,11 @@ export function OrdersPageContent() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(!!sessionId);
+
+  const getFormattedPrice = (amount: number, currency: Currency = 'USD') => {
+    return formatCurrency(amount, currency, MOCK_RATES);
+  };
+
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -53,9 +67,10 @@ export function OrdersPageContent() {
             items: (data.items || []).map((item: { itemId: string; name?: string; quantity?: number; price?: number }) => ({
               itemId: item.itemId,
               name: item.name || 'Unknown Item',
- quantity: item.quantity ? Number(item.quantity) : 1,
+              quantity: item.quantity ? Number(item.quantity) : 1,
               price: Number(item.price) || 0,
             })) as OrderItem[],
+            currency: data.currency || 'USD',
           });
         });
         setOrders(fetchedOrders);
@@ -156,7 +171,7 @@ export function OrdersPageContent() {
                       <TableRow key={index}>
                         <TableCell className="font-medium px-6">{item.name}</TableCell>
                         <TableCell>{item.quantity}</TableCell>
-                        <TableCell className="text-right px-6">${(item.price * item.quantity).toFixed(2)}</TableCell>
+                        <TableCell className="text-right px-6">{getFormattedPrice(item.price * item.quantity, order.currency as Currency)}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -164,7 +179,7 @@ export function OrdersPageContent() {
               </CardContent>
               <CardFooter className="bg-muted/50 py-4 px-6 mt-0">
                 <div className="w-full flex justify-end">
-                  <p className="text-lg font-bold">Total: ${order.total.toFixed(2)}</p>
+                  <p className="text-lg font-bold">Total: {getFormattedPrice(order.total, order.currency as Currency)}</p>
                 </div>
               </CardFooter>
             </Card>

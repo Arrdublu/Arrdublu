@@ -6,10 +6,11 @@ import { getServiceById } from '@/lib/data';
 import { adminDb } from './firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { verifyDiscountCode } from './discount-actions';
-import type { CartItem } from './types';
+import type { CartItem, Currency } from './types';
 
 export async function createPaymentIntent(
   items: CartItem[],
+  currency: Currency,
   discountCode?: string
 ): Promise<{ clientSecret: string; orderId: string }> {
   const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
@@ -28,17 +29,18 @@ export async function createPaymentIntent(
     itemId: item.service.id,
     name: item.service.name,
     quantity: item.quantity,
-    price: item.service.price,
+    price: item.service.price, // Price is always stored in USD
   }));
 
   const subtotal = items.reduce((sum, item) => sum + item.service.price * item.quantity, 0);
-  let totalAmount = subtotal;
+  let totalAmount = subtotal; // This is in USD
   let discountAmount = 0;
 
   const orderData: any = {
     items: orderItems,
     subtotal: subtotal,
     status: 'pending',
+    currency: currency,
     createdAt: FieldValue.serverTimestamp(),
   };
 
@@ -65,10 +67,13 @@ export async function createPaymentIntent(
   // Create a pending order document in Firestore first.
   // The webhook will update its status to 'paid' upon successful payment.
   const orderRef = await adminDb.collection('orders').add(orderData);
-
+  
+  // Note: Stripe requires the amount in the lowest denomination (cents for USD).
+  // The amount sent to Stripe is always based on the USD totalAmount.
+  // The `currency` parameter in paymentIntent is for display and processing.
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: Math.round(totalAmount * 100), // Amount in cents
-    currency: 'usd',
+    amount: Math.round(totalAmount * 100), // Amount in cents, based on USD
+    currency: currency.toLowerCase(), // Stripe expects lowercase currency codes
     receipt_email: 'customer@example.com', // Placeholder, Stripe will use the email from the payment form if available
     metadata: {
       orderId: orderRef.id,
@@ -84,4 +89,3 @@ export async function createPaymentIntent(
 
   return { clientSecret: paymentIntent.client_secret, orderId: orderRef.id };
 }
-

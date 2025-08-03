@@ -10,6 +10,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useCart } from '@/context/CartProvider';
 
 interface CheckoutFormProps {
   totalAmount: number;
@@ -20,6 +21,7 @@ export function CheckoutForm({ totalAmount }: CheckoutFormProps) {
   const elements = useElements();
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const { getFormattedPrice } = useCart();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,7 +63,7 @@ export function CheckoutForm({ totalAmount }: CheckoutFormProps) {
       <PaymentElement />
       <Button disabled={isLoading || !stripe || !elements} className="w-full mt-6">
         {isLoading && <Loader2 className="animate-spin mr-2" />}
-        <span>{isLoading ? 'Processing...' : `Pay $${totalAmount.toFixed(2)}`}</span>
+        <span>{isLoading ? 'Processing...' : `Pay ${getFormattedPrice(totalAmount)}`}</span>
       </Button>
     </form>
   );

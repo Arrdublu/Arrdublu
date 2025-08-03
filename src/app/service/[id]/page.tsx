@@ -1,8 +1,12 @@
+
+'use client';
+
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getServiceById } from '@/lib/data';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { ServiceActions } from '@/components/services/ServiceActions';
+import { useCart } from '@/context/CartProvider';
 
 interface ServicePageProps {
   params: {
@@ -11,6 +15,7 @@ interface ServicePageProps {
 }
 
 export default function ServicePage({ params }: ServicePageProps) {
+  const { getFormattedPrice } = useCart();
   const service = getServiceById(params.id);
 
   if (!service) {
@@ -45,7 +50,7 @@ export default function ServicePage({ params }: ServicePageProps) {
 
         <div className="flex flex-col gap-6">
           <h1 className="text-4xl font-headline font-bold text-primary">{service.name}</h1>
-          <p className="text-2xl font-semibold text-accent-foreground/80">${service.price.toFixed(2)}</p>
+          <p className="text-2xl font-semibold text-accent-foreground/80">{getFormattedPrice(service.price)}</p>
           <div className="prose prose-lg text-foreground/80 max-w-none">
             <p>{service.description}</p>
           </div>

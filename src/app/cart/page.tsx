@@ -35,7 +35,7 @@ import { loadStripe, type Stripe } from '@stripe/stripe-js';
 const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 
 export default function CartPage() {
-  const { cartItems, removeFromCart, getCartTotal, updateQuantity } = useCart();
+  const { cartItems, removeFromCart, getCartTotal, updateQuantity, getFormattedPrice, currency } = useCart();
   const [isLoading, setIsLoading] = useState(false);
   const [discountCode, setDiscountCode] = useState('');
   const [appliedDiscount, setAppliedDiscount] = useState<Discount | null>(null);
@@ -98,7 +98,7 @@ export default function CartPage() {
         throw new Error('Your cart is empty.');
       }
       
-      const { clientSecret: newClientSecret } = await createPaymentIntent(cartItems, appliedDiscount?.code);
+      const { clientSecret: newClientSecret } = await createPaymentIntent(cartItems, currency, appliedDiscount?.code);
       setClientSecret(newClientSecret);
       setIsCheckoutVisible(true);
 
@@ -200,7 +200,7 @@ export default function CartPage() {
                       </div>
                       <div className="text-right col-span-1">
                         <p className="font-semibold text-lg">
-                          ${(item.service.price * item.quantity).toFixed(2)}
+                          {getFormattedPrice(item.service.price * item.quantity)}
                         </p>
                       </div>
                     </div>
@@ -238,12 +238,12 @@ export default function CartPage() {
                 <Separator />
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>{getFormattedPrice(subtotal)}</span>
                 </div>
                 {appliedDiscount && (
                    <div className="flex justify-between text-green-600">
                     <span>Discount <Badge variant="secondary" className="ml-1">{appliedDiscount.code}</Badge></span>
-                    <span>-${discountAmount.toFixed(2)}</span>
+                    <span>-{getFormattedPrice(discountAmount)}</span>
                   </div>
                 )}
                 <div className="flex justify-between">
@@ -255,7 +255,7 @@ export default function CartPage() {
                 <Separator />
                 <div className="flex justify-between font-bold text-lg">
                   <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>{getFormattedPrice(total)}</span>
                 </div>
               </CardContent>
               <CardFooter>
@@ -281,7 +281,7 @@ export default function CartPage() {
           <DialogHeader>
             <DialogTitle>Complete Your Payment</DialogTitle>
             <DialogDescription>
-              Enter your card details below to securely complete your purchase for ${total.toFixed(2)}.
+              Enter your card details below to securely complete your purchase for {getFormattedPrice(total)}.
             </DialogDescription>
           </DialogHeader>
           <Elements stripe={stripePromise} options={{ clientSecret }}>

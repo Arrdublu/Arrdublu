@@ -1,9 +1,18 @@
 
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
-import type { Service, CartItem } from '@/lib/types';
+import React, { createContext, useContext, useState, ReactNode, useCallback, useMemo } from 'react';
+import type { Service, CartItem, Currency, ExchangeRates } from '@/lib/types';
 import { useToast } from "@/hooks/use-toast"
+import { formatCurrency } from '@/lib/utils';
+
+// Mock exchange rates relative to USD
+const MOCK_RATES: ExchangeRates = {
+  USD: 1,
+  EUR: 0.92,
+  GBP: 0.79,
+  JPY: 157,
+};
 
 interface CartContextType {
   cartItems: CartItem[];
@@ -14,6 +23,10 @@ interface CartContextType {
   getCartTotal: () => number;
   addViewedItem: (serviceId: string) => void;
   cartCount: number;
+  currency: Currency;
+  exchangeRates: ExchangeRates;
+  setCurrency: (currency: Currency) => void;
+  getFormattedPrice: (amount: number, currencyOverride?: Currency) => string;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -21,6 +34,8 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [viewedItems, setViewedItems] = useState<string[]>([]);
+  const [currency, setCurrency] = useState<Currency>('USD');
+  const [exchangeRates] = useState<ExchangeRates>(MOCK_RATES);
   const { toast } = useToast();
 
   const addToCart = useCallback((service: Service) => {
@@ -78,10 +93,32 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     });
   }, []);
 
-  const cartCount = cartItems.reduce((count, item) => count + item.quantity, 0);
+  const cartCount = useMemo(() => cartItems.reduce((count, item) => count + item.quantity, 0), [cartItems]);
+  
+  const getFormattedPrice = useCallback((amount: number, currencyOverride?: Currency) => {
+    const targetCurrency = currencyOverride || currency;
+    return formatCurrency(amount, targetCurrency, exchangeRates);
+  }, [currency, exchangeRates]);
+
+
+  const value = {
+    cartItems,
+    viewedItems,
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+    getCartTotal,
+    addViewedItem,
+    cartCount,
+    currency,
+    exchangeRates,
+    setCurrency,
+    getFormattedPrice
+  };
+
 
   return (
-    <CartContext.Provider value={{ cartItems, viewedItems, addToCart, removeFromCart, updateQuantity, getCartTotal, addViewedItem, cartCount }}>
+    <CartContext.Provider value={value}>
       {children}
     </CartContext.Provider>
   );
