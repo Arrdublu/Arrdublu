@@ -89,6 +89,7 @@ export function SiteHeader() {
                 <DropdownMenuRadioItem value="EUR">EUR - Euro</DropdownMenuRadioItem>
                 <DropdownMenuRadioItem value="GBP">GBP - British Pound</DropdownMenuRadioItem>
                 <DropdownMenuRadioItem value="JPY">JPY - Japanese Yen</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="JMD">JMD - Jamaican Dollar</DropdownMenuRadioItem>
               </DropdownMenuRadioGroup>
             </DropdownMenuContent>
           </DropdownMenu>

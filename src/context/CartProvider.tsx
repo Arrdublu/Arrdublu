@@ -12,6 +12,7 @@ const MOCK_RATES: ExchangeRates = {
   EUR: 0.92,
   GBP: 0.79,
   JPY: 157,
+  JMD: 155,
 };
 
 interface CartContextType {
