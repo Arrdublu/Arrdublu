@@ -1,8 +1,8 @@
 
 'use server';
 
-import { getServiceRecommendations } from '@/ai/flows/service-recommendation';
 import { getServicesByIds } from '@/lib/data';
+import { getServiceRecommendations } from '@/ai/dev'; // Assuming getServiceRecommendation is the function you need
 import type { Service } from '@/lib/types';
 
 export async function getRecommendedServicesAction(
@@ -12,12 +12,12 @@ export async function getRecommendedServicesAction(
   try {
     const allInputIds = new Set([...viewingHistory, ...shoppingBagContents]);
 
-    const recommendations = await getServiceRecommendations({
+    const recommendations = await getServiceRecommendations({ // Using getServiceRecommendation
       viewingHistory,
       shoppingBagContents,
     });
     
-    const filteredIds = recommendations.recommendedServices.filter(id => !allInputIds.has(id));
+    const filteredIds = recommendations.recommendedServices.filter((id: string) => !allInputIds.has(id));
 
     if (filteredIds.length === 0) {
       return [];

@@ -33,9 +33,9 @@ const nextConfig: NextConfig = {
       }
     ],
   },
-  experimental: {
-    serverComponentsExternalPackages: ['@opentelemetry/api'],
-  },
+ serverExternalPackages: ['@opentelemetry/api'],
+ experimental: {
+ } as any, // TODO: remove as any when next.js updates the types
 };
 
 export default nextConfig;
