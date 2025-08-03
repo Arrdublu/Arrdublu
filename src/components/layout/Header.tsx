@@ -29,7 +29,7 @@ export function SiteHeader() {
 
   const navItems = [
     { href: '/', label: 'Home' },
-    { href: '/orders', label: 'Orders' },
+    { href: '/faq', label: 'FAQ' },
   ];
   
   const discoverItems = [
