@@ -50,10 +50,10 @@ export function OrdersPageContent() {
             date: format(data.createdAt.toDate(), 'MMMM d, yyyy'),
             total: Number(data.totalAmount) || 0,
             status,
-            items: (data.items || []).map((item: any) => ({
+            items: (data.items || []).map((item: { itemId: string; name?: string; quantity?: number; price?: number }) => ({
               itemId: item.itemId,
               name: item.name || 'Unknown Item',
-              quantity: Number(item.quantity) || 1,
+ quantity: item.quantity ? Number(item.quantity) : 1,
               price: Number(item.price) || 0,
             })) as OrderItem[],
           });
@@ -98,7 +98,7 @@ export function OrdersPageContent() {
             <div className="flex-1">
               <CardTitle className="text-green-800 dark:text-green-300">Payment Successful!</CardTitle>
               <CardDescription className="text-green-700 dark:text-green-400">
-                Thank you for your order. A confirmation email has been sent to you.
+ Thank you for your order. A confirmation email has been sent to you.
               </CardDescription>
             </div>
             <Button

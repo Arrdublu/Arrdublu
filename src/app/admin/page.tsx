@@ -1,5 +1,4 @@
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -17,7 +16,7 @@ export default function AdminPage() {
             Welcome, Admin!
           </h3>
           <p className="text-sm text-muted-foreground">
-            You can manage your site's content and settings here.
+            You can manage your site&apos;s content and settings here.
           </p>
           <Button className="mt-4" asChild>
             <Link href="/admin/discounts">Manage Discounts</Link>

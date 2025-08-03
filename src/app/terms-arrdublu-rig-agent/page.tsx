@@ -9,7 +9,7 @@ export default function TermsRigAgentPage() {
         <CardHeader>
           <CardTitle>Rig/Agent Usage Policy</CardTitle>
         </CardHeader>
-        <CardContent className="prose prose-lg max-w-none">
+        <CardContent className="prose prose-lg max-w-none [&>h2]:mt-2">
           <h2>1. Grant of License</h2>
           <p>
             Subject to your compliance with these Terms, Arrdublu grants you a limited, non-exclusive, non-transferable, non-sublicensable license to use the ARRDUBLU™ Rig/agent (the “Rig/Agent”) solely for your internal business operations.

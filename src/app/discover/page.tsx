@@ -10,7 +10,7 @@ export default function DiscoverPage() {
           Discover Our Work
         </h1>
         <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-foreground/80">
-          A collection of our favorite projects. See how we've helped clients elevate their vision.
+          A collection of our favorite projects. See how we&apos;ve helped clients elevate their vision.
         </p>
       </div>
       <WorkShowcase />

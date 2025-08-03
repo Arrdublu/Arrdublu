@@ -9,7 +9,7 @@ export default function ContactPage() {
           Contact Us
         </h1>
         <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-foreground/80">
-          Have a question or a project in mind? We'd love to hear from you.
+          Have a question or a project in mind? We&apos;d love to hear from you.
         </p>
       </div>
       <div className="max-w-2xl mx-auto">

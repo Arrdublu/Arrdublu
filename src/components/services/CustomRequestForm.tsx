@@ -15,7 +15,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/input"; // Importing Input explicitly
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -66,49 +66,53 @@ ${values.message}`;
   }
 
   return (
-    <Card>
+    <Card> {/* Card component is used */}
         <CardContent className="pt-6">
             <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
                     <FormField
                     control={form.control}
-                    name="name"
-                    render={({ field }) => (
+ name="name"
+ render={({ field }: { field: any }) => (
                         <FormItem>
-                        <FormLabel>Full Name</FormLabel>
-                        <FormControl>
+                            <FormLabel>Full Name</FormLabel>
+                            <FormControl>
                             <Input placeholder="John Doe" {...field} />
-                        </FormControl>
-                        <FormMessage />
+                            </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )}
                     />
+
                     <FormField
                     control={form.control}
-                    name="email"
-                    render={({ field }) => (
+ name="email"
+ render={({ field }: { field: any }) => (
                         <FormItem>
-                        <FormLabel>Email Address</FormLabel>
-                        <FormControl>
+                            <FormLabel>Email Address</FormLabel>
+                            <FormControl>
                             <Input placeholder="you@example.com" {...field} />
-                        </FormControl>
-                        <FormMessage />
+                            </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )}
                     />
+
                 </div>
+
                  <FormField
-                    control={form.control}
+ control={form.control}
                     name="preferredService"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Preferred Service (Optional)</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormLabel>Preferred Service (Optional)</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                            <SelectTrigger>
+                                <SelectTrigger>
                                 <SelectValue placeholder="Select a service" />
-                            </SelectTrigger>
+                                </SelectTrigger>
                             </FormControl>
                             <SelectContent>
                                 {services.map(service => (
@@ -116,15 +120,16 @@ ${values.message}`;
                                 ))}
                                 <SelectItem value="Other">Other (please specify in message)</SelectItem>
                             </SelectContent>
-                        </Select>
-                        <FormMessage />
+                            </Select>
+                            <FormMessage />
                         </FormItem>
                     )}
                     />
+
                 <FormField
                 control={form.control}
-                name="message"
-                render={({ field }) => (
+ name="message"
+ render={({ field }: { field: any }) => (
                     <FormItem>
                     <FormLabel>Describe Your Request</FormLabel>
                     <FormControl>

@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { SocialShare } from './SocialShare';
 import { Badge } from '../ui/badge';
 

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getServiceById } from '@/lib/data';
-import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { ServiceActions } from '@/components/services/ServiceActions';
 

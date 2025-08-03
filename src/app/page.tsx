@@ -46,8 +46,8 @@ export default function Home() {
           <h2 className="text-3xl font-headline font-semibold text-primary">
             Need Something Different?
           </h2>
-          <p className="mt-4 text-lg max-w-2xl mx-auto text-foreground/80">
-            If you have a unique request or need a custom package, please let us know. We're happy to discuss your project.
+ <p className="mt-4 text-lg max-w-2xl mx-auto text-foreground/80">
+            If you have a unique request or need a custom package, please let us know. We&apos;re happy to discuss your project.
           </p>
         </div>
         <div className="max-w-2xl mx-auto">
