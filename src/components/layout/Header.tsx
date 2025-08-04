@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Logo } from './Logo';
 import type { Currency } from '@/lib/types';
+import { Search } from './Search';
 
 
 export function SiteHeader() {
@@ -47,7 +48,7 @@ export function SiteHeader() {
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Logo />
         </Link>
-        <nav className="flex items-center gap-6 text-sm">
+        <nav className="hidden md:flex items-center gap-6 text-sm">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -74,6 +75,9 @@ export function SiteHeader() {
           </DropdownMenu>
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-2">
+          <div className="w-full flex-1 md:w-auto md:flex-none">
+            <Search />
+          </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm" className="text-foreground/80">
