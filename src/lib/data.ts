@@ -143,7 +143,7 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'Relive every moment with a cinematic wedding film. We create a beautiful highlights reel and a full-length feature of your day, capturing the emotions, speeches, and celebrations in stunning detail.',
     price: 3500,
-    image: 'https://images.unsplash.com/photo-1529603387013-e85381a10a14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1657574814541-43e2c6731e2f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8V2VkZGluZyUyMFZpZGVvZ3JhcGh5JTIwUGFja2FnZXxlbnwwfHx8fDE3NTQzMTgxNjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [
       'https://images.unsplash.com/photo-1606833958622-1b6c7a1d1d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1510627878916-7a0c10740a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
