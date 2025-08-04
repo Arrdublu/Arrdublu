@@ -1,7 +1,7 @@
 // src/components/layout/Footer.tsx
 
 import Link from 'next/link';
-import { Instagram, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Instagram, Facebook, Twitter, Linkedin, Youtube, Link as LinkIcon } from 'lucide-react';
 import { Logo } from './Logo';
 
 // Store social media links and developer info in constants for easier updates
@@ -10,6 +10,8 @@ const SOCIAL_MEDIA_LINKS = {
   facebook: 'https://www.facebook.com/arrdublu',
   twitter: 'https://twitter.com/arrdublu',
   linkedin: 'https://www.linkedin.com/company/arrdublu',
+  youtube: 'https://www.youtube.com/@arrdublu',
+  vimeo: 'https://vimeo.com/arrdublu',
 };
 
 const DEVELOPER_INFO = {
@@ -104,6 +106,24 @@ const Footer = () => {
                 aria-label="LinkedIn"
               >
                 <Linkedin size={24} />
+              </a>
+              <a
+                href={SOCIAL_MEDIA_LINKS.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+                aria-label="Youtube"
+              >
+                <Youtube size={24} />
+              </a>
+              <a
+                href={SOCIAL_MEDIA_LINKS.vimeo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+                aria-label="Vimeo"
+              >
+                <LinkIcon size={24} />
               </a>
             </div>
           </div>
