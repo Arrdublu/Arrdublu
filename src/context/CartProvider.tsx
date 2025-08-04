@@ -2,8 +2,20 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
-import type { Service, CartItem } from '@/lib/types';
+import type { Service, CartItem, Currency, ExchangeRates } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
+import { formatCurrency } from '@/lib/utils';
+
+
+// Mock exchange rates should be consistent with the provider
+const MOCK_RATES: ExchangeRates = {
+  USD: 1,
+  EUR: 0.92,
+  GBP: 0.79,
+  JPY: 157,
+  JMD: 155,
+};
+
 
 interface CartContextType {
   cartItems: CartItem[];
@@ -15,6 +27,7 @@ interface CartContextType {
   cartCount: number;
   viewedItems: string[];
   addViewedItem: (serviceId:string) => void;
+  getFormattedPrice: (amount: number, currency?: Currency) => string;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -81,6 +94,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     return cartItems.reduce((total, item) => total + item.service.price * item.quantity, 0);
   };
 
+  const getFormattedPrice = (amount: number, currency: Currency = 'USD') => {
+    return formatCurrency(amount, currency, MOCK_RATES);
+  };
+
   const cartCount = cartItems.reduce((count, item) => count + item.quantity, 0);
 
   const value = {
@@ -93,6 +110,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     cartCount,
     viewedItems,
     addViewedItem,
+    getFormattedPrice,
   };
 
 
