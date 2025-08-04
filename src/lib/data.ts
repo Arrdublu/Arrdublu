@@ -30,7 +30,7 @@ export const services: Service[] = [
     price: 1200,
     image: 'https://images.unsplash.com/photo-1556740772-1a741367b93e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
     previews: ['https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1497032628192-86f99d791ba7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
-    paymentLink: 'https://buy.stripe.com/placeholder_brand-identity',
+    paymentLink: 'https://book.stripe.com/9B68wP9YOeqg6Ky3zg93y0a',
   },
   {
     id: 'logo-design',
@@ -69,7 +69,7 @@ export const services: Service[] = [
     description: 'Elevate your social media presence with stunning, on-brand visuals. We provide a set of custom templates and graphics for posts, stories, and profiles, optimized for engagement.',
     price: 750,
     image: 'https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
-    previews: ['https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80'],
+    previews: ['https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_social-media-visuals',
   },
   {
@@ -91,7 +91,7 @@ export const services: Service[] = [
     price: 250,
     unit: 'hr',
     image: 'https://images.unsplash.com/photo-1557701491-7bdb1098123d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNXx8ZXZlbnQlMjB2aWRlb2dyYXBoeXxlbnwwfHx8fDE3NTQyNDMwNjV8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: ['https://images.unsplash.com/photo-1606833958622-1b6c7a1d1d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
+    previews: ['https://images.unsplash.com/photo-1606833958622-1b6c7a1d1d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_event-video',
   },
   {
@@ -145,8 +145,8 @@ export const services: Service[] = [
     price: 3500,
     image: 'https://images.unsplash.com/photo-1657574814541-43e2c6731e2f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8V2VkZGluZyUyMFZpZGVvZ3JhcGh5JTIwUGFja2FnZXxlbnwwfHx8fDE3NTQzMTgxNjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [
-      'https://images.unsplash.com/photo-1606833958622-1b6c7a1d1d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1510627878916-7a0c10740a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1606833958622-1b6c7a1d1d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1510627878916-7a0c10740a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'
     ],
     paymentLink: 'https://buy.stripe.com/placeholder_wedding-videography',
   },
