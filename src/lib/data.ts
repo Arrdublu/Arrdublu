@@ -48,9 +48,9 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'Need a stunning graphic for your next social media post? We will design one custom, on-brand visual for the platform of your choice.',
     price: 75,
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
-    previews: ['https://images.unsplash.com/photo-1563861327975-6078d4994655?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxTaW5nbGUlMjBTb2NpYWwlMjBNZWRpYSUyMEdyYXBoaWN8ZW58MHx8fHwxNzU0MzQ4NDQ2fDA&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
-    paymentLink: 'https://buy.stripe.com/placeholder_social-media-graphic',
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80',
+    previews: ['https://images.unsplash.com/photo-1563861327975-6078d4994655?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxTaW5nbGUlMjBTb2NpYWwlMjBNZWRpYSUyMEdyYXBoaWN8ZW58MHx8fHwxNzU0MzQ4NDQ2fDA&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
+    paymentLink: 'https://book.stripe.com/3cI14n3Aqbe44Cq8TA93y0c',
   },
    {
     id: 'business-card-design',
@@ -167,7 +167,7 @@ export const services: Service[] = [
     description: 'Capture your essence with a professional portrait session. Ideal for entrepreneurs, artists, and professionals looking for high-quality headshots and personal branding images.',
     price: 600,
     image: 'https://images.unsplash.com/photo-1574622522998-d1e672e81e46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxBcnRpc2FuYWwlMjBQb3J0cmFpdCUyMFNlc3Npb258ZW58MHx8fHwxNzU0MjQzMzg5fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: ['https://images.unsplash.com/photo-1588516624929-23606c45f415?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
+    previews: ['https://images.unsplash.com/photo-1588516624929-23606c45f415?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_portrait-session',
   },
   {
