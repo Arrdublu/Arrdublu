@@ -100,7 +100,7 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'Ideal for conferences and performances. Features a multi-camera (up to 3) setup, professional audio mixing, and simulcasting to two platforms for wider reach.',
     price: 1500,
-    image: 'https://images.unsplash.com/photo-1525328437458-0c4d4db72dec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1588728670720-40153449cc89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxTdGFuZGFyZCUyMExpdmVzdHJlYW0lMjBQYWNrYWdlfGVufDB8fHx8MTc1NDI3OTI2Mnww&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1575222689943-45a77030b299?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
   },
   {
@@ -179,3 +179,6 @@ export async function getServicesByIds(ids: string[]): Promise<Service[]> {
     
 
 
+
+
+    
