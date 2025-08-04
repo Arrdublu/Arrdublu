@@ -130,7 +130,7 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'Capture the magic of your special day. Our wedding photography package includes full-day coverage, from getting ready to the final dance, delivering beautifully edited, high-resolution images you\'ll cherish forever.',
     price: 2800,
-    image: 'https://images.unsplash.com/photo-1583939003579-50a797103552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1667506057454-87e10fb157d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxXZWRkaW5nJTIwUGhvdG9ncmFwaHklMjBQYWNrYWdlfGVufDB8fHx8MTc1NDMxNDU1Mnww&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [
       'https://images.unsplash.com/photo-1519741497674-6114d1863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1515934751635-481eff048d09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
