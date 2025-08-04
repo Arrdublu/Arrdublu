@@ -1,40 +1,37 @@
 
-import * as admin from 'firebase-admin';
+'use server';
 
-let adminDb: admin.firestore.Firestore;
-let adminAuth: admin.auth.Auth;
+import * as admin from 'firebase-admin';
+import { firebaseConfig } from './firebase';
+
+let adminDb: admin.firestore.Firestore | null = null;
+let adminAuth: admin.auth.Auth | null = null;
 
 if (!admin.apps.length) {
-  console.log("Initializing Firebase Admin SDK...");
+  console.log('Attempting to initialize Firebase Admin SDK...');
   try {
-    const serviceAccountString = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!serviceAccountString) {
-      throw new Error('GOOGLE_APPLICATION_CREDENTIALS is not set.');
-    }
-    const serviceAccount = JSON.parse(serviceAccountString);
-
+    // In a deployed Firebase environment (like App Hosting or Cloud Functions),
+    // the SDK can auto-discover credentials. We just need the project ID.
     admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
+      projectId: firebaseConfig.projectId,
     });
-    
     console.log('Firebase Admin SDK initialized successfully.');
+    adminDb = admin.firestore();
+    adminAuth = admin.auth();
   } catch (error: any) {
     console.error(
       'CRITICAL: Failed to initialize Firebase Admin SDK.',
-      { errorMessage: error.message }
+      'This might happen in a local environment without credentials.',
+      `Error: ${error.message}`
     );
-    // In a real-world scenario, you might want to alert or handle this more gracefully.
-    // For now, we'll let it throw to prevent the app from running in a broken state.
-    throw new Error('Could not initialize Firebase Admin SDK. Check server logs.');
+    // Do not throw an error. The app can continue to run,
+    // but backend features requiring admin access will fail.
+    // The parts of the code using adminDb/adminAuth should handle them being null.
   }
-}
-
-adminDb = admin.firestore();
-adminAuth = admin.auth();
-
-if (!adminDb || !adminAuth) {
-    // This should theoretically not be reached if initializeApp succeeds.
-    console.error("CRITICAL: Firebase Admin DB or Auth is not available after initialization.");
+} else {
+  // If the app is already initialized, just get the instances.
+  adminDb = admin.firestore();
+  adminAuth = admin.auth();
 }
 
 export { adminDb, adminAuth };
