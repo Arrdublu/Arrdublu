@@ -51,7 +51,7 @@ export function ArticleGrid() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {articles.map((article) => (
           <Card key={article.id} className="group overflow-hidden flex flex-col">
-            <Link href={article.url}>
+            <Link href={article.url} className="block">
               <div className="relative aspect-video overflow-hidden">
                 <Image
                   src={article.image}
@@ -69,7 +69,7 @@ export function ArticleGrid() {
                 <Link href={article.url}>{article.title}</Link>
               </CardTitle>
             </CardHeader>
-            <CardContent className="mt-auto">
+            <CardContent className="mt-auto pt-4">
               <SocialShare url={article.url} title={article.title} />
             </CardContent>
           </Card>

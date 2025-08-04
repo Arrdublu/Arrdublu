@@ -8,26 +8,20 @@ import { useState } from 'react';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { useCart } from '@/context/CartProvider';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Logo } from './Logo';
-import type { Currency } from '@/lib/types';
 import { Search } from './Search';
+import { ThemeToggle } from './ThemeToggle';
 
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const { currency, setCurrency } = useCart();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -95,25 +89,11 @@ export function SiteHeader() {
           <div className="w-full flex-1 md:w-auto md:flex-none">
             <Search />
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="text-foreground/80 hidden md:inline-flex">
-                {currency}
-                <ChevronDown className="h-4 w-4 ml-1" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>Select Currency</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup value={currency} onValueChange={(value) => setCurrency(value as Currency)}>
-                <DropdownMenuRadioItem value="USD">USD - US Dollar</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="EUR">EUR - Euro</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="GBP">GBP - British Pound</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="JPY">JPY - Japanese Yen</DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="JMD">JMD - Jamaican Dollar</DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          
+          <div className="hidden md:flex">
+            <ThemeToggle />
+          </div>
+
 
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
@@ -146,25 +126,7 @@ export function SiteHeader() {
                   </div>
                 </nav>
                  <div className="mt-auto">
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="w-full justify-between">
-                            <span>{currency}</span>
-                            <ChevronDown className="h-4 w-4" />
-                        </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="w-[--radix-dropdown-menu-trigger-width]">
-                        <DropdownMenuLabel>Select Currency</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuRadioGroup value={currency} onValueChange={(value) => setCurrency(value as Currency)}>
-                            <DropdownMenuRadioItem value="USD">USD</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="EUR">EUR</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="GBP">GBP</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="JPY">JPY</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="JMD">JMD</DropdownMenuRadioItem>
-                        </DropdownMenuRadioGroup>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
+                    <ThemeToggle />
                 </div>
               </div>
             </SheetContent>
