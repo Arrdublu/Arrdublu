@@ -1,6 +1,7 @@
+
 'use client';
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { useCart } from '@/context/CartProvider';
 import { getRecommendedServicesAction } from '@/lib/ai-actions';
 import type { Service } from '@/lib/types';
@@ -9,20 +10,19 @@ import { ServiceCard } from './ServiceCard';
 import { Skeleton } from '../ui/skeleton';
 
 export function Recommendations() {
-  const { viewedItems, cartItems } = useCart();
+  const { viewedItems } = useCart();
   const [recommendedServices, setRecommendedServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(false);
   const [hasFetched, setHasFetched] = useState(false);
 
-  const cartItemIds = useMemo(() => cartItems.map((item) => item.service.id), [cartItems]);
-
   useEffect(() => {
     // Only fetch if there's activity and we haven't fetched before
-    if ((viewedItems.length > 0 || cartItemIds.length > 0) && !loading) {
+    if (viewedItems.length > 0 && !loading) {
       const fetchRecommendations = async () => {
         setLoading(true);
         setHasFetched(true);
-        const services = await getRecommendedServicesAction(viewedItems, cartItemIds);
+        // Pass an empty array for cart contents now
+        const services = await getRecommendedServicesAction(viewedItems, []);
         setRecommendedServices(services);
         setLoading(false);
       };
@@ -35,7 +35,7 @@ export function Recommendations() {
       return () => clearTimeout(timer);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [viewedItems, cartItemIds]); // We don't include loading to prevent re-triggering
+  }, [viewedItems]); // We don't include loading to prevent re-triggering
 
   if (!hasFetched && !loading) return null;
 
