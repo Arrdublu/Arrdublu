@@ -122,7 +122,7 @@ export const services: Service[] = [
     price: 3000,
     image: 'https://images.unsplash.com/photo-1641499303764-a9e3a93a72e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxQcmVtaXVtJTIwTGl2ZXN0cmVhbSUyMFBhY2thZ2V8ZW58MHx8fHwxNzU0Mjc5NzY1fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1556761175-b413da4b2489?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1511578194003-062818810074?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
-    paymentLink: 'https://buy.stripe.com/placeholder_livestream-premium',
+    paymentLink: 'https://book.stripe.com/7sY14n8UK0zq5GufhY93y09',
   },
   {
     id: 'lifestyle-photography',
@@ -200,3 +200,6 @@ export async function getServicesByIds(ids: string[]): Promise<Service[]> {
     
 
 
+
+
+    
