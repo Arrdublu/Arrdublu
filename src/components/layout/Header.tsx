@@ -3,11 +3,10 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShoppingBag, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { CartSheet } from '@/components/cart/CartSheet';
 import { useCart } from '@/context/CartProvider';
 import {
   DropdownMenu,
@@ -26,7 +25,7 @@ import { Search } from './Search';
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const { cartCount, currency, setCurrency } = useCart();
+  const { currency, setCurrency } = useCart();
 
   const navItems = [
     { href: '/', label: 'Home' },
@@ -97,17 +96,6 @@ export function SiteHeader() {
               </DropdownMenuRadioGroup>
             </DropdownMenuContent>
           </DropdownMenu>
-          <CartSheet>
-            <Button variant="ghost" size="icon" className="relative">
-              <ShoppingBag className="h-5 w-5 text-primary" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-xs text-accent-foreground font-bold">
-                  {cartCount}
-                </span>
-              )}
-              <span className="sr-only">Shopping Bag</span>
-            </Button>
-          </CartSheet>
         </div>
       </div>
     </header>
