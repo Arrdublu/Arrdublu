@@ -108,7 +108,7 @@ export const services: Service[] = [
     id: 'livestream-standard',
     name: 'Standard Livestream Package',
     category: 'Creative',
-    description: '2 camera operators (static + moving)\nSound mixing with wireless mics\nLivestream to YouTube, Facebook, or Zoom\nUp to 3.5 hours, 2 locations\nBasic graphics (name/date overlays)\nEdited highlights video (5–7 mins)\nUSB + 3 hard copies',
+    description: '2 camera operators (static + moving)\n\nSound mixing with wireless mics\n\nLivestream to YouTube, Facebook, or Zoom\n\nUp to 3.5 hours, 2 locations\n\nBasic graphics (name/date overlays)\n\nEdited highlights video (5–7 mins)\n\nUSB + 3 hard copies',
     price: 1500,
     image: 'https://images.unsplash.com/photo-1688560722687-7d4d5fb8ff8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y3JlYXRpdmUlMjBzZXJ2aWNlJTIwcHJldmlld3xlbnwwfHx8fDE3NTQyOTEwMDd8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1522204538344-922f76ecc041?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjcmVhdGl2ZSUyMHNlcnZpY2UlMjBwcmV2aWV3fGVufDB8fHx8MTc1NDI5MTAwN3ww&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1688560722687-7d4d5fb8ff8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y3JlYXRpdmUlMjBzZXJ2aWNlJTIwcHJldmlld3xlbnwwfHx8fDE3NTQyOTEwMDd8MA&ixlib=rb-4.1.0&q=80&w=1080'],
@@ -118,7 +118,7 @@ export const services: Service[] = [
     id: 'livestream-premium',
     name: 'Premium Livestream Package',
     category: 'Creative',
-    description: 'The complete solution for high-production value events. Includes a multi-camera setup, custom on-screen graphics, pre-recorded video roll-ins, and a dedicated stream director.',
+    description: 'Top-tier production and memorial keepsake.\n\n3–4 camera setup with roving and aerial (drone) shots\n\nCustom branded livestream page\n\nDedicated director + full crew\n\nUp to 5 hours, multiple locations\n\nFully edited memorial film (10 mins)\n\nSlideshow of photos + music integration\n\nDigital link + 10 USBs or DVDs\n\nFamily access portal with download/replay options',
     price: 3000,
     image: 'https://images.unsplash.com/photo-1641499303764-a9e3a93a72e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxQcmVtaXVtJTIwTGl2ZXN0cmVhbSUyMFBhY2thZ2V8ZW58MHx8fHwxNzU0Mjc5NzY1fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1556761175-b413da4b2489?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1511578194003-062818810074?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
@@ -131,7 +131,7 @@ export const services: Service[] = [
     description: 'Showcase your products in their natural element. Our lifestyle photography session captures your products in authentic, relatable scenarios that connect with your target audience.',
     price: 950,
     image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80',
-    previews: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80'],
+    previews: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_lifestyle-photography',
   },
   {
@@ -151,7 +151,7 @@ export const services: Service[] = [
     description: 'A bespoke content roadmap designed to attract, engage, and convert your target audience. We plan blog topics, content formats, and distribution channels to maximize your reach and impact.',
     price: 850,
     image: 'https://images.unsplash.com/photo-1726066012749-f81bf4422d4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxDb250ZW50JTIwTWFya2V0aW5nJTIwU3RyYXRlZ3l8ZW58MHx8fHwxNzU0MjQ0NTEwfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: ['https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
+    previews: ['https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_content-strategy',
   },
   {
@@ -198,4 +198,5 @@ export async function getServicesByIds(ids: string[]): Promise<Service[]> {
     
 
     
+
 
