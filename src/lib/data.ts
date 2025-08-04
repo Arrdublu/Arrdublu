@@ -89,7 +89,7 @@ export const services: Service[] = [
     id: 'livestream-basic',
     name: 'Basic Livestream Package',
     category: 'Creative',
-    description: 'Perfect for simple events and announcements. Includes a single-camera setup, 1080p streaming to one platform (e.g., YouTube, Facebook), and up to 2 hours of coverage.',
+    description: 'Professional-grade base coverage. Features: 1 broadcast-quality camera, an on-site technician with sound mixing, livestream via branded platform or YouTube, up to 2 hours at one location, and a digital link with basic archive.',
     price: 500,
     image: 'https://images.unsplash.com/photo-1600195556579-d81d3f386e55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8QmFzaWMlMjBMaXZlc3RyZWFtJTIwUGFja2FnZXxlbnwwfHx8fDE3NTQyODA2Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1616499368319-75618f73a55a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1589144810237-792b9d12a648?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
@@ -149,7 +149,7 @@ export const services: Service[] = [
     previews: ['https://images.unsplash.com/photo-1551873493-6c471519a9e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
   },
   {
-    id: 'makeup-cosmetics',
+    id: 'production-makeup',
     name: 'Production MakeUp',
     category: 'Creative',
     description: 'Professional makeup and cosmetics services for film, photo shoots, and events. Our artists ensure talent looks flawless on camera.',
@@ -173,14 +173,3 @@ export async function getServicesByIds(ids: string[]): Promise<Service[]> {
     }, 500);
   });
 }
-
-    
-
-    
-
-
-
-
-    
-
-    
