@@ -125,6 +125,32 @@ export const services: Service[] = [
     paymentLink: 'https://book.stripe.com/7sY14n8UK0zq5GufhY93y09',
   },
   {
+    id: 'wedding-photography',
+    name: 'Wedding Photography Package',
+    category: 'Creative',
+    description: 'Capture the magic of your special day. Our wedding photography package includes full-day coverage, from getting ready to the final dance, delivering beautifully edited, high-resolution images you\'ll cherish forever.',
+    price: 2800,
+    image: 'https://images.unsplash.com/photo-1583939003579-50a797103552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    previews: [
+      'https://images.unsplash.com/photo-1519741497674-6114d1863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1515934751635-481eff048d09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
+    ],
+    paymentLink: 'https://buy.stripe.com/placeholder_wedding-photography',
+  },
+  {
+    id: 'wedding-videography',
+    name: 'Wedding Videography Package',
+    category: 'Creative',
+    description: 'Relive every moment with a cinematic wedding film. We create a beautiful highlights reel and a full-length feature of your day, capturing the emotions, speeches, and celebrations in stunning detail.',
+    price: 3500,
+    image: 'https://images.unsplash.com/photo-1529603387013-e85381a10a14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    previews: [
+      'https://images.unsplash.com/photo-1606833958622-1b6c7a1d1d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1510627878916-7a0c10740a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
+    ],
+    paymentLink: 'https://buy.stripe.com/placeholder_wedding-videography',
+  },
+  {
     id: 'lifestyle-photography',
     name: 'Lifestyle Product Photography',
     category: 'Lifestyle',
