@@ -102,7 +102,7 @@ export const services: Service[] = [
     price: 500,
     image: 'https://images.unsplash.com/photo-1600195556579-d81d3f386e55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8QmFzaWMlMjBMaXZlc3RyZWFtJTIwUGFja2FnZXxlbnwwfHx8fDE3NTQyODA2Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1616499368319-75618f73a55a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1589144810237-792b9d12a648?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
-    paymentLink: 'https://buy.stripe.com/placeholder_livestream-basic',
+    paymentLink: 'https://book.stripe.com/fZu7sL6MC0zq2ui6Ls93y07',
   },
   {
     id: 'livestream-standard',
@@ -130,7 +130,7 @@ export const services: Service[] = [
     category: 'Lifestyle',
     description: 'Showcase your products in their natural element. Our lifestyle photography session captures your products in authentic, relatable scenarios that connect with your target audience.',
     price: 950,
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80',
     previews: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_lifestyle-photography',
   },
@@ -193,3 +193,6 @@ export async function getServicesByIds(ids: string[]): Promise<Service[]> {
 
 
 
+
+
+    
