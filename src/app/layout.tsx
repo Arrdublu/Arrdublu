@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     siteName: 'Arrdublu',
     images: [
       {
-        url: 'https://firebasestorage.googleapis.com/v0/b/arrdublu-3.firebasestorage.app/o/logo.png?alt=media&token=8665db41-2101-446e-82d2-28c06354674a',
+        url: 'https://images.unsplash.com/photo-1554224155-cfa08c2a758f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxDb21wcmVoZW5zaXZlJTIwU0VPJTIwQXVkaXR8ZW58MHx8fHwxNzU0MjQzNjc4fDA&ixlib=rb-4.1.0&q=80&w=1080',
         width: 1200,
         height: 630,
-        alt: 'Arrdublu Logo',
+        alt: 'Arrdublu SEO Services',
       },
     ],
     locale: 'en_US',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Arrdublu - Exquisite Media Services',
     description: 'Elevate your vision with our top-tier creative, lifestyle, and SEO services.',
-    images: ['https://firebasestorage.googleapis.com/v0/b/arrdublu-3.firebasestorage.app/o/logo.png?alt=media&token=8665db41-2101-446e-82d2-28c06354674a'],
+    images: ['https://images.unsplash.com/photo-1554224155-cfa08c2a758f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxDb21wcmVoZW5zaXZlJTIwU0VPJTIwQXVkaXR8ZW58MHx8fHwxNzU0MjQzNjc4fDA&ixlib=rb-4.1.0&q=80&w=1080'],
   },
 };
 
