@@ -86,6 +86,33 @@ export const services: Service[] = [
     previews: ['https://images.unsplash.com/photo-1606833958622-1b6c7a1d1d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
   },
   {
+    id: 'livestream-basic',
+    name: 'Basic Livestream Package',
+    category: 'Creative',
+    description: 'Perfect for simple events and announcements. Includes a single-camera setup, 1080p streaming to one platform (e.g., YouTube, Facebook), and up to 2 hours of coverage.',
+    price: 500,
+    image: 'https://images.unsplash.com/photo-1593431638217-6954d24f0a9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    previews: ['https://images.unsplash.com/photo-1616499368319-75618f73a55a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1589144810237-792b9d12a648?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
+  },
+  {
+    id: 'livestream-standard',
+    name: 'Standard Livestream Package',
+    category: 'Creative',
+    description: 'Ideal for conferences and performances. Features a multi-camera (up to 3) setup, professional audio mixing, and simulcasting to two platforms for wider reach.',
+    price: 1500,
+    image: 'https://images.unsplash.com/photo-1525328437458-0c4d4db72dec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    previews: ['https://images.unsplash.com/photo-1575222689943-45a77030b299?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
+  },
+  {
+    id: 'livestream-premium',
+    name: 'Premium Livestream Package',
+    category: 'Creative',
+    description: 'The complete solution for high-production value events. Includes a multi-camera setup, custom on-screen graphics, pre-recorded video roll-ins, and a dedicated stream director.',
+    price: 3000,
+    image: 'https://images.unsplash.com/photo-1459700438136-2dc017a5446e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    previews: ['https://images.unsplash.com/photo-1556761175-b413da4b2489?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1511578194003-062818810074?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
+  },
+  {
     id: 'lifestyle-photography',
     name: 'Lifestyle Product Photography',
     category: 'Lifestyle',
@@ -150,4 +177,5 @@ export async function getServicesByIds(ids: string[]): Promise<Service[]> {
     
 
     
+
 
