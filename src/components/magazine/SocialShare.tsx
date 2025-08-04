@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Twitter, Facebook, Linkedin } from 'lucide-react';
+import { Twitter, Facebook, Linkedin, Instagram, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface SocialShareProps {
@@ -18,6 +18,7 @@ export function SocialShare({ url, title }: SocialShareProps) {
     twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
     linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`,
+    instagram: 'https://www.instagram.com/arrdublu',
   };
 
   return (
@@ -39,6 +40,12 @@ export function SocialShare({ url, title }: SocialShareProps) {
         <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
           <Linkedin className="h-4 w-4" />
           <span className="sr-only">Share on LinkedIn</span>
+        </a>
+      </Button>
+      <Button variant="outline" size="icon" asChild>
+        <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer">
+          <Instagram className="h-4 w-4" />
+          <span className="sr-only">Share on Instagram</span>
         </a>
       </Button>
     </div>
