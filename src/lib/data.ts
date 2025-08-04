@@ -150,7 +150,7 @@ export const services: Service[] = [
   },
   {
     id: 'makeup-cosmetics',
-    name: 'MakeUp/Production Cosmetics',
+    name: 'Production MakeUp',
     category: 'Creative',
     description: 'Professional makeup and cosmetics services for film, photo shoots, and events. Our artists ensure talent looks flawless on camera.',
     price: 800,
