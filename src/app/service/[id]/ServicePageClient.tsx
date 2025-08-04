@@ -46,7 +46,7 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
             {getFormattedPrice(service.price)}
             {service.unit === 'hr' && <span className="text-lg font-normal text-muted-foreground">/hr</span>}
             </p>
-          <div className="prose prose-lg text-foreground/80 max-w-none">
+          <div className="prose prose-lg text-foreground/80 max-w-none whitespace-pre-wrap">
             <p>{service.description}</p>
           </div>
           <ServiceActions service={service} />

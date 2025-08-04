@@ -108,7 +108,7 @@ export const services: Service[] = [
     id: 'livestream-standard',
     name: 'Standard Livestream Package',
     category: 'Creative',
-    description: 'Ideal for conferences and performances. Features a multi-camera (up to 3) setup, professional audio mixing, and simulcasting to two platforms for wider reach.',
+    description: '2 camera operators (static + moving)\nSound mixing with wireless mics\nLivestream to YouTube, Facebook, or Zoom\nUp to 3.5 hours, 2 locations\nBasic graphics (name/date overlays)\nEdited highlights video (5–7 mins)\nUSB + 3 hard copies',
     price: 1500,
     image: 'https://images.unsplash.com/photo-1688560722687-7d4d5fb8ff8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y3JlYXRpdmUlMjBzZXJ2aWNlJTIwcHJldmlld3xlbnwwfHx8fDE3NTQyOTEwMDd8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1522204538344-922f76ecc041?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjcmVhdGl2ZSUyMHNlcnZpY2UlMjBwcmV2aWV3fGVufDB8fHx8MTc1NDI5MTAwN3ww&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1688560722687-7d4d5fb8ff8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y3JlYXRpdmUlMjBzZXJ2aWNlJTIwcHJldmlld3xlbnwwfHx8fDE3NTQyOTEwMDd8MA&ixlib=rb-4.1.0&q=80&w=1080'],
