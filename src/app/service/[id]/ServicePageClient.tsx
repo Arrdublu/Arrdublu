@@ -6,6 +6,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { ServiceActions } from '@/components/services/ServiceActions';
 import { useCart } from '@/context/CartProvider';
 import type { Service } from '@/lib/types';
+import { SocialShare } from '@/components/magazine/SocialShare';
+import { Separator } from '@/components/ui/separator';
 
 interface ServicePageClientProps {
   service: Service;
@@ -49,6 +51,10 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
           <div className="prose prose-lg text-foreground/80 max-w-none whitespace-pre-wrap">
             <p>{service.description}</p>
           </div>
+          <div className="mt-4">
+             <SocialShare url={`/service/${service.id}`} title={service.name} />
+          </div>
+          <Separator className="my-2" />
           <ServiceActions service={service} />
         </div>
       </div>
