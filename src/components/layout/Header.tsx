@@ -3,7 +3,8 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Menu } from 'lucide-react';
+import { useState } from 'react';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -18,6 +19,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu"
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Logo } from './Logo';
 import type { Currency } from '@/lib/types';
 import { Search } from './Search';
@@ -26,6 +28,7 @@ import { Search } from './Search';
 export function SiteHeader() {
   const pathname = usePathname();
   const { currency, setCurrency } = useCart();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { href: '/', label: 'Home' },
@@ -40,6 +43,21 @@ export function SiteHeader() {
     { href: '/discover/brands', label: 'Brands' },
     { href: '/discover/events', label: 'Events' },
   ]
+
+  const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+    <SheetClose asChild>
+      <Link
+        href={href}
+        className={cn(
+          'transition-colors hover:text-foreground/80 block py-2 text-lg',
+          pathname === href ? 'text-foreground' : 'text-foreground/60'
+        )}
+        onClick={() => setIsMobileMenuOpen(false)}
+      >
+        {children}
+      </Link>
+    </SheetClose>
+  );
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -79,7 +97,7 @@ export function SiteHeader() {
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="text-foreground/80">
+              <Button variant="ghost" size="sm" className="text-foreground/80 hidden md:inline-flex">
                 {currency}
                 <ChevronDown className="h-4 w-4 ml-1" />
               </Button>
@@ -96,6 +114,58 @@ export function SiteHeader() {
               </DropdownMenuRadioGroup>
             </DropdownMenuContent>
           </DropdownMenu>
+
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu />
+                <span className="sr-only">Toggle Menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-full max-w-xs pr-6">
+              <div className="flex flex-col h-full p-6">
+                <Link href="/" className="mb-8" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Logo />
+                </Link>
+                <nav className="flex flex-col gap-4">
+                  {navItems.map((item) => (
+                    <NavLink key={item.href} href={item.href}>
+                      {item.label}
+                    </NavLink>
+                  ))}
+                  <div className="pt-2">
+                    <h3 className="text-foreground font-semibold mb-2">Discover</h3>
+                    {discoverItems.map((item) => (
+                       <NavLink key={item.href} href={item.href}>
+                         {item.label}
+                       </NavLink>
+                    ))}
+                  </div>
+                </nav>
+                 <div className="mt-auto">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                        <Button variant="outline" className="w-full justify-between">
+                            <span>{currency}</span>
+                            <ChevronDown className="h-4 w-4" />
+                        </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-[--radix-dropdown-menu-trigger-width]">
+                        <DropdownMenuLabel>Select Currency</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuRadioGroup value={currency} onValueChange={(value) => setCurrency(value as Currency)}>
+                            <DropdownMenuRadioItem value="USD">USD</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="EUR">EUR</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="GBP">GBP</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="JPY">JPY</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="JMD">JMD</DropdownMenuRadioItem>
+                        </DropdownMenuRadioGroup>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
