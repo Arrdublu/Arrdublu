@@ -1,5 +1,7 @@
 
 import { EventShowcase } from '@/components/events/EventShowcase';
+import { FrenchmenSeries } from '@/components/events/FrenchmenSeries';
+import { Separator } from '@/components/ui/separator';
 
 export default function EventsPage() {
   return (
@@ -13,6 +15,8 @@ export default function EventsPage() {
         </p>
       </div>
       <EventShowcase />
+      <Separator className="my-16" />
+      <FrenchmenSeries />
     </div>
   );
 }
