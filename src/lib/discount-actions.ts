@@ -11,9 +11,6 @@ type DiscountCreate = Omit<Discount, 'id'>;
 export async function createDiscount(
   discountData: DiscountCreate
 ): Promise<Discount> {
-  if (!adminDb) {
-    throw new Error('Firebase Admin SDK not initialized.');
-  }
 
   // Check if discount code already exists
   const existingDiscountQuery = await adminDb
@@ -41,10 +38,6 @@ export async function createDiscount(
 
 // Admin action to get all discounts
 export async function getDiscounts(): Promise<Discount[]> {
-  if (!adminDb) {
-    console.error('Firebase Admin SDK not initialized. Returning empty discounts array.');
-    return [];
-  }
   const snapshot = await adminDb.collection('discounts').get();
   return snapshot.docs.map(
     (doc) => ({ id: doc.id, ...doc.data() } as Discount)
@@ -53,9 +46,6 @@ export async function getDiscounts(): Promise<Discount[]> {
 
 // Admin action to delete a discount
 export async function deleteDiscount(id: string): Promise<void> {
-    if (!adminDb) {
-        throw new Error('Firebase Admin SDK not initialized.');
-    }
     await adminDb.collection('discounts').doc(id).delete();
     revalidatePath('/admin/discounts');
 }
@@ -63,10 +53,6 @@ export async function deleteDiscount(id: string): Promise<void> {
 
 // Client action to verify a discount code
 export async function verifyDiscountCode(code: string): Promise<Discount> {
-  if (!adminDb) {
-    throw new Error('Server error: unable to verify code.');
-  }
-
   const uppercaseCode = code.toUpperCase();
   const snapshot = await adminDb
     .collection('discounts')
