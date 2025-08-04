@@ -190,16 +190,4 @@ export async function getServicesByIds(ids: string[]): Promise<Service[]> {
   });
 }
 
-
-
-
-
-
-    
-
-    
-
-
-
-
     
