@@ -54,7 +54,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
             {service.description.substring(0, 100)}...
         </CardDescription>
         <div className="flex justify-between items-center mt-auto pt-4 border-t">
-            <p className="text-lg font-semibold text-primary">
+            <p className="text-lg font-semibold text-primary dark:text-primary-foreground">
                 {formatCurrency(service.price, 'USD', MOCK_RATES)}
                 {service.unit === 'hr' && <span className="text-sm font-normal text-muted-foreground">/hr</span>}
             </p>
