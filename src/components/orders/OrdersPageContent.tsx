@@ -8,12 +8,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { format } from 'date-fns';
-import type { Order, OrderItem, Currency, ExchangeRates } from '@/lib/types';
+import type { Order, OrderItem, Currency } from '@/lib/types';
 import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { CheckCircle } from 'lucide-react';
-import { formatCurrency } from '@/lib/utils';
-import { MOCK_RATES } from '@/lib/data';
+import { useCurrency } from '@/context/CurrencyProvider';
 
 
 export function OrdersPageContent() {
@@ -23,10 +22,7 @@ export function OrdersPageContent() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(!!sessionId);
-
-  const getFormattedPrice = (amount: number, currency: Currency = 'USD') => {
-    return formatCurrency(amount, currency, MOCK_RATES);
-  };
+  const { getFormattedPrice } = useCurrency();
 
 
   useEffect(() => {

@@ -7,8 +7,7 @@ import { useRouter } from 'next/navigation';
 import type { Service } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { formatCurrency } from '@/lib/utils';
-import { MOCK_RATES } from '@/lib/data';
+import { useCurrency } from '@/context/CurrencyProvider';
 
 interface ServiceCardProps {
   service: Service;
@@ -16,6 +15,7 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   const router = useRouter();
+  const { getFormattedPrice } = useCurrency();
 
   const handleBookNowClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -55,7 +55,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
         </CardDescription>
         <div className="flex justify-between items-center mt-auto pt-4 border-t">
             <p className="text-lg font-semibold text-primary dark:text-accent">
-                {formatCurrency(service.price, 'USD', MOCK_RATES)}
+                {getFormattedPrice(service.price)}
                 {service.unit === 'hr' && <span className="text-sm font-normal text-muted-foreground">/hr</span>}
             </p>
             <Button variant="outline" size="sm" onClick={handleBookNowClick}>

@@ -4,22 +4,17 @@
 import Image from 'next/image';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { ServiceActions } from '@/components/services/ServiceActions';
-import type { Service, Currency, ExchangeRates } from '@/lib/types';
+import type { Service } from '@/lib/types';
 import { SocialShare } from '@/components/magazine/SocialShare';
 import { Separator } from '@/components/ui/separator';
-import { formatCurrency } from '@/lib/utils';
-import { MOCK_RATES } from '@/lib/data';
+import { useCurrency } from '@/context/CurrencyProvider';
 
 interface ServicePageClientProps {
   service: Service;
 }
 
 export function ServicePageClient({ service }: ServicePageClientProps) {
-
-  const getFormattedPrice = (amount: number, currency: Currency = 'USD') => {
-    return formatCurrency(amount, currency, MOCK_RATES);
-  };
-
+  const { getFormattedPrice } = useCurrency();
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -49,7 +44,7 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
 
         <div className="flex flex-col gap-6">
           <h1 className="text-4xl font-headline font-bold text-primary">{service.name}</h1>
-          <p className="text-2xl font-semibold text-accent-foreground/80 dark:text-foreground">
+          <p className="text-2xl font-semibold text-accent-foreground/80 dark:text-accent">
             {getFormattedPrice(service.price)}
             {service.unit === 'hr' && <span className="text-lg font-normal text-muted-foreground">/hr</span>}
             </p>

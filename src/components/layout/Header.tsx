@@ -18,6 +18,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose 
 import { Logo } from './Logo';
 import { Search } from './Search';
 import { ThemeToggle } from './ThemeToggle';
+import { CurrencySwitcher } from './CurrencySwitcher';
 
 
 export function SiteHeader() {
@@ -90,7 +91,8 @@ export function SiteHeader() {
             <Search />
           </div>
           
-          <div className="hidden md:flex">
+          <div className="hidden md:flex items-center gap-2">
+            <CurrencySwitcher />
             <ThemeToggle />
           </div>
 
@@ -126,6 +128,7 @@ export function SiteHeader() {
                   </div>
                 </nav>
                  <div className="mt-auto flex items-center justify-between">
+                    <CurrencySwitcher />
                     <ThemeToggle />
                 </div>
               </div>

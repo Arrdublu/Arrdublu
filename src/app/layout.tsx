@@ -7,6 +7,7 @@ import { SiteHeader } from '@/components/layout/Header';
 import { SiteFooter } from '@/components/layout/Footer';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/layout/ThemeProvider';
+import { CurrencyProvider } from '@/context/CurrencyProvider';
 
 const alegreya = Alegreya({
   subsets: ['latin'],
@@ -67,12 +68,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <CurrencyProvider>
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
               <main className="flex-1">{children}</main>
               <SiteFooter />
             </div>
             <Toaster />
+          </CurrencyProvider>
         </ThemeProvider>
       </body>
     </html>
