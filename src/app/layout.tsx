@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   description: 'Exquisite media services for the discerning client. Unparalleled quality in SEO, creative, and lifestyle content.',
   icons: {
     icon: '/favicon.ico',
+    apple: newLogoUrl,
   },
   openGraph: {
     title: 'Arrdublu - Exquisite Media Services',
