@@ -80,7 +80,7 @@ export const services: Service[] = [
     price: 750,
     image: 'https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80',
     previews: ['https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
-    paymentLink: 'https://book.stripe.com/8x2aEXef495W0mab1I93y0e',
+    paymentLink: 'https://book.stripe.com/8x2aEXef495Wed01r893y0e',
   },
   {
     id: 'event-photography',
@@ -91,7 +91,7 @@ export const services: Service[] = [
     unit: 'hr',
     image: 'https://images.unsplash.com/photo-1612389930565-6975454dc7cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxldmVudCUyMHBob3RvZ3JhcGh5fGVufDB8fHx8MTc1NDI0Mjg2Mnww&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
-    paymentLink: 'https://buy.stripe.com/placeholder_event-photography',
+    paymentLink: 'https://book.stripe.com/00w8wP2wmci85Gu2vc93y0f',
   },
   {
     id: 'event-video',
