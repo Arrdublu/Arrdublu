@@ -6,23 +6,23 @@ export function Logo() {
   const darkLogo = "https://firebasestorage.googleapis.com/v0/b/arrdublu-yur7j.appspot.com/o/arrdublu_logo_whiteArtboard-1.png?alt=media&token=08940c38-8959-450f-8b93-9028aed51152";
 
   return (
-    <>
+    <div className="relative h-9 w-36">
         <Image
             src={lightLogo}
-            width={135}
-            height={36}
+            fill
             alt="Arrdublu Logo"
             priority
             className="object-contain dark:hidden"
+            sizes="(max-width: 768px) 100vw, 144px"
         />
         <Image
             src={darkLogo}
-            width={135}
-            height={36}
+            fill
             alt="Arrdublu Logo"
             priority
             className="object-contain hidden dark:block"
+            sizes="(max-width: 768px) 100vw, 144px"
         />
-    </>
+    </div>
   );
 }
