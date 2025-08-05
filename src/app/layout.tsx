@@ -14,7 +14,7 @@ const alegreya = Alegreya({
   variable: '--font-alegreya',
 });
 
-const newLogoUrl = "https://firebasestorage.googleapis.com/v0/b/arrdublu-3.firebasestorage.app/o/logo.png?alt=media&token=8665db41-2101-446e-82d2-28c06354674a"
+const newLogoUrl = "https://firebasestorage.googleapis.com/v0/b/arrdublu-yur7j.appspot.com/o/android-chrome-512x512.png?alt=media&token=3488a531-1051-4775-a864-2831818291d0"
 
 export const metadata: Metadata = {
   title: 'Arrdublu - Exquisite Media Services',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: newLogoUrl,
-        width: 1200,
-        height: 630,
+        width: 512,
+        height: 512,
         alt: 'Arrdublu Logo',
       },
     ],
