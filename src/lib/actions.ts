@@ -2,14 +2,13 @@
 'use server';
 
 import Stripe from 'stripe';
-import { getServiceById } from '@/lib/data';
 import { adminDb } from './firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { verifyDiscountCode } from './discount-actions';
-import type { CartItem, Currency } from './types';
+import type { Currency, Service } from './types';
 
 export async function createPaymentIntent(
-  items: CartItem[],
+  items: {service: Service, quantity: number}[],
   currency: Currency,
   discountCode?: string
 ): Promise<{ clientSecret: string; orderId: string }> {

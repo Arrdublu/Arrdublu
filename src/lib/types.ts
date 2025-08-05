@@ -29,11 +29,6 @@ export type Order = {
   currency?: string;
 };
 
-export type CartItem = {
-  service: Service;
-  quantity: number;
-};
-
 export type Discount = {
   id: string;
   code: string;

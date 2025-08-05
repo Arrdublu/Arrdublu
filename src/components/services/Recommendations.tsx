@@ -2,7 +2,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useCart } from '@/context/CartProvider';
 import { getRecommendedServicesAction } from '@/lib/ai-actions';
 import type { Service } from '@/lib/types';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
@@ -10,14 +9,34 @@ import { ServiceCard } from './ServiceCard';
 import { Skeleton } from '../ui/skeleton';
 
 export function Recommendations() {
-  const { viewedItems } = useCart();
+  const [viewedItems, setViewedItems] = useState<string[]>([]);
   const [recommendedServices, setRecommendedServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(false);
   const [hasFetched, setHasFetched] = useState(false);
 
+   useEffect(() => {
+    // This is a placeholder for tracking viewed items.
+    // In a real app, this would be more sophisticated.
+    const handleView = () => {
+      const path = window.location.pathname;
+      if (path.startsWith('/service/')) {
+        const serviceId = path.split('/')[2];
+        if (serviceId) {
+            setViewedItems((prev) => {
+             if (prev.includes(serviceId)) return prev;
+             const newHistory = [serviceId, ...prev];
+             return newHistory.slice(0, 10);
+           });
+        }
+      }
+    };
+    handleView();
+   }, []);
+
+
   useEffect(() => {
     // Only fetch if there's activity and we haven't fetched before
-    if (viewedItems.length > 0 && !loading) {
+    if (viewedItems.length > 0 && !loading && !hasFetched) {
       const fetchRecommendations = async () => {
         setLoading(true);
         setHasFetched(true);
@@ -35,7 +54,7 @@ export function Recommendations() {
       return () => clearTimeout(timer);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [viewedItems]); // We don't include loading to prevent re-triggering
+  }, [viewedItems, loading, hasFetched]);
 
   if (!hasFetched && !loading) return null;
 

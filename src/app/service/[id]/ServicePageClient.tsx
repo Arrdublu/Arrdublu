@@ -4,17 +4,22 @@
 import Image from 'next/image';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { ServiceActions } from '@/components/services/ServiceActions';
-import { useCart } from '@/context/CartProvider';
-import type { Service } from '@/lib/types';
+import type { Service, Currency, ExchangeRates } from '@/lib/types';
 import { SocialShare } from '@/components/magazine/SocialShare';
 import { Separator } from '@/components/ui/separator';
+import { formatCurrency } from '@/lib/utils';
+import { MOCK_RATES } from '@/lib/data';
 
 interface ServicePageClientProps {
   service: Service;
 }
 
 export function ServicePageClient({ service }: ServicePageClientProps) {
-  const { getFormattedPrice } = useCart();
+
+  const getFormattedPrice = (amount: number, currency: Currency = 'USD') => {
+    return formatCurrency(amount, currency, MOCK_RATES);
+  };
+
 
   return (
     <div className="container mx-auto px-4 py-12">

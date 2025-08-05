@@ -13,15 +13,8 @@ import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { CheckCircle } from 'lucide-react';
 import { formatCurrency } from '@/lib/utils';
+import { MOCK_RATES } from '@/lib/data';
 
-// Mock exchange rates should be consistent with the provider
-const MOCK_RATES: ExchangeRates = {
-  USD: 1,
-  EUR: 0.92,
-  GBP: 0.79,
-  JPY: 157,
-  JMD: 155,
-};
 
 export function OrdersPageContent() {
   const searchParams = useSearchParams();

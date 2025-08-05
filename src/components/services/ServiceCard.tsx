@@ -7,26 +7,24 @@ import { useRouter } from 'next/navigation';
 import type { Service } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { useCart } from '@/context/CartProvider';
+import { formatCurrency } from '@/lib/utils';
+import { MOCK_RATES } from '@/lib/data';
 
 interface ServiceCardProps {
   service: Service;
 }
 
 export function ServiceCard({ service }: ServiceCardProps) {
-  const { addToCart, getFormattedPrice } = useCart();
   const router = useRouter();
 
   const handleBookNowClick = (e: React.MouseEvent) => {
-    // Prevent the parent Link from navigating
     e.preventDefault();
     e.stopPropagation();
 
     if (service.paymentLink && service.paymentLink !== '#') {
       window.open(service.paymentLink, '_blank', 'noopener,noreferrer');
     } else {
-      addToCart(service);
-      router.push('/cart');
+      router.push(`/service/${service.id}`);
     }
   };
   
@@ -57,7 +55,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
         </CardDescription>
         <div className="flex justify-between items-center mt-auto pt-4 border-t">
             <p className="text-lg font-semibold text-primary">
-                {getFormattedPrice(service.price)}
+                {formatCurrency(service.price, 'USD', MOCK_RATES)}
                 {service.unit === 'hr' && <span className="text-sm font-normal text-muted-foreground">/hr</span>}
             </p>
             <Button variant="outline" size="sm" onClick={handleBookNowClick}>

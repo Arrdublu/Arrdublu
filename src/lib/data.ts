@@ -1,5 +1,15 @@
 
-import type { Service, Order } from './types';
+import type { Service, Order, Currency, ExchangeRates } from './types';
+
+// Mock exchange rates should be consistent with the provider
+export const MOCK_RATES: ExchangeRates = {
+  USD: 1,
+  EUR: 0.92,
+  GBP: 0.79,
+  JPY: 157,
+  JMD: 155,
+};
+
 
 export const services: Service[] = [
   {
@@ -48,8 +58,8 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'Need a stunning graphic for your next social media post? We will design one custom, on-brand visual for the platform of your choice.',
     price: 75,
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
-    previews: ['https://images.unsplash.com/photo-1563861327975-6078d4994655?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxTaW5nbGUlMjBTb2NpYWwlMjBNZWRpYSUyMEdyYXBoaWN8ZW58MHx8fHwxNzU0MzQ4NDQ2fDA&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
+    image: 'https://images.unsplash.com/photo-1563861327975-6078d4994655?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxTaW5nbGUlMjBTb2NpYWwlMjBNZWRpYSUyMEdyYXBoaWN8ZW58MHx8fHwxNzU0MzQ4NDQ2fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    previews: ['https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/3cI14n3Aqbe44Cq8TA93y0c',
   },
    {
