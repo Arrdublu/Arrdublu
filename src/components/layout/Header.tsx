@@ -18,6 +18,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose 
 import { Logo } from './Logo';
 import { Search } from './Search';
 import { ThemeToggle } from './ThemeToggle';
+import { Cart } from './Cart';
 
 
 export function SiteHeader() {
@@ -91,6 +92,7 @@ export function SiteHeader() {
           </div>
           
           <div className="hidden md:flex">
+             <Cart />
             <ThemeToggle />
           </div>
 
@@ -125,8 +127,9 @@ export function SiteHeader() {
                     ))}
                   </div>
                 </nav>
-                 <div className="mt-auto">
+                 <div className="mt-auto flex items-center justify-between">
                     <ThemeToggle />
+                    <Cart />
                 </div>
               </div>
             </SheetContent>
