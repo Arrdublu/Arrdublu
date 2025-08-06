@@ -158,7 +158,7 @@ export const services: Service[] = [
       'https://images.unsplash.com/photo-1606833958622-1b6c7a1d1d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1510627878916-7a0c10740a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'
     ],
-    paymentLink: 'https://buy.stripe.com/placeholder_wedding-videography',
+    paymentLink: 'https://book.stripe.com/6oU00j6MCci8fh4c5M93y0i',
   },
   {
     id: 'lifestyle-photography',
