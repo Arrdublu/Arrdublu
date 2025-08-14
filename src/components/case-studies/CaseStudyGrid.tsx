@@ -13,7 +13,7 @@ const caseStudies = [
     title: 'The Saint T Collective',
     category: 'Creative',
     image: 'https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
-    description: 'We led a comprehensive rebranding initiative that modernized the company\'s image and improved brand recognition by 40%.',
+    description: 'We orchestrated a complete brand evolution for an elite event design firm, elevating their identity to mirror their artistry.',
     link: '/discover/case-studies/global-rebrand',
     dataAiHint: 'corporate rebranding',
   },

@@ -12,15 +12,15 @@ const caseStudy = {
   heroImage: 'https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80',
   dataAiHint: 'corporate meeting collaboration',
   url: '/discover/case-studies/global-rebrand',
-  overview: 'We led a comprehensive rebranding initiative that modernized a tech giant\'s image, unified its global brand messaging, and resulted in a 40% improvement in brand recognition and a 25% increase in market share.',
+  overview: "We orchestrated a complete brand evolution for an elite Event Design firm, elevating their identity to mirror the artistry and exclusivity of their work. The new brand narrative and visual system led to a marked increase in inquiries from their target high-net-worth clientele and solidified their position as a leader in the luxury event space.",
   keyMetrics: [
-    { metric: '40%', label: 'Increase in Brand Recognition' },
-    { metric: '25%', label: 'Market Share Growth' },
-    { metric: '95%', label: 'Positive Brand Sentiment' },
+    { metric: '40%', label: 'Increase in Premium Bookings' },
+    { metric: '25%', label: 'Growth in International Clientele' },
+    { metric: '95%', label: 'Positive Media & Partner Feedback' },
   ],
-  challenge: 'The client, a leader in the tech industry for over two decades, faced brand dilution due to rapid global expansion and a portfolio of acquisitions. Their visual identity was dated and inconsistent across different markets, leading to customer confusion and a weakened brand message.',
-  solution: 'Our team conducted an in-depth global market analysis and developed a new brand strategy centered on innovation, simplicity, and connection. This strategy informed a complete visual overhaul, including a new logo, a dynamic color palette, and a unified typography system. We created a comprehensive digital brand guide and executed a phased global rollout, providing training and assets to all regional marketing teams to ensure seamless adoption.',
-  results: 'The rebrand was a resounding success. The new, modern identity was met with overwhelmingly positive feedback from customers and employees alike. The unified messaging clarified the company\'s value proposition, directly contributing to a significant increase in both market share and positive brand sentiment online. The project solidified the client\'s position as a forward-thinking industry leader.',
+  challenge: "The client, a celebrated name in luxury events, found their brand presence no longer captured the sublime quality of their creations. Their identity felt disconnected from the bespoke, high-touch experiences they delivered, creating a gap between their reputation and their visual representation in a competitive market.",
+  solution: "We embarked on a journey of rediscovery, delving into the core of their artistic philosophy. Our solution was a new brand identity rooted in quiet luxury and timeless elegance. This encompassed a refined logo, a sophisticated color palette inspired by natural elements, and a narrative that spoke to the heart of their discerning clientele. We crafted a suite of exquisite marketing materials and a digital presence that was as breathtaking as their events, ensuring every touchpoint was an experience in itself.",
+  results: 'The transformed brand was met with acclaim. The new identity resonated deeply, attracting a surge of ideal clients and prestigious media features. The cohesive and elegant brand language clarified their unique value proposition, directly contributing to a significant increase in high-caliber projects and reinforcing their status as a paragon of event design.',
 };
 
 export default function CaseStudyDetailPage() {
