@@ -12,7 +12,7 @@ const caseStudy = {
   heroImage: 'https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80',
   dataAiHint: 'corporate meeting collaboration',
   url: '/discover/case-studies/global-rebrand',
-  overview: "We orchestrated a complete brand evolution for an elite Event Design firm, elevating their identity to mirror the artistry and exclusivity of their work. The new brand narrative and visual system led to a marked increase in inquiries from their target high-net-worth clientele and solidified their position as a leader in the luxury event space.",
+  overview: "We orchestrated a complete brand evolution for an elite Event Design firm, elevating their identity to mirror the artistry and exclusivity of their work. The new brand narrative and visual system led to a marked increase in inquiries from their target high-net-worth clientele and solidified their position as a leader in the luxury Wedding event space.",
   keyMetrics: [
     { metric: '40%', label: 'Increase in Premium Bookings' },
     { metric: '25%', label: 'Growth in International Clientele' },
