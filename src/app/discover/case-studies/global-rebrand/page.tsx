@@ -28,10 +28,12 @@ export default function CaseStudyDetailPage() {
     <div className="container mx-auto px-4 py-12">
       <article>
         <header className="mb-12 text-center">
-          <Badge variant="secondary" className="mb-4">{caseStudy.category}</Badge>
           <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary">
             {caseStudy.title}
           </h1>
+          <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-muted-foreground">
+            {caseStudy.overview}
+          </p>
         </header>
 
         <div className="relative w-full h-[300px] md:h-[500px] rounded-lg overflow-hidden shadow-lg mb-12">
@@ -47,25 +49,6 @@ export default function CaseStudyDetailPage() {
         </div>
         
         <div className="max-w-4xl mx-auto">
-          <Card className="mb-12 shadow-md">
-            <CardHeader>
-                <CardTitle>Project Overview</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <p className="text-lg text-muted-foreground">{caseStudy.overview}</p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center mt-6">
-                    {caseStudy.keyMetrics.map(item => (
-                        <div key={item.label} className="p-4 bg-muted/50 rounded-lg">
-                            <p className="text-3xl font-bold text-primary">{item.metric}</p>
-                            <p className="text-sm text-muted-foreground">{item.label}</p>
-                        </div>
-                    ))}
-                </div>
-            </CardContent>
-          </Card>
-
-          <Separator className="my-12" />
-
           <div className="prose prose-lg max-w-none mx-auto">
               <h2 className="font-headline">The Challenge</h2>
               <p>{caseStudy.challenge}</p>
@@ -75,6 +58,21 @@ export default function CaseStudyDetailPage() {
               
               <h2 className="font-headline">The Results</h2>
               <p>{caseStudy.results}</p>
+
+              <div className="mt-12 not-prose">
+                <h3 className="text-2xl font-headline font-semibold mb-6 border-b pb-3">Key Outcomes</h3>
+                 <ul className="space-y-4">
+                  {caseStudy.keyMetrics.map(item => (
+                      <li key={item.label} className="flex items-start gap-4">
+                          <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                          <div>
+                              <span className="font-bold text-lg text-foreground">{item.metric}</span>
+                              <p className="text-muted-foreground">{item.label}</p>
+                          </div>
+                      </li>
+                  ))}
+                </ul>
+              </div>
           </div>
           
           <Separator className="my-12" />
