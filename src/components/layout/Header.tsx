@@ -37,6 +37,7 @@ export function SiteHeader() {
     { href: '/discover/timeless', label: 'Timeless' },
     { href: '/discover/brands', label: 'Brands' },
     { href: '/discover/events', label: 'Events' },
+    { href: '/discover/case-studies', label: 'Case Studies' },
   ]
 
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
