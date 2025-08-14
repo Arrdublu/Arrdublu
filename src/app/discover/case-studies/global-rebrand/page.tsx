@@ -7,7 +7,7 @@ import { Separator } from '@/components/ui/separator';
 import { CheckCircle } from 'lucide-react';
 
 const caseStudy = {
-  title: 'Global Rebrand for a Tech Giant',
+  title: 'The Saint T Collective',
   category: 'Creative',
   heroImage: 'https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80',
   dataAiHint: 'corporate meeting collaboration',
