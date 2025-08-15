@@ -36,7 +36,6 @@ export function SiteHeader() {
     { href: '/discover/arrdublu-mag', label: 'Arrdublu Mag' },
     { href: '/discover/timeless', label: 'Timeless' },
     { href: '/discover/brands', label: 'Brands' },
-    { href: '/discover/events', label: 'Events' },
     { href: '/discover/case-studies', label: 'Case Studies' },
   ]
 

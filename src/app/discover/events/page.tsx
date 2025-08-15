@@ -1,7 +1,5 @@
 
-import { EventShowcase } from '@/components/events/EventShowcase';
-import { FrenchmenSeries } from '@/components/events/FrenchmenSeries';
-import { Separator } from '@/components/ui/separator';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function EventsPage() {
   return (
@@ -14,9 +12,14 @@ export default function EventsPage() {
           From corporate summits to live performances, we capture the energy and narrative of every event.
         </p>
       </div>
-      <EventShowcase />
-      <Separator className="my-16" />
-      <FrenchmenSeries />
+      <Card>
+        <CardHeader>
+          <CardTitle>Coming Soon</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-muted-foreground">Our event showcase is currently being updated. Please check back soon!</p>
+        </CardContent>
+      </Card>
     </div>
   );
 }
