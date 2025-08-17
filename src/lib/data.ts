@@ -161,6 +161,19 @@ export const services: Service[] = [
     paymentLink: 'https://book.stripe.com/6oU00j6MCci8fh4c5M93y0i',
   },
   {
+    id: 'music-video',
+    name: 'Music Video Production',
+    category: 'Creative',
+    description: 'Bring your music to life with a stunning, broadcast-quality music video. We handle everything from concept development and storyboarding to shooting and post-production, creating a visual masterpiece that matches your sound.',
+    price: 3000,
+    image: 'https://images.unsplash.com/photo-1598341932342-454b4a69c0c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    previews: [
+        'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1619993335965-274a72d5c1f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
+    ],
+    paymentLink: 'https://book.stripe.com/placeholder_music-video',
+  },
+  {
     id: 'lifestyle-photography',
     name: 'Lifestyle Product Photography',
     category: 'Lifestyle',

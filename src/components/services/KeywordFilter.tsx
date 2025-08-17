@@ -1,7 +1,7 @@
 
 'use client';
 
-import * as React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
@@ -24,6 +24,7 @@ const keywords = [
   'Livestream',
   'Portraits',
   'Content Marketing',
+  'Music Video',
 ];
 
 export function KeywordFilter() {
