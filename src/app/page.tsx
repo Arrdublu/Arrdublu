@@ -4,6 +4,7 @@ import { ServiceCard } from '@/components/services/ServiceCard';
 import { Recommendations } from '@/components/services/Recommendations';
 import { CustomRequestForm } from '@/components/services/CustomRequestForm';
 import { Separator } from '@/components/ui/separator';
+import { KeywordFilter } from '@/components/services/KeywordFilter';
 
 export default function Home() {
   const categories = ['Creative', 'Lifestyle', 'SEO'];
@@ -18,6 +19,8 @@ export default function Home() {
           Exquisite media services for the discerning client. Unparalleled quality in SEO, creative, and lifestyle content.
         </p>
       </section>
+
+      <KeywordFilter />
 
       {categories.map((category) => {
         const categoryServices = services.filter(
