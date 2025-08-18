@@ -11,16 +11,28 @@ export default function TermsAndConditionsPage() {
         </CardHeader>
         <CardContent className="prose prose-lg max-w-none">
            <h2>1. Introduction</h2>
-            <p>Welcome to Arrdublu. These are our terms and conditions for use of the services, which you may access in several ways, including but not limited to the World Wide Web via arrdublu.us.</p>
+            <p>Welcome to Arrdublu. These are our terms and conditions for use of the services, which you may access in several ways, including but not limited to the World Wide Web via arrdublu.us. By using our services, you agree to be bound by these terms.</p>
             
             <h2>2. Services</h2>
             <p>Our services are provided on an "as is" and "as available" basis. We do not guarantee that the services will be error-free or uninterrupted. We reserve the right to modify, suspend or discontinue any part of the services without notice.</p>
             
-            <h2>3. Payment</h2>
-            <p>All services must be paid for in advance. Prices are subject to change without notice. We are not responsible for any fees charged by your bank or credit card company.</p>
+            <h2>3. Intellectual Property</h2>
+            <p>All content, including but not limited to text, graphics, logos, and service marks, is the property of Arrdublu and is protected by copyright and other intellectual property laws. You may not use, reproduce, or distribute any content from our services without our prior written permission.</p>
 
-            <h2>4. Refund Policy</h2>
-            <p>Due to the nature of our digital services, we do not offer refunds once work has commenced. Client satisfaction is our priority, and we will make reasonable efforts to resolve any issues.</p>
+            <h2>4. User Responsibilities</h2>
+            <p>You agree to use our services for lawful purposes only. You are responsible for any content you provide and for ensuring that it does not infringe on the rights of any third party. You agree not to disrupt or interfere with the security or accessibility of the services.</p>
+
+            <h2>5. Payment</h2>
+            <p>All services must be paid for in advance unless otherwise agreed in writing. Prices for our services are subject to change without notice. We are not responsible for any fees charged by your bank or credit card company.</p>
+
+            <h2>6. Refund Policy</h2>
+            <p>Due to the nature of our digital services, we do not offer refunds once work has commenced. Client satisfaction is our priority, and we will make reasonable efforts to resolve any issues. Please refer to our <a href="/faq">FAQ</a> for more details.</p>
+
+            <h2>7. Limitation of Liability</h2>
+            <p>In no event shall Arrdublu, its directors, or employees be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of our services.</p>
+
+            <h2>8. Governing Law</h2>
+            <p>These Terms & Conditions shall be governed and construed in accordance with the laws of the State of Florida, United States, and the country of Jamaica, without regard to their conflict of law provisions.</p>
         </CardContent>
       </Card>
     </div>
