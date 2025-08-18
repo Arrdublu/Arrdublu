@@ -9,7 +9,20 @@ export type Service = {
   previews: string[];
   paymentLink?: string;
   unit?: 'hr';
+  whatsIncluded?: string[];
+  goodToKnow?: string[];
+  caseStudyIds?: string[];
 };
+
+export type CaseStudy = {
+    id: string;
+    title: string;
+    category: string;
+    image: string;
+    dataAiHint: string;
+    description: string;
+    link: string;
+}
 
 export type OrderItem = {
   itemId: string;

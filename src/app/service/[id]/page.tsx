@@ -1,6 +1,7 @@
-import { getServiceById } from '@/lib/data';
+import { getServiceById, getCaseStudiesByIds } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import { ServicePageClient } from './ServicePageClient';
+import type { CaseStudy } from '@/lib/types';
 
 interface ServicePageProps {
   params: {
@@ -8,12 +9,17 @@ interface ServicePageProps {
   };
 }
 
-export default function ServicePage({ params }: ServicePageProps) {
+export default async function ServicePage({ params }: ServicePageProps) {
   const service = getServiceById(params.id);
 
   if (!service) {
     notFound();
   }
 
-  return <ServicePageClient service={service} />;
+  let relatedCaseStudies: CaseStudy[] = [];
+  if (service.caseStudyIds && service.caseStudyIds.length > 0) {
+    relatedCaseStudies = await getCaseStudiesByIds(service.caseStudyIds);
+  }
+
+  return <ServicePageClient service={service} caseStudies={relatedCaseStudies} />;
 }

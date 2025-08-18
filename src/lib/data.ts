@@ -1,5 +1,5 @@
 
-import type { Service, Order, Currency, ExchangeRates } from './types';
+import type { Service, CaseStudy, ExchangeRates } from './types';
 
 // Mock exchange rates should be consistent with the provider
 export const MOCK_RATES: ExchangeRates = {
@@ -21,6 +21,8 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1554224155-cfa08c2a758f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxDb21wcmVoZW5zaXZlJTIwU0VPJTIwQXVkaXR8ZW58MHx8fHwxNzU0MjQzNjc4fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_seo-audit',
+    whatsIncluded: ['On-page analysis', 'Backlink profile review', 'Technical SEO check', 'Competitor analysis', 'Actionable report'],
+    goodToKnow: ['Requires access to your website analytics.', 'Turnaround time is 5-7 business days.'],
   },
   {
     id: 'keyword-research',
@@ -31,6 +33,8 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1518336707416-68242ffc0bac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyMHx8U3RyYXRlZ2ljJTIwS2V5d29yZCUyMFJlc2VhcmNofGVufDB8fHx8MTc1NDI0MzgzNXww&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1604147706283-d7119b5b822c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_keyword-research',
+    whatsIncluded: ['Primary and secondary keyword lists', 'Competitive keyword gap analysis', 'Search intent classification', 'Keyword mapping recommendations'],
+    goodToKnow: ['We will schedule a 30-minute call to understand your business goals before starting.', 'Report delivered in 3-5 business days.'],
   },
   {
     id: 'brand-identity',
@@ -41,6 +45,9 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1556740772-1a741367b93e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
     previews: ['https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1497032628192-86f99d791ba7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/9B68wP9YOeqg6Ky3zg93y0a',
+    whatsIncluded: ['Logo Design (3 concepts)', 'Color Palette & Typography', 'Brand Style Guide', 'Business Card Design', 'Social Media Profile Images'],
+    goodToKnow: ['Project timeline is typically 2-3 weeks.', 'Includes 2 rounds of revisions for the chosen logo concept.'],
+    caseStudyIds: ['global-rebrand'],
   },
   {
     id: 'logo-design',
@@ -225,8 +232,24 @@ export const services: Service[] = [
   },
 ];
 
+export const caseStudies: CaseStudy[] = [
+    {
+        id: 'global-rebrand',
+        title: 'The Saint T Collective',
+        category: 'Creative',
+        image: 'https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        description: 'We orchestrated a complete brand evolution for an elite event design firm, elevating their identity to mirror their artistry.',
+        link: '/discover/case-studies/global-rebrand',
+        dataAiHint: 'corporate rebranding',
+    },
+];
+
 export function getServiceById(id: string): Service | undefined {
   return services.find((service) => service.id === id);
+}
+
+export function getCaseStudyById(id: string): CaseStudy | undefined {
+    return caseStudies.find((study) => study.id === id);
 }
 
 // Mock async function to simulate a database call
@@ -237,4 +260,13 @@ export async function getServicesByIds(ids: string[]): Promise<Service[]> {
       resolve(result);
     }, 500);
   });
+}
+
+export async function getCaseStudiesByIds(ids: string[]): Promise<CaseStudy[]> {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const result = caseStudies.filter((study) => ids.includes(study.id));
+            resolve(result);
+        }, 300);
+    });
 }
