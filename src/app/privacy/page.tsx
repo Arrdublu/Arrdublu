@@ -35,6 +35,10 @@ export default function PrivacyPage() {
           <p>
             You may opt out of receiving promotional communications from us by following the unsubscribe link or instructions provided in any email we send.
           </p>
+          
+          <h2>Governing Law</h2>
+            <p>This Privacy Policy and any disputes related to it shall be governed by and construed in accordance with the laws of the State of Florida, United States, and the country of Jamaica, without regard to their conflict of law provisions.</p>
+
 
           <h2>Changes to This Policy</h2>
           <p>
