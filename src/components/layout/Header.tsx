@@ -34,7 +34,7 @@ export function SiteHeader() {
     { href: '/discover/whats-new', label: "What's New" },
     { href: '/discover/our-story', label: 'Our Story' },
     { href: '/discover/arrdublu-mag', label: 'Arrdublu Mag' },
-    { href: '/discover/timeless', label: 'Timeless' },
+    { href: '/discover/archives', label: 'Archives' },
     { href: '/discover/brands', label: 'Brands' },
     { href: '/discover/case-studies', label: 'Case Studies' },
   ]
