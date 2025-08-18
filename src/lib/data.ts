@@ -122,6 +122,7 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1557701491-7bdb1098123d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNXx8ZXZlbnQlMjB2aWRlb2dyYXBoeXxlbnwwfHx8fDE3NTQyNDMwNjV8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1606833958622-1b6c7a1d1d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/9B6aEXef41Dugl88TA93y0g',
+    caseStudyIds: ['annual-corporate-summit'],
   },
   {
     id: 'livestream-basic',
@@ -253,6 +254,15 @@ export const caseStudies: CaseStudy[] = [
         description: 'We orchestrated a complete brand evolution for an elite event design firm, elevating their identity to mirror their artistry.',
         link: '/discover/case-studies/global-rebrand',
         dataAiHint: 'corporate rebranding',
+    },
+    {
+        id: 'annual-corporate-summit',
+        title: 'Annual Corporate Summit',
+        category: 'Event Videography',
+        image: 'https://images.unsplash.com/photo-152907041287-35e9a7522029?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        description: 'Dynamic video coverage for a major tech corporation\'s annual three-day summit.',
+        link: '/discover/case-studies/annual-corporate-summit',
+        dataAiHint: 'corporate summit',
     },
 ];
 
