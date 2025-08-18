@@ -27,12 +27,12 @@ export function SiteHeader() {
 
   const navItems = [
     { href: '/', label: 'Home' },
+    { href: '/shop', label: 'Shop' },
     { href: '/faq', label: 'FAQ' },
   ];
   
   const discoverItems = [
     { href: '/discover/whats-new', label: "What's New" },
-    { href: '/discover/tea', label: 'T.E.A (The Epic Adventures)' },
     { href: '/discover/arrdublu-mag', label: 'Arrdublu Mag' },
     { href: '/discover/archives', label: 'Archives' },
     { href: '/discover/brands', label: 'Brands' },

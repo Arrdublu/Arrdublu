@@ -29,6 +29,18 @@ export default function AdminLayout({
               >
                 Discounts
               </Link>
+               <Link
+                href="/admin/prints"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              >
+                Prints
+              </Link>
+               <Link
+                href="/admin/free-downloads"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              >
+                Free Downloads
+              </Link>
             </nav>
           </div>
         </div>
