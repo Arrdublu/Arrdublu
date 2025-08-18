@@ -28,35 +28,33 @@ const timelineEvents = [
 export function Timeline() {
   return (
     <div className="relative max-w-3xl mx-auto py-8">
-      <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border" aria-hidden="true" />
-      <div className="relative flex flex-col items-center gap-16">
+      <div className="absolute left-4 md:left-1/2 -translate-x-1/2 h-full w-0.5 bg-border" aria-hidden="true" />
+      <div className="relative flex flex-col items-start md:items-center gap-16">
         {timelineEvents.map((event, index) => (
           <div
             key={index}
-            className={`relative w-full flex ${
-              index % 2 === 0 ? 'justify-start' : 'justify-end'
+            className={`relative w-full flex items-center ${
+              index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'
             }`}
           >
-            <div className="w-1/2 px-4">
+            <div className="md:w-1/2 pl-12 md:px-4">
               <Card className="shadow-lg hover:shadow-xl transition-shadow">
-                <CardHeader>
-                  <CardTitle className="font-headline text-xl text-primary">{event.title}</CardTitle>
+                 <CardHeader>
+                    <Badge
+                        variant="outline"
+                        className="mb-2 w-fit text-lg font-bold text-primary border-primary"
+                    >
+                        {event.year}
+                    </Badge>
+                    <CardTitle className="font-headline text-xl text-primary">{event.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">{event.description}</p>
                 </CardContent>
               </Card>
             </div>
-            <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex items-center justify-center">
+            <div className="absolute left-4 md:left-1/2 -translate-x-1/2 flex items-center justify-center">
               <div className="w-4 h-4 rounded-full bg-primary border-4 border-background z-10" />
-              <Badge
-                variant="outline"
-                className={`absolute text-lg font-bold text-primary border-primary z-10 ${
-                  index % 2 === 0 ? 'right-full mr-8' : 'left-full ml-8'
-                }`}
-              >
-                {event.year}
-              </Badge>
             </div>
           </div>
         ))}
