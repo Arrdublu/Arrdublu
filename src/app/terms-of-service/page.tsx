@@ -1,17 +1,17 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-export default function TermsOfUsePage() {
+export default function TermsOfServicePage() {
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-4xl font-headline font-bold text-primary mb-8">Terms of Use</h1>
+      <h1 className="text-4xl font-headline font-bold text-primary mb-8">Terms of Service</h1>
       <Card>
         <CardHeader>
           <CardTitle>Agreement to Terms</CardTitle>
         </CardHeader>
         <CardContent className="prose prose-lg max-w-none">
           <p>
-            By accessing or using our website and services, you agree to be bound by these Terms of Use. If you disagree with any part of the terms, then you may not access the service.
+            By accessing or using our website and services, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, then you may not access the service.
           </p>
           <h2>Intellectual Property</h2>
           <p>

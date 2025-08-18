@@ -55,7 +55,7 @@ const Footer = () => {
                 <Link href="/privacy">Privacy Policy & Opt-Out</Link>
               </li>
               <li className="mb-2 hover:text-primary transition-colors">
-                <Link href="/terms-of-use">Terms of Use</Link>
+                <Link href="/terms-of-service">Terms of Service</Link>
               </li>
               <li className="mb-2 hover:text-primary transition-colors">
                 <Link href="/terms-and-conditions">Terms & Conditions</Link>
