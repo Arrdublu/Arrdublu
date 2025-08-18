@@ -255,6 +255,19 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80',
     previews: ['https://images.unsplash.com/photo-1620462229921-22b0a04911e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1512496015851-a90137ba0a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/3cI6oH0oe81S1qe8TA93y06',
+    whatsIncluded: [
+        'On-site makeup artistry for talent',
+        'High-definition and camera-ready looks',
+        'Kit with premium, long-lasting products',
+        'Touch-ups throughout the shoot',
+        'Consultation to match look with production creative'
+    ],
+    goodToKnow: [
+        'Pricing is for a half-day rate (up to 4 hours).',
+        'Additional hours can be booked as needed.',
+        'Travel and specialty SFX makeup may incur additional costs.'
+    ],
+    caseStudyIds: ['production-makeup-collaboration'],
   },
 ];
 
@@ -286,6 +299,15 @@ export const caseStudies: CaseStudy[] = [
         link: '/discover/case-studies/annual-corporate-summit', // This should probably be a new page, but for now I'll point to an existing one.
         dataAiHint: 'executive portrait professional',
     },
+    {
+        id: 'production-makeup-collaboration',
+        title: 'Flawless on Film: A Collaboration with Ioka Beautiful Purpose',
+        category: 'Production Makeup',
+        image: 'https://images.unsplash.com/photo-1620462229921-22b0a04911e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        description: 'A seamless collaboration ensuring talent looked impeccable on camera, delivering a great experience and fostering long-term retention.',
+        link: '/discover/case-studies/production-makeup-collaboration',
+        dataAiHint: 'makeup artist collaboration',
+    }
 ];
 
 export function getServiceById(id: string): Service | undefined {
@@ -314,5 +336,3 @@ export async function getCaseStudiesByIds(ids: string[]): Promise<CaseStudy[]> {
         }, 300);
     });
 }
-
-    
