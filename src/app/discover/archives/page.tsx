@@ -1,10 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Calendar } from '@/components/ui/calendar';
 import { format } from 'date-fns';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Skeleton } from '@/components/ui/skeleton';
+
 
 // Mock data for archived projects for demonstration purposes
 const archivedProjects: Record<string, { title: string; description: string, category: string }> = {
@@ -27,6 +29,11 @@ const archivedProjects: Record<string, { title: string; description: string, cat
 
 export default function ArchivesPage() {
   const [date, setDate] = useState<Date | undefined>(new Date('2023-10-26'));
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const selectedDateString = date ? format(date, 'yyyy-MM-dd') : '';
   const project = archivedProjects[selectedDateString as keyof typeof archivedProjects];
@@ -50,40 +57,46 @@ export default function ArchivesPage() {
                     selected={date}
                     onSelect={setDate}
                     className="p-0"
-                    // You can disable future dates or specific dates without projects
                     disabled={(d) => d > new Date()}
                 />
             </Card>
         </div>
         <div className="md:col-span-2">
+          <Card className="h-full min-h-[250px] flex flex-col justify-center shadow-lg">
             <AnimatePresence mode="wait">
-                <motion.div
-                    key={selectedDateString}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
-                >
-                    <Card className="h-full min-h-[250px] flex flex-col justify-center shadow-lg">
-                    {project ? (
-                        <>
-                        <CardHeader>
-                            <CardDescription>{format(date!, 'MMMM d, yyyy')} | {project.category}</CardDescription>
-                            <CardTitle className="font-headline text-2xl text-primary">{project.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p className="text-muted-foreground">{project.description}</p>
-                        </CardContent>
-                        </>
-                    ) : (
-                        <CardContent className="text-center">
-                            <h3 className="text-xl font-semibold text-muted-foreground">No project archived for this date.</h3>
-                            <p className="text-sm text-muted-foreground/80 mt-2">Please select another date.</p>
-                        </CardContent>
-                    )}
-                    </Card>
-                </motion.div>
+              <motion.div
+                key={selectedDateString}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {!isMounted ? (
+                  <div className="p-6 space-y-4">
+                    <Skeleton className="h-4 w-1/3" />
+                    <Skeleton className="h-6 w-2/3" />
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-5/6" />
+                  </div>
+                ) : project ? (
+                  <>
+                    <CardHeader>
+                      <CardDescription>{format(date!, 'MMMM d, yyyy')} | {project.category}</CardDescription>
+                      <CardTitle className="font-headline text-2xl text-primary">{project.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">{project.description}</p>
+                    </CardContent>
+                  </>
+                ) : (
+                  <CardContent className="text-center">
+                    <h3 className="text-xl font-semibold text-muted-foreground">No project archived for this date.</h3>
+                    <p className="text-sm text-muted-foreground/80 mt-2">Please select another date.</p>
+                  </CardContent>
+                )}
+              </motion.div>
             </AnimatePresence>
+          </Card>
         </div>
       </div>
     </div>
