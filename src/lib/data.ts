@@ -212,6 +212,19 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1574622522998-d1e672e81e46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxBcnRpc2FuYWwlMjBQb3J0cmFpdCUyMFNlc3Npb258ZW58MHx8fHwxNzU0MjQzMzg5fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1588516624929-23606c45f415?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_portrait-session',
+    whatsIncluded: [
+        '2-hour photo session',
+        'Choice of studio or on-location setting',
+        'Multiple outfit changes',
+        '20 professionally retouched high-resolution images',
+        'Private online gallery for image selection'
+    ],
+    goodToKnow: [
+        'Hair and makeup services can be added for an additional fee.',
+        'Final images are delivered within 7-10 business days.',
+        'A pre-session consultation is included to plan the shoot.'
+    ],
+    caseStudyIds: ['executive-portraits'],
   },
   {
     id: 'content-strategy',
@@ -264,6 +277,15 @@ export const caseStudies: CaseStudy[] = [
         link: '/discover/case-studies/annual-corporate-summit',
         dataAiHint: 'corporate summit',
     },
+    {
+        id: 'executive-portraits',
+        title: 'Executive Branding Portraits',
+        category: 'Lifestyle',
+        image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        description: 'Crafted a powerful visual identity for a C-suite executive, enhancing their professional brand and online presence.',
+        link: '/discover/case-studies/annual-corporate-summit', // This should probably be a new page, but for now I'll point to an existing one.
+        dataAiHint: 'executive portrait professional',
+    },
 ];
 
 export function getServiceById(id: string): Service | undefined {
@@ -292,3 +314,5 @@ export async function getCaseStudiesByIds(ids: string[]): Promise<CaseStudy[]> {
         }, 300);
     });
 }
+
+    
