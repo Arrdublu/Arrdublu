@@ -186,7 +186,7 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'A professional music video package perfect for emerging artists. Includes a half-day shoot, 2 locations, and a 3-minute final edited video.',
     price: 1500,
-    image: 'https://images.unsplash.com/photo-1574160579930-94b32d8a0336?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDM3Mjd8MHwxfHNlYXJjaHwzfHxpbmRpZSUyMGFydGlzdCUyMG11c2ljJTIwdmlkZW98ZW58MHx8fHwxNzE5OTU0NzM3fDA&ixlib=rb-4.0.3&q=80&w=1080',
+    image: 'https://images.unsplash.com/photo-1598837072042-5a0fb9f400b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxJbmRpZSUyMEFydGlzdCUyME11c2ljJTIwVmlkZW98ZW58MHx8fHwxNzU1NjA2MzU2fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [],
     paymentLink: 'https://book.stripe.com/placeholder_music-video-indie',
   },
