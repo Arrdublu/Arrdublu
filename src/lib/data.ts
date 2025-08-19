@@ -324,7 +324,7 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'Create stunning, high-end 3D animations for product showcases, cinematic intros, and complex visual effects that captivate your audience.',
     price: 3200,
-    image: 'https://images.unsplash.com/photo-1593954286999-9e0d1064f26a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1636470241984-9c54a8517cf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHwzRCUyME1vdGlvbiUyMEdyYXBoaWNzJTIwUGFja2FnZXxlbnwwfHx8fDE3NTU2MDcxMTl8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [],
     paymentLink: 'https://book.stripe.com/placeholder_3d-motion-graphics',
     whatsIncluded: [
