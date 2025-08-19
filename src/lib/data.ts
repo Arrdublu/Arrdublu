@@ -209,7 +209,7 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'A premium, all-inclusive package for established artists. Includes a full-day shoot, multiple locations, advanced cinematography, special effects, and a director-level creative team.',
     price: 7500,
-    image: 'https://images.unsplash.com/photo-1583089892943-e02e5d017861?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDM3Mjd8MHwxfHNlYXJjaHw1fHxtYWpvciUyMGxhYmVsJTIwbXVzaWMlMjB2aWRlb3xlbnwwfHx8fDE3E5OTU0NzYxfDA&ixlib=rb-4.0.3&q=80&w=1080',
+    image: 'https://images.unsplash.com/photo-1530349578817-9b5acd652481?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8TWFqb3IlMjBMYWJlbCUyME11c2ljJTIwVmlkZW98ZW58MHx8fHwxNzU1NjA2NjQ5fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [],
     paymentLink: 'https://book.stripe.com/placeholder_music-video-major',
   },
