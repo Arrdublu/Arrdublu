@@ -33,6 +33,22 @@ const jobPostings = [
     type: 'Contract',
     description: 'We are looking for a talented UI/UX Designer to create intuitive and visually appealing interfaces for our web and mobile products. A strong portfolio is a must.',
   },
+  {
+    id: 'video-editor-01',
+    title: 'Video Editor',
+    department: 'Creative',
+    location: 'Remote',
+    type: 'Freelance',
+    description: 'We are looking for a creative Video Editor to assemble and edit raw footage into a polished final product that aligns with the project\'s vision. Proficiency in Adobe Premiere Pro and After Effects is required.',
+  },
+  {
+    id: 'model-01',
+    title: 'Lifestyle Model',
+    department: 'Lifestyle',
+    location: 'Project-based',
+    type: 'Part-time',
+    description: 'Seeking models for various lifestyle and product photoshoots. We welcome diverse looks and all levels of experience. Please provide a portfolio or headshots with your application.',
+  },
 ];
 
 export function JobList() {
