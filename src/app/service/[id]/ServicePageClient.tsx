@@ -47,6 +47,30 @@ export function ServicePageClient({ service, caseStudies }: ServicePageClientPro
     <div className="container mx-auto px-4 py-12">
       <div className="grid lg:grid-cols-3 gap-12 items-start">
         <div className="lg:col-span-2 space-y-12">
+
+            {service.previews && service.previews.length > 0 && (
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {service.previews.map((src, index) => (
+                    <CarouselItem key={index}>
+                      <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+                        <Image
+                          src={src}
+                          alt={`${service.name} preview ${index + 1}`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                           data-ai-hint={`${service.category.toLowerCase()} service preview`}
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-4" />
+                <CarouselNext className="right-4" />
+              </Carousel>
+            )}
+
             <div>
                  <h2 className="text-3xl font-headline font-semibold text-primary mb-4">Service Overview</h2>
                 <div className="prose prose-lg text-foreground/80 max-w-none whitespace-pre-wrap">
