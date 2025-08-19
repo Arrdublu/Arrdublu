@@ -304,7 +304,7 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'Bring your brand to life with custom 2D motion graphics. Ideal for explainer videos, social media content, and dynamic presentations.',
     price: 1800,
-    image: 'https://images.unsplash.com/photo-1611162617213-7d724e0f2241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1683089598416-24ecf70305b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8MkQlMjBNb3Rpb24lMjBHcmFwaGljcyUyMFBhY2thZ2V8ZW58MHx8fHwxNzU1NjA2ODQ0fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [],
     paymentLink: 'https://book.stripe.com/placeholder_2d-motion-graphics',
     whatsIncluded: [
