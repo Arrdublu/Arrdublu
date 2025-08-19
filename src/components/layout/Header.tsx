@@ -27,7 +27,6 @@ export function SiteHeader() {
 
   const navItems = [
     { href: '/', label: 'Home' },
-    { href: '/shop', label: 'Shop' },
     { href: '/faq', label: 'FAQ' },
   ];
   
@@ -37,6 +36,7 @@ export function SiteHeader() {
     { href: '/discover/archives', label: 'Archives' },
     { href: '/discover/brands', label: 'Brands' },
     { href: '/discover/case-studies', label: 'Case Studies' },
+    { href: '/shop', label: 'Shop' },
   ]
 
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
