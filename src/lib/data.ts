@@ -196,7 +196,7 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'Bring your music to life with a stunning, broadcast-quality music video. We handle everything from concept development and storyboarding to shooting and post-production, creating a visual masterpiece that matches your sound.',
     price: 3000,
-    image: 'https://images.unsplash.com/photo-1598341932342-454b4a69c0c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1637249876871-b1a93c13ed1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8U3RhbmRhcmQlMjBNdXNpYyUyMFZpZGVvJTIwUGFja2FnZXxlbnwwfHx8fDE3NTU2MDY0OTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [
         'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
         'https://images.unsplash.com/photo-1619993335965-274a72d5c1f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
