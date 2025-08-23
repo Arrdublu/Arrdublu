@@ -88,6 +88,19 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
     previews: ['https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/8x2aEXef495Wed01r893y0e',
+    whatsIncluded: [
+        '15 custom social media post templates (e.g., for Instagram, Facebook, LinkedIn)',
+        '5 animated story templates',
+        'Custom icon set (up to 10 icons)',
+        'Profile picture and banner/cover photo designs',
+        'Editable source files (Canva, Figma, or Photoshop)'
+    ],
+    goodToKnow: [
+        'We will hold a strategy session to understand your brand aesthetic.',
+        'Turnaround time is 7-10 business days.',
+        'Includes one round of major revisions.'
+    ],
+    caseStudyIds: ['luxury-lifestyle-launch'],
   },
   {
     id: 'event-photography',
@@ -396,7 +409,16 @@ export const caseStudies: CaseStudy[] = [
         description: 'A seamless collaboration ensuring talent looked impeccable on camera, delivering a great experience and fostering long-term retention.',
         link: '/discover/case-studies/production-makeup-collaboration',
         dataAiHint: 'makeup artist collaboration',
-    }
+    },
+    {
+      id: 'luxury-lifestyle-launch',
+      title: 'Luxury Lifestyle Brand Launch',
+      category: 'Social Media Strategy',
+      image: 'https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+      description: 'Launched a new luxury brand on social media, achieving explosive growth and engagement through a targeted visual content strategy.',
+      link: '/discover/case-studies/luxury-lifestyle-launch',
+      dataAiHint: 'luxury brand social media',
+  }
 ];
 
 export function getServiceById(id: string): Service | undefined {
