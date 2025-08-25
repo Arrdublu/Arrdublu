@@ -16,6 +16,12 @@ export function ServiceActions({ service }: ServiceActionsProps) {
         window.open(service.paymentLink, '_blank', 'noopener,noreferrer');
     }
   }
+  
+  const handleFastpayClick = () => {
+    if (service.fastpayLink) {
+        window.open(service.fastpayLink, '_blank', 'noopener,noreferrer');
+    }
+  }
 
     return (
         <div className="mt-4 flex flex-col sm:flex-row gap-2">
@@ -23,7 +29,7 @@ export function ServiceActions({ service }: ServiceActionsProps) {
                 Book Now
                 <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-             <Button size="lg" variant="secondary" className="w-full sm:w-auto flex-grow">
+             <Button size="lg" variant="secondary" className="w-full sm:w-auto flex-grow" onClick={handleFastpayClick}>
                 Fastpay
                 <Zap className="ml-2 h-5 w-5" />
             </Button>
