@@ -7,8 +7,7 @@ import type { Service } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useCurrency } from '@/context/CurrencyProvider';
-import { useCart } from '@/context/CartProvider';
-import { ShoppingCart } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface ServiceCardProps {
   service: Service;
@@ -16,12 +15,13 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   const { getFormattedPrice } = useCurrency();
-  const { addToCart } = useCart();
 
-  const handleAddToCartClick = (e: React.MouseEvent) => {
+  const handleBookNowClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    addToCart(service);
+    if (service.paymentLink) {
+      window.open(service.paymentLink, '_blank', 'noopener,noreferrer');
+    }
   };
   
   return (
@@ -54,9 +54,9 @@ export function ServiceCard({ service }: ServiceCardProps) {
                 {getFormattedPrice(service.price)}
                 {service.unit === 'hr' && <span className="text-sm font-normal text-muted-foreground">/hr</span>}
             </p>
-            <Button variant="outline" size="sm" onClick={handleAddToCartClick}>
-                Add to Bag
-                <ShoppingCart className="ml-2 h-4 w-4" />
+            <Button variant="outline" size="sm" onClick={handleBookNowClick}>
+                Book Now
+                <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
         </div>
       </CardContent>
