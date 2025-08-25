@@ -286,7 +286,7 @@ export const services: Service[] = [
     price: 2500,
     image: 'https://images.unsplash.com/photo-1653043586925-cfb4676c69a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm8lMjB2aWRlb3xlbnwwfHx8fDE3NTYxNDQyNTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
-    paymentLink: 'https://buy.stripe.com/aFacN58UK2Hy9WK5Ho93y0m',
+    paymentLink: 'https://book.stripe.com/3cIfZh8UK6XO1qeedU93y0j',
     whatsIncluded: [
         'Creative concept development and storyboarding',
         'Half-day shoot (up to 4 hours) with a professional videographer',
