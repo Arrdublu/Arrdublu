@@ -8,7 +8,6 @@ export type Service = {
   image: string;
   previews: string[];
   paymentLink?: string;
-  fastpayLink?: string;
   unit?: 'hr';
   whatsIncluded?: string[];
   goodToKnow?: string[];
