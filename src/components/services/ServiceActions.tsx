@@ -23,6 +23,24 @@ export function ServiceActions({ service }: ServiceActionsProps) {
     }
   }
 
+  const handleBookNowClick = () => {
+    if (service.paymentLink) {
+      window.open(service.paymentLink, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  // Special case for "Promotional Video Production"
+  if (service.id === 'video-production') {
+    return (
+        <div className="mt-4 flex flex-col">
+             <Button size="lg" className="w-full" onClick={handleBookNowClick}>
+                Book Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+        </div>
+    )
+  }
+
     return (
         <div className="mt-4 flex flex-col sm:flex-row gap-2">
             <Button size="lg" className="w-full sm:w-auto flex-grow bg-primary hover:bg-primary/90" onClick={handleAddToCartClick}>
