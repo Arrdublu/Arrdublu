@@ -18,9 +18,8 @@ export function ServiceActions({ service }: ServiceActionsProps) {
   };
   
   const handleFastpayClick = () => {
-    if (service.fastpayLink) {
-        window.open(service.fastpayLink, '_blank', 'noopener,noreferrer');
-    }
+    // This is a placeholder for Fastpay functionality
+    console.log(`Fastpay clicked for ${service.name}`);
   }
 
   const handleBookNowClick = () => {

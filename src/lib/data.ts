@@ -21,7 +21,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1554224155-cfa08c2a758f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxDb21wcmVoZW5zaXZlJTIwU0VPJTIwQXVkaXR8ZW58MHx8fHwxNzU0MjQzNjc4fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_seo-audit',
-    fastpayLink: 'https://buy.stripe.com/test_aEU16r8sA8la5A4000',
     whatsIncluded: ['On-page analysis', 'Backlink profile review', 'Technical SEO check', 'Competitor analysis', 'Actionable report'],
     goodToKnow: ['Requires access to your website analytics.', 'Turnaround time is 5-7 business days.'],
   },
@@ -34,7 +33,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1518336707416-68242ffc0bac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyMHx8U3RyYXRlZ2ljJTIwS2V5d29yZCUyMFJlc2VhcmNofGVufDB8fHx8MTc1NDI0MzgzNXww&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1604147706283-d7119b5b822c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_keyword-research',
-    fastpayLink: 'https://buy.stripe.com/test_9AQeYbdMMgZW2lWfZ1',
     whatsIncluded: ['Primary and secondary keyword lists', 'Competitive keyword gap analysis', 'Search intent classification', 'Keyword mapping recommendations'],
     goodToKnow: ['We will schedule a 30-minute call to understand your business goals before starting.', 'Report delivered in 3-5 business days.'],
   },
@@ -47,7 +45,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1556740772-1a741367b93e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
     previews: ['https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1497032628192-86f99d791ba7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/9B68wP9YOeqg6Ky3zg93y0a',
-    fastpayLink: 'https://buy.stripe.com/test_8wM9CPdMM23o3q8289',
     whatsIncluded: ['Logo Design (3 concepts)', 'Color Palette & Typography', 'Brand Style Guide', 'Business Card Design', 'Social Media Profile Images'],
     goodToKnow: ['Project timeline is typically 2-3 weeks.', 'Includes 2 rounds of revisions for the chosen logo concept.'],
     caseStudyIds: ['global-rebrand'],
@@ -61,7 +58,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1716471330463-f475b00f0506?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsb2dvJTIwZGVzaWdufGVufDB8fHx8MTc1NDI0NTk2N3ww&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1548094990-c16ca91f18ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80','https://images.unsplash.com/photo-1611117775522-5a33503437a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/28E7sL7QGfuk8SG8TA93y0b',
-    fastpayLink: 'https://buy.stripe.com/test_cN27uXbEQeVO0hOfZ2',
   },
   {
     id: 'social-media-graphic',
@@ -72,7 +68,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1563861327975-6078d4994655?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxTaW5nbGUlMjBTb2NpYWwlMjBNZWRpYSUyMEdyYXBoaWN8ZW58MHx8fHwxNzU0MzQ4NDQ2fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/3cI14n3Aqbe44Cq8TA93y0c',
-    fastpayLink: 'https://buy.stripe.com/test_dR64iz0cs23o2pydQS',
   },
    {
     id: 'business-card-design',
@@ -83,7 +78,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1654131300276-db70adf4f85d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8QnVzaW5lc3MlMjBDYXJkJTIwRGVzaWdufGVufDB8fHx8MTc1NDI0NjMxM3ww&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1554034483-04b3eda723e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1596526131034-34c9d7ed4263?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/7sY6oH4Euaa08SG1r893y0d',
-    fastpayLink: 'https://buy.stripe.com/test_cN2eYb40McNGb3i5ko',
   },
   {
     id: 'social-media-visuals',
@@ -94,7 +88,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
     previews: ['https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/8x2aEXef495Wed01r893y0e',
-    fastpayLink: 'https://buy.stripe.com/test_4gw2av6kscNG3q8bIN',
     whatsIncluded: [
         '15 custom social media post templates (e.g., for Instagram, Facebook, LinkedIn)',
         '5 animated story templates',
@@ -119,7 +112,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1612389930565-6975454dc7cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxldmVudCUyMHBob3RvZ3JhcGh5fGVufDB8fHx8MTc1NDI0Mjg2Mnww&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/00w8wP2wmci85Gu2vc93y0f',
-    fastpayLink: 'https://buy.stripe.com/test_00g16r14o0ZkfT26ot',
     whatsIncluded: [
         'Professional photographer on-site',
         'High-resolution digital images',
@@ -143,7 +135,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1557701491-7bdb1098123d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNXx8ZXZlbnQlMjB2aWRlb2dyYXBoeXxlbnwwfHx8fDE3NTQyNDMwNjV8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1606833958622-1b6c7a1d1d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/9B6aEXef41Dugl88TA93y0g',
-    fastpayLink: 'https://buy.stripe.com/test_8wM4izfYUgZWeOQeUY',
     caseStudyIds: ['annual-corporate-summit'],
   },
   {
@@ -155,7 +146,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1600195556579-d81d3f386e55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8QmFzaWMlMjBMaXZlc3RyZWFtJTIwUGFja2FnZXxlbnwwfHx8fDE3NTQyODA2Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1616499368319-75618f73a55a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1589144810237-792b9d12a648?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/fZu7sL6MC0zq2ui6Ls93y07',
-    fastpayLink: 'https://buy.stripe.com/test_9AQg2f00k9pefT2cMS',
   },
   {
     id: 'livestream-standard',
@@ -166,7 +156,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1688560722687-7d4d5fb8ff8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y3JlYXRpdmUlMjBzZXJ2aWNlJTIwcHJldmlld3xlbnwwfHx8fDE3NTQyOTEwMDd8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1522204538344-922f76ecc041?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjcmVhdGl2ZSUyMHNlcnZpY2UlMjBwcmV2aWV3fGVufDB8fHx8MTc1NDI5MTAwN3ww&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1688560722687-7d4d5fb8ff8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y3JlYXRpdmUlMjBzZXJ2aWNlJTIwcHJldmlld3xlbnwwfHx8fDE3NTQyOTEwMDd8MA&ixlib=rb-4.1.0&q=80&w=1080'],
     paymentLink: 'https://book.stripe.com/aFacN5ef495Wed01r893y08',
-    fastpayLink: 'https://buy.stripe.com/test_00g16r14o0ZkfT26ot',
   },
   {
     id: 'livestream-premium',
@@ -177,7 +166,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1641499303764-a9e3a93a72e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxQcmVtaXVtJTIwTGl2ZXN0cmVhbSUyMFBhY2thZ2V8ZW58MHx8fHwxNzU0Mjc5NzY1fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1556761175-b413da4b2489?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1511578194003-062818810074?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/7sY14n8UK0zq5Gu4Dk93y09',
-    fastpayLink: 'https://buy.stripe.com/test_bIYg2f14o5nAgXKbIM',
   },
   {
     id: 'wedding-photography',
@@ -191,7 +179,6 @@ export const services: Service[] = [
       'https://images.unsplash.com/photo-1515934751635-481eff048d09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
     ],
     paymentLink: 'https://book.stripe.com/eVqcN55Iyfukd8W9XE93y0h',
-    fastpayLink: 'https://buy.stripe.com/test_fZe4izfYUfZYb3i8wB',
   },
   {
     id: 'wedding-videography',
@@ -205,7 +192,6 @@ export const services: Service[] = [
       'https://images.unsplash.com/photo-1510627878916-7a0c10740a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
     ],
     paymentLink: 'https://book.stripe.com/6oU00j6MCci8fh4c5M93y0i',
-    fastpayLink: 'https://buy.stripe.com/test_8wM3ev5go6vwdOQ8wC',
   },
   {
     id: 'music-video-indie',
@@ -216,7 +202,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1598837072042-5a0fb9f400b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxJbmRpZSUyMEFydGlzdCUyME11c2ljJTIwVmlkZW98ZW58MHx8fHwxNzU1NjA2MzU2fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [],
     paymentLink: 'https://book.stripe.com/placeholder_music-video-indie',
-    fastpayLink: 'https://buy.stripe.com/test_aEU16r40M5nAgXKaEJ',
   },
   {
     id: 'music-video-standard',
@@ -230,7 +215,6 @@ export const services: Service[] = [
         'https://images.unsplash.com/photo-1619993335965-274a72d5c1f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
     ],
     paymentLink: 'https://book.stripe.com/placeholder_music-video-standard',
-    fastpayLink: 'https://buy.stripe.com/test_9AQ8yT28scNGdOQcMV',
   },
   {
     id: 'music-video-major',
@@ -241,7 +225,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1530349578817-9b5acd652481?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8TWFqb3IlMjBMYWJlbCUyME11c2ljJTIwVmlkZW98ZW58MHx8fHwxNzU1NjA2NjQ5fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [],
     paymentLink: 'https://book.stripe.com/placeholder_music-video-major',
-    fastpayLink: 'https://buy.stripe.com/test_dR6g2f9wEgZWfT228x',
   },
   {
     id: 'lifestyle-photography',
@@ -252,7 +235,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
     previews: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_lifestyle-photography',
-    fastpayLink: 'https://buy.stripe.com/test_8wM4izfYU8la2lWeUX',
   },
   {
     id: 'portrait-session',
@@ -272,7 +254,6 @@ export const services: Service[] = [
       "https://firebasestorage.googleapis.com/v0/b/arrdublu-3.firebasestorage.app/o/gallery%2Fservices%2FArtisanal_Portrait_Session%2FIMG_2838.jpg?alt=media&token=7a95baeb-12e3-47a9-a108-b0bcf375e94c"
     ],
     paymentLink: 'https://book.stripe.com/bJebJ1b2Sdmc5Gu4Dk93y0l',
-    fastpayLink: 'https://buy.stripe.com/test_7sI8yT9wE5nA3q89AC',
     whatsIncluded: [
         '2-hour photo session',
         'Choice of studio or on-location setting',
@@ -296,7 +277,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1726066012749-f81bf4422d4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxDb250ZW50JTIwTWFya2V0aW5nJTIwU3RyYXRlZ3l8ZW58MHx8fHwxNzU0MjQ0NTEwfDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/placeholder_content-strategy',
-    fastpayLink: 'https://buy.stripe.com/test_bIYg2f14ocNGfT23ct',
   },
   {
     id: 'video-production',
@@ -307,7 +287,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1653043586925-cfb4676c69a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm8lMjB2aWRlb3xlbnwwfHx8fDE3NTYxNDQyNTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://buy.stripe.com/aFacN58UK2Hy9WK5Ho93y0m',
-    fastpayLink: 'https://buy.stripe.com/test_6oEeYbbEQfZYdOQfZ8',
     whatsIncluded: [
         'Creative concept development and storyboarding',
         'Half-day shoot (up to 4 hours) with a professional videographer',
@@ -332,7 +311,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
     previews: ['https://images.unsplash.com/photo-1620462229921-22b0a04911e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1512496015851-a90137ba0a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/3cI6oH0oe81S1qe8TA93y06',
-    fastpayLink: 'https://buy.stripe.com/test_fZe9CPaAQfVOgXOeUY',
     whatsIncluded: [
         'On-site makeup artistry for talent',
         'High-definition and camera-ready looks',
@@ -356,7 +334,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1683089598416-24ecf70305b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8MkQlMjBNb3Rpb24lMjBHcmFwaGljcyUyMFBhY2thZ2V8ZW58MHx8fHwxNzU1NjA2ODQ0fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [],
     paymentLink: 'https://book.stripe.com/placeholder_2d-motion-graphics',
-    fastpayLink: 'https://buy.stripe.com/test_bIY2avfYU37s0hO9AR',
     whatsIncluded: [
       'Up to 60 seconds of 2D animation',
       'Custom storyboard and design',
@@ -377,7 +354,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1636470241984-9c54a8517cf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHwzRCUyME1vdGlvbiUyMEdyYXBoaWNzJTIwUGFja2FnZXxlbnwwfHx8fDE3NTU2MDcxMTl8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [],
     paymentLink: 'https://book.stripe.com/placeholder_3d-motion-graphics',
-    fastpayLink: 'https://buy.stripe.com/test_14k3ev3cs5nAdOQ4gm',
     whatsIncluded: [
       'Up to 30 seconds of 3D animation',
       'Advanced modeling, texturing, and lighting',
@@ -398,7 +374,6 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1706034449892-a23e82d3f4c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMnx8M0QlMjBQcm9kdWN0JTIwVmlzdWFsaXphdGlvbnxlbnwwfHx8fDE3NTU2MDc2MDR8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [],
     paymentLink: 'https://book.stripe.com/placeholder_3d-product-visualization',
-    fastpayLink: 'https://buy.stripe.com/test_6oE16rdMM0Zk7Ew6oF',
     whatsIncluded: [
       'One high-fidelity 3D model of your product',
       '5 photorealistic studio renderings (white background)',
