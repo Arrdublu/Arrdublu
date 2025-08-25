@@ -5,11 +5,13 @@ import { Recommendations } from '@/components/services/Recommendations';
 import { CustomRequestForm } from '@/components/services/CustomRequestForm';
 import { Separator } from '@/components/ui/separator';
 import { KeywordFilter } from '@/components/services/KeywordFilter';
+import { CartProvider } from '@/context/CartProvider';
 
 export default function Home() {
   const categories = ['Creative', 'Lifestyle', 'SEO'];
 
   return (
+    <CartProvider>
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <section className="text-center py-16 md:py-24">
         <h1 className="font-headline text-4xl md:text-6xl font-bold tracking-tight text-primary">
@@ -50,7 +52,7 @@ export default function Home() {
             Need Something Different?
           </h2>
  <p className="mt-4 text-lg max-w-2xl mx-auto text-foreground/80">
-            If you have a unique request or need a custom package, please let us know. We&apos;re happy to discuss your project.
+            If you have a unique request or need a custom package, please let us know. We're happy to discuss your project.
           </p>
         </div>
         <div className="max-w-2xl mx-auto">
@@ -60,5 +62,6 @@ export default function Home() {
       
       <Recommendations />
     </div>
+    </CartProvider>
   );
 }
