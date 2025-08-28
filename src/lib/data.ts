@@ -279,7 +279,7 @@ export const services: Service[] = [
     paymentLink: 'https://buy.stripe.com/placeholder_content-strategy',
   },
   {
-    id: 'video-production',
+    id: 'promotional-video',
     name: 'Promotional Video Production',
     category: 'Creative',
     description: 'Tell your story through compelling video. From concept to final cut, we produce high-quality promotional videos that captivate your audience and communicate your brand message effectively.',
@@ -385,6 +385,54 @@ export const services: Service[] = [
       'Turnaround time is 2-3 weeks per product.'
     ]
   },
+  {
+    id: 'real-estate-photo',
+    name: 'Real Estate Photography Package',
+    category: 'Lifestyle',
+    description: 'High-quality, professional photos to make your property listing stand out. We capture the best angles to showcase the space and attract potential buyers.',
+    price: 350,
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    previews: [
+        'https://images.unsplash.com/photo-1600585152225-358EA60c75b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
+    ],
+    paymentLink: 'https://book.stripe.com/placeholder_real-estate-photo',
+    whatsIncluded: [
+        '25-35 High-Resolution Digital Photos',
+        'Interior & Exterior Shots',
+        'Professional Editing & Color Correction',
+        '24-48 Hour Turnaround Time',
+        'Online Gallery for Download'
+    ],
+    goodToKnow: [
+        'Pricing is for properties up to 2,500 sq ft.',
+        'Drone photography and virtual staging available as add-ons.'
+    ]
+  },
+  {
+      id: 'real-estate-video',
+      name: 'Cinematic Home Tour',
+      category: 'Creative',
+      description: 'Engage buyers with a stunning, cinematic video tour of your property. Our videos highlight the key features and flow of the home, creating an emotional connection.',
+      price: 650,
+      image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+      previews: [
+          'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+          'https://images.unsplash.com/photo-1613553423758-d75a1711681a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
+      ],
+      paymentLink: 'https://book.stripe.com/placeholder_real-estate-video',
+      whatsIncluded: [
+          '1-2 Minute Cinematic Video',
+          'Stabilized Walkthrough Footage',
+          'Licensed Background Music',
+          'Professional Color Grading',
+          'Formatted for MLS and Social Media'
+      ],
+      goodToKnow: [
+          'Pricing for properties up to 2,500 sq ft.',
+          'Drone footage and agent intro can be included for an additional fee.'
+      ]
+  }
 ];
 
 export const caseStudies: CaseStudy[] = [
