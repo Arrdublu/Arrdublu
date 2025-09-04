@@ -90,6 +90,18 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1654131300276-db70adf4f85d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8QnVzaW5lc3MlMjBDYXJkJTIwRGVzaWdufGVufDB8fHx8MTc1NDI0NjMxM3ww&ixlib=rb-4.1.0&q=80&w=1080',
     previews: ['https://images.unsplash.com/photo-1554034483-04b3eda723e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1596526131034-34c9d7ed4263?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/7sY6oH4Euaa08SG1r893y0d',
+    whatsIncluded: [
+      'Custom double-sided business card design',
+      '3 initial design concepts to choose from',
+      'Print-ready files in PDF format',
+      'Digital mockups for your portfolio'
+    ],
+    goodToKnow: [
+      'Client must provide logo and contact information.',
+      'Includes two rounds of revisions.',
+      'This is a design service only; printing is not included.'
+    ],
+    caseStudyIds: ['executive-identity'],
   },
   {
     id: 'social-media-visuals',
@@ -501,6 +513,15 @@ export const caseStudies: CaseStudy[] = [
         description: 'How one strategically designed graphic for a local cafe led to a 500% increase in weekly engagement and record foot traffic.',
         link: '/discover/case-studies/viral-post',
         dataAiHint: 'social media engagement',
+    },
+    {
+        id: 'executive-identity',
+        title: 'Executive Identity: Crafting a Lasting Impression',
+        category: 'Business Card Design',
+        image: 'https://images.unsplash.com/photo-1563986768711-b3bde3dc821e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        description: 'Designed a premium business card for a top consulting firm, resulting in a measurable increase in client callbacks.',
+        link: '/discover/case-studies/executive-identity',
+        dataAiHint: 'business card meeting',
     }
 ];
 
