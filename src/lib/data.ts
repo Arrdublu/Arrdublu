@@ -509,7 +509,7 @@ export const caseStudies: CaseStudy[] = [
         id: 'viral-post',
         title: 'Viral Visual: The Power of a Single Post',
         category: 'Social Media Graphic',
-        image: 'https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        image: 'https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80',
         description: 'How one strategically designed graphic for a local cafe led to a 500% increase in weekly engagement and record foot traffic.',
         link: '/discover/case-studies/viral-post',
         dataAiHint: 'social media engagement',
