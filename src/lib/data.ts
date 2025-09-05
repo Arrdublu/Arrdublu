@@ -88,7 +88,7 @@ export const services: Service[] = [
     description: 'Make a great first impression with a custom business card design. We provide a print-ready file for you to take to your preferred printer.',
     price: 150,
     image: 'https://images.unsplash.com/photo-1654131300276-db70adf4f85d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8QnVzaW5lc3MlMjBDYXJkJTIwRGVzaWdufGVufDB8fHx8MTc1NDI0NjMxM3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: ['https://images.unsplash.com/photo-1554034483-04b3eda723e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1596526131034-34c9d7ed4263?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
+    previews: ['https://images.unsplash.com/photo-1554034483-04b3eda723e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1579642984744-4dd0fe83c38c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxCdXNpbmVzcyUyMENhcmQlMjBEZXNpZ252fGVufDB8fHx8MTc1NzAzMDQ5OHww&ixlib=rb-4.1.0&q=80&w=1080'],
     paymentLink: 'https://book.stripe.com/7sY6oH4Euaa08SG1r893y0d',
     whatsIncluded: [
       'Custom double-sided business card design',
@@ -482,7 +482,7 @@ export const caseStudies: CaseStudy[] = [
         id: 'executive-portraits',
         title: 'Executive Branding Portraits',
         category: 'Lifestyle',
-        image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80',
         description: 'Crafted a powerful visual identity for a C-suite executive, enhancing their professional brand and online presence.',
         link: '/discover/case-studies/annual-corporate-summit', // This should probably be a new page, but for now I\'ll point to an existing one.
         dataAiHint: 'executive portrait professional',
@@ -500,7 +500,7 @@ export const caseStudies: CaseStudy[] = [
       id: 'luxury-lifestyle-launch',
       title: 'Luxury Lifestyle Brand Launch',
       category: 'Social Media Strategy',
-      image: 'https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D%3D&auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80',
       description: 'Launched a new luxury brand on social media, achieving explosive growth and engagement through a targeted visual content strategy.',
       link: '/discover/case-studies/luxury-lifestyle-launch',
       dataAiHint: 'luxury brand social media',
