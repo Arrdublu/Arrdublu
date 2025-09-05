@@ -518,7 +518,7 @@ export const caseStudies: CaseStudy[] = [
         id: 'executive-identity',
         title: 'Executive Identity: Crafting a Lasting Impression',
         category: 'Business Card Design',
-        image: 'https://images.unsplash.com/photo-1563986768711-b3bde3dc821e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        image: 'https://images.unsplash.com/photo-1563986768711-b3bde3dc821e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80',
         description: 'Designed a premium business card for a top consulting firm, resulting in a measurable increase in client callbacks.',
         link: '/discover/case-studies/executive-identity',
         dataAiHint: 'business card meeting',
