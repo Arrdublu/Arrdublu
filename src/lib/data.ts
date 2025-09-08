@@ -266,7 +266,7 @@ export const services: Service[] = [
     category: 'Lifestyle',
     description: 'Capture your essence with a professional portrait session. Ideal for entrepreneurs, artists, and professionals looking for high-quality headshots and personal branding images.',
     price: 600,
-    image: 'https://images.unsplash.com/photo-1574622522998-d1e672e61e46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxBcnRpc2FuYWwlMjBQb3J0cmFpdCUyMFNlc3Npb258ZW58MHx8fHwxNzU0MjQzMzg5fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://images.unsplash.com/photo-1674159085094-6f1874d7767c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxBcnRpc2FuYWx8ZW58MHx8fHwxNzU3MjkwMzk2fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [
       "https://firebasestorage.googleapis.com/v0/b/arrdublu-3.firebasestorage.app/o/gallery%2Fservices%2FArtisanal_Portrait_Session%2FIMG_2831.jpg?alt=media&token=65c07410-fc9f-41e6-b93d-2340d0e1f444",
       "https://firebasestorage.googleapis.com/v0/b/arrdublu-3.firebasestorage.app/o/gallery%2Fservices%2FArtisanal_Portrait_Session%2FIMG_2832.jpg?alt=media&token=4c678ae3-7fb0-47ac-8387-e2cedad27127",
