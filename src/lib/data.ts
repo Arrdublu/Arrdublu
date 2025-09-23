@@ -88,7 +88,7 @@ export const services: Service[] = [
     description: 'Make a great first impression with a custom business card design. We provide a print-ready file for you to take to your preferred printer.',
     price: 150,
     image: 'https://images.unsplash.com/photo-1654131300276-db70adf4f85d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8QnVzaW5lc3MlMjBDYXJkJTIwRGVzaWdufGVufDB8fHx8MTc1NDI0NjMxM3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: ['https://images.unsplash.com/photo-1718670013988-c6e3edb92345?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxCdXNpbmVzcyUyMENhcmQlMjBEZXNpZ258ZW58MHx8fHwxNzU3MDMwNDAzfDA&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1579642984744-4dd0fe83c38c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxCdXNpbmVzcyUyMENhcmQlMjBEZXNpZ252fGVufDB8fHx8MTc1NzAzMDQ5OHww&ixlib=rb-4.1.0&q=80&w=1080'],
+    previews: ['https://images.unsplash.com/photo-1718670013988-c6e3edb92345?ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1579642984744-4dd0fe83c38c?ixlib=rb-4.1.0&q=80&w=1080'],
     paymentLink: 'https://book.stripe.com/7sY6oH4Euaa08SG1r893y0d',
     whatsIncluded: [
       'Custom double-sided business card design',
@@ -168,7 +168,7 @@ export const services: Service[] = [
     description: 'Professional-grade base coverage. Features: 1 broadcast-quality camera, an on-site technician with sound mixing, livestream via branded platform or YouTube, up to 2 hours at one location, and a digital link with basic archive.',
     price: 500,
     image: 'https://images.unsplash.com/photo-1600195556579-d81d3f386e55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8QmFzaWMlMjBMaXZlc3RyZWFtJTIwUGFja2FnZXxlbnwwfHx8fDE3NTQyODA2Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: ['https://images.unsplash.com/photo-1616499368319-75618f73a55a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1589144810237-792b9d12a648?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
+    previews: ['https://images.unsplash.com/photo-1616499368319-75618f73a55a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1589144810237-792b9d12a648?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/fZu7sL6MC0zq2ui6Ls93y07',
   },
   {
@@ -377,7 +377,7 @@ export const services: Service[] = [
     price: 3200,
     image: 'https://images.unsplash.com/photo-1636470241984-9c54a8517cf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHwzRCUyME1vdGlvbiUyMEdyYXBoaWNzJTIwUGFja2FnZXxlbnwwfHx8fDE3NTU2MDcxMTl8MA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [],
-    paymentLink: 'https://book.stripe.com/placeholder_3d-motion-graphics',
+    paymentLink: 'https://book.stripe.com/14AaEX5Iy4PG3ym6Ls93y0n',
     whatsIncluded: [
       'Up to 30 seconds of 3D animation',
       'Advanced modeling, texturing, and lighting',
@@ -526,7 +526,7 @@ export const caseStudies: CaseStudy[] = [
     },
     {
         id: 'futuristic-tech-launch',
-        title: 'Futuristic Tech Launch',
+        title: 'Futuristic Tech Launch: A 3D Animated Reveal',
         category: '3D Motion Graphics',
         image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
         description: 'Created a stunning 3D animated product reveal for a next-generation gadget, generating massive pre-launch buzz.',
@@ -565,4 +565,5 @@ export async function getCaseStudiesByIds(ids: string[]): Promise<CaseStudy[]> {
     
 
     
+
 
