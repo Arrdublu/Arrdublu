@@ -445,7 +445,7 @@ export const services: Service[] = [
           'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80',
           'https://images.unsplash.com/photo-1734417511653-252ab0709e32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxIb21lJTIwVG91ciUyMHxlbnwwfHx8fDE3NTg2NTg1MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080'
       ],
-      paymentLink: 'https://book.stripe.com/placeholder_real-estate-video',
+      paymentLink: 'https://book.stripe.com/aFaeVd0oefuked0edU93y0o',
       whatsIncluded: [
           '1-2 Minute Cinematic Video',
           'Stabilized Walkthrough Footage',
@@ -580,3 +580,4 @@ export async function getCaseStudiesByIds(ids: string[]): Promise<CaseStudy[]> {
 
 
     
+
