@@ -200,7 +200,7 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1667506057454-87e10fb157d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxXZWRkaW5nJTIwUGhvdG9ncmFwaHklMjBQYWNrYWdlfGVufDB8fHx8MTc1NDMxNDU1Mnww&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [
       'https://images.unsplash.com/photo-1519741497674-6114d1863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1515934751635-481eff048d09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1515934751635-481eff048d09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80'
     ],
     paymentLink: 'https://book.stripe.com/eVqcN55Iyfukd8W9XE93y0h',
   },
@@ -355,7 +355,7 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'Bring your brand to life with custom 2D motion graphics. Ideal for explainer videos, social media content, and dynamic presentations.',
     price: 1800,
-    image: 'https://images.unsplash.com/photo-1683089598416-24ecf70305b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8MkQlMjBNb3Rpb24lMjBHcmFwaGljcyUyMFBhY2thZ2V8ZW58MHx8fHwxNzU1NjA2ODQ0fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://images.unsplash.com/photo-1683089598416-24ecf70305b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w7NDE5ODJ8MHwxfHNlYXJjaHwxOHx8MkQlMjBNb3Rpb24lMjBHcmFwaGljcyUyMFBhY2thZ2V8ZW58MHx8fHwxNzU1NjA2ODQ0fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [],
     paymentLink: 'https://book.stripe.com/placeholder_2d-motion-graphics',
     whatsIncluded: [
@@ -443,7 +443,7 @@ export const services: Service[] = [
       image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
       previews: [
           'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80',
-          'https://images.unsplash.com/photo-1613553423758-d75a1711681a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80'
+          'https://images.unsplash.com/photo-1734417511653-252ab0709e32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxIb21lJTIwVG91ciUyMHxlbnwwfHx8fDE3NTg2NTg1MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080'
       ],
       paymentLink: 'https://book.stripe.com/placeholder_real-estate-video',
       whatsIncluded: [
@@ -567,3 +567,6 @@ export async function getCaseStudiesByIds(ids: string[]): Promise<CaseStudy[]> {
     
 
 
+
+
+    
