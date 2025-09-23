@@ -484,7 +484,7 @@ export const caseStudies: CaseStudy[] = [
         category: 'Lifestyle',
         image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80',
         description: 'Crafted a powerful visual identity for a C-suite executive, enhancing their professional brand and online presence.',
-        link: '/discover/case-studies/annual-corporate-summit', // This should probably be a new page, but for now I\'ll point to an existing one.
+        link: '/discover/case-studies/executive-portraits',
         dataAiHint: 'executive portrait professional',
     },
     {
@@ -551,5 +551,7 @@ export async function getCaseStudiesByIds(ids: string[]): Promise<CaseStudy[]> {
         }, 300);
     });
 }
+
+    
 
     
