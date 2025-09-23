@@ -19,6 +19,7 @@ import { Logo } from './Logo';
 import { Search } from './Search';
 import { ThemeToggle } from './ThemeToggle';
 import { CurrencySwitcher } from './CurrencySwitcher';
+import { Cart } from './Cart';
 
 
 export function SiteHeader() {
@@ -92,6 +93,7 @@ export function SiteHeader() {
           </div>
           
           <div className="hidden md:flex items-center gap-2">
+            <Cart />
             <CurrencySwitcher />
             <ThemeToggle />
           </div>
@@ -128,6 +130,7 @@ export function SiteHeader() {
                   </div>
                 </nav>
                  <div className="mt-auto flex items-center justify-between">
+                    <Cart />
                     <CurrencySwitcher />
                     <ThemeToggle />
                 </div>

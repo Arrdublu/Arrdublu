@@ -5,13 +5,11 @@ import { Recommendations } from '@/components/services/Recommendations';
 import { CustomRequestForm } from '@/components/services/CustomRequestForm';
 import { Separator } from '@/components/ui/separator';
 import { KeywordFilter } from '@/components/services/KeywordFilter';
-import { CartProvider } from '@/context/CartProvider';
 
 export default function Home() {
   const categories = ['Creative', 'Lifestyle', 'SEO'];
 
   return (
-    <CartProvider>
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <section className="text-center py-16 md:py-24">
         <h1 className="font-headline text-4xl md:text-6xl font-bold tracking-tight text-primary">
@@ -62,6 +60,5 @@ export default function Home() {
       
       <Recommendations />
     </div>
-    </CartProvider>
   );
 }

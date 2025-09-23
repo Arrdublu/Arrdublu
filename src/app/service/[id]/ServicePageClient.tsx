@@ -13,7 +13,6 @@ import { CheckCircle, Info } from 'lucide-react';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
-import { CartProvider } from '@/context/CartProvider';
 
 
 interface ServicePageClientProps {
@@ -25,7 +24,7 @@ export function ServicePageClient({ service, caseStudies }: ServicePageClientPro
   const { getFormattedPrice } = useCurrency();
 
   return (
-    <CartProvider>
+    <>
     <header className="relative h-[50vh] w-full">
         <Image
           src={service.image}
@@ -172,6 +171,6 @@ export function ServicePageClient({ service, caseStudies }: ServicePageClientPro
         </div>
       </div>
     </div>
-    </CartProvider>
+    </>
   );
 }
