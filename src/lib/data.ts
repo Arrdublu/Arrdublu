@@ -110,7 +110,7 @@ export const services: Service[] = [
     description: 'Elevate your social media presence with stunning, on-brand visuals. We provide a set of custom templates and graphics for posts, stories, and profiles, optimized for engagement.',
     price: 750,
     image: 'https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
-    previews: ['https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80'],
+    previews: ['https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/8x2aEXef495Wed01r893y0e',
     whatsIncluded: [
         '15 custom social media post templates (e.g., for Instagram, Facebook, LinkedIn)',
@@ -333,7 +333,7 @@ export const services: Service[] = [
     description: 'Professional makeup and cosmetics services for film, photo shoots, and events. Our artists ensure talent looks flawless on camera.',
     price: 800,
     image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
-    previews: ['https://images.unsplash.com/photo-1620462229921-22b0a04911e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1512496015851-a90137ba0a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80'],
+    previews: ['https://images.unsplash.com/photo-1620462229921-22b0a04911e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1512496015851-a90137ba0a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/3cI6oH0oe81S1qe8TA93y06',
     whatsIncluded: [
         'On-site makeup artistry for talent',
@@ -387,7 +387,8 @@ export const services: Service[] = [
     goodToKnow: [
       'Project timeline is typically 4-6 weeks.',
       'A detailed brief and consultation are required to define scope.'
-    ]
+    ],
+    caseStudyIds: ['futuristic-tech-launch']
   },
   {
     id: '3d-product-visualization',
@@ -482,7 +483,7 @@ export const caseStudies: CaseStudy[] = [
         id: 'executive-portraits',
         title: 'Executive Branding Portraits',
         category: 'Lifestyle',
-        image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D&auto=format&fit=crop&w=1200&q=80',
+        image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
         description: 'Crafted a powerful visual identity for a C-suite executive, enhancing their professional brand and online presence.',
         link: '/discover/case-studies/executive-portraits',
         dataAiHint: 'executive portrait professional',
@@ -522,6 +523,15 @@ export const caseStudies: CaseStudy[] = [
         description: 'Designed a premium business card for a top consulting firm, resulting in a measurable increase in client callbacks.',
         link: '/discover/case-studies/executive-identity',
         dataAiHint: 'business card meeting',
+    },
+    {
+        id: 'futuristic-tech-launch',
+        title: 'Futuristic Tech Launch',
+        category: '3D Motion Graphics',
+        image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        description: 'Created a stunning 3D animated product reveal for a next-generation gadget, generating massive pre-launch buzz.',
+        link: '/discover/case-studies/futuristic-tech-launch',
+        dataAiHint: 'tech animation',
     }
 ];
 
@@ -555,3 +565,4 @@ export async function getCaseStudiesByIds(ids: string[]): Promise<CaseStudy[]> {
     
 
     
+
