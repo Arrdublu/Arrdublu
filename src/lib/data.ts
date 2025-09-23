@@ -355,7 +355,7 @@ export const services: Service[] = [
     category: 'Creative',
     description: 'Bring your brand to life with custom 2D motion graphics. Ideal for explainer videos, social media content, and dynamic presentations.',
     price: 1800,
-    image: 'https://images.unsplash.com/photo-1683089598416-24ecf70305b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w7NDE5ODJ8MHwxfHNlYXJjaHwxOHx8MkQlMjBNb3Rpb24lMjBHcmFwaGljcyUyMFBhY2thZ2V8ZW58MHx8fHwxNzU1NjA2ODQ0fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://images.unsplash.com/photo-1683089598416-24ecf70305b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8MkQlMjBNb3Rpb24lMjBHcmFwaGljcyUyMFBhY2thZ2V8ZW58MHx8fHwxNzU1NjA2ODQ0fDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [],
     paymentLink: 'https://book.stripe.com/placeholder_2d-motion-graphics',
     whatsIncluded: [
@@ -456,7 +456,8 @@ export const services: Service[] = [
       goodToKnow: [
           'Pricing for properties up to 2,500 sq ft.',
           'Drone footage and agent intro can be included for an additional fee.'
-      ]
+      ],
+      caseStudyIds: ['luxury-real-estate-showcase'],
   }
 ];
 
@@ -532,6 +533,15 @@ export const caseStudies: CaseStudy[] = [
         description: 'Created a stunning 3D animated product reveal for a next-generation gadget, generating massive pre-launch buzz.',
         link: '/discover/case-studies/futuristic-tech-launch',
         dataAiHint: 'tech animation',
+    },
+    {
+        id: 'luxury-real-estate-showcase',
+        title: 'Luxury Real Estate Showcase',
+        category: 'Cinematic Home Tour',
+        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        description: 'A compelling video tour that brought a high-value property to life, resulting in a faster sale at the desired price point.',
+        link: '/discover/case-studies/luxury-real-estate-showcase',
+        dataAiHint: 'luxury home cinematic',
     }
 ];
 
