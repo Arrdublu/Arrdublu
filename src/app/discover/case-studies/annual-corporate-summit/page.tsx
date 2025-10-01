@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -10,7 +11,7 @@ import { CheckCircle } from 'lucide-react';
 const caseStudy = {
   title: 'Annual Corporate Summit',
   category: 'Event Videography',
-  heroImage: 'https://images.unsplash.com/photo-152907041287-35e9a7522029?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80',
+  heroImage: 'https://images.unsplash.com/photo-1695891583421-3cbbf1c2e3bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdWNjZXNzJTIwY29ycG9yYXRlfGVufDB8fHx8MTc1OTI3Mzg0OHww&ixlib=rb-4.1.0&q=80&w=1080',
   dataAiHint: 'corporate summit presentation',
   url: '/discover/case-studies/annual-corporate-summit',
   overview: "We were tasked with capturing the energy and key moments of a major tech corporation's annual three-day summit. Our goal was to produce a dynamic highlights reel for internal and external promotion, as well as full recordings of all keynote sessions for archival and training purposes.",

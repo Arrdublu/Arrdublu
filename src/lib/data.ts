@@ -88,7 +88,7 @@ export const services: Service[] = [
     description: 'Make a great first impression with a custom business card design. We provide a print-ready file for you to take to your preferred printer.',
     price: 150,
     image: 'https://images.unsplash.com/photo-1654131300276-db70adf4f85d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8QnVzaW5lc3MlMjBDYXJkJTIwRGVzaWdufGVufDB8fHx8MTc1NDI0NjMxM3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: ['https://images.unsplash.com/photo-1718670013988-c6e3edb92345?ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1579642984744-4dd0fe83c38c?ixlib=rb-4.1.0&q=80&w=1080'],
+    previews: ['https://images.unsplash.com/photo-1596526131034-085524213d82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1563986768711-b3bde3dc821e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/7sY6oH4Euaa08SG1r893y0d',
     whatsIncluded: [
       'Custom double-sided business card design',
@@ -157,7 +157,7 @@ export const services: Service[] = [
     price: 250,
     unit: 'hr',
     image: 'https://images.unsplash.com/photo-1557701491-7bdb1098123d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNXx8ZXZlbnQlMjB2aWRlb2dyYXBoeXxlbnwwfHx8fDE3NTQyNDMwNjV8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: ['https://images.unsplash.com/photo-1606833958622-1b6c7a1d1d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
+    previews: ['https://images.unsplash.com/photo-1758788505792-38d65b41699e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxFdmVudCUyMFZpZGVvZ3JhcGh5JTIwfGVufDB8fHx8MTc1OTI3MTI1OXww&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/9B6aEXef41Dugl88TA93y0g',
     caseStudyIds: ['annual-corporate-summit'],
   },
@@ -224,7 +224,7 @@ export const services: Service[] = [
     description: 'A professional music video package perfect for emerging artists. Includes a half-day shoot, 2 locations, and a 3-minute final edited video.',
     price: 1500,
     image: 'https://images.unsplash.com/photo-1598837072042-5a0fb9f400b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxJbmRpZSUyMEFydGlzdCUyME11c2ljJTIwVmlkZW98ZW58MHx8fHwxNzU1NjA2MzU2fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: [],
+    previews: ['https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/placeholder_music-video-indie',
   },
   {
@@ -247,7 +247,7 @@ export const services: Service[] = [
     description: 'A premium, all-inclusive package for established artists. Includes a full-day shoot, multiple locations, advanced cinematography, special effects, and a director-level creative team.',
     price: 7500,
     image: 'https://images.unsplash.com/photo-1530349578817-9b5acd652481?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8TWFqb3IlMjBMYWJlbCUyME11c2ljJTIwVmlkZW98ZW58MHx8fHwxNzU1NjA2NjQ5fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: [],
+    previews: ['https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/placeholder_music-video-major',
   },
   {
@@ -356,7 +356,7 @@ export const services: Service[] = [
     description: 'Bring your brand to life with custom 2D motion graphics. Ideal for explainer videos, social media content, and dynamic presentations.',
     price: 1800,
     image: 'https://images.unsplash.com/photo-1683089598416-24ecf70305b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8MkQlMjBNb3Rpb24lMjBHcmFwaGljcyUyMFBhY2thZ2V8ZW58MHx8fHwxNzU1NjA2ODQ0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: [],
+    previews: ['https://images.unsplash.com/photo-1635399812499-5364b63574c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/placeholder_2d-motion-graphics',
     whatsIncluded: [
       'Up to 60 seconds of 2D animation',
@@ -376,7 +376,7 @@ export const services: Service[] = [
     description: 'Create stunning, high-end 3D animations for product showcases, cinematic intros, and complex visual effects that captivate your audience.',
     price: 3200,
     image: 'https://images.unsplash.com/photo-1636470241984-9c54a8517cf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHwzRCUyME1vdGlvbiUyMEdyYXBoaWNzJTIwUGFja2FnZXxlbnwwfHx8fDE3NTU2MDcxMTl8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: [],
+    previews: ['https://images.unsplash.com/photo-1598214771231-629a8a3a413a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/14AaEX5Iy4PG3ym6Ls93y0n',
     whatsIncluded: [
       'Up to 30 seconds of 3D animation',
@@ -397,7 +397,7 @@ export const services: Service[] = [
     description: 'Showcase your product from every angle with photorealistic 3D renderings. Perfect for e-commerce, marketing materials, and prototyping before manufacturing.',
     price: 1500,
     image: 'https://images.unsplash.com/photo-1706034449892-a23e82d3f4c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMnx8M0QlMjBQcm9kdWN0JTIwVmlzdWFsaXphdGlvbnxlbnwwfHx8fDE3NTU2MDc2MDR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    previews: [],
+    previews: ['https://images.unsplash.com/photo-1590123936698-382c617c6999?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'],
     paymentLink: 'https://book.stripe.com/placeholder_3d-product-visualization',
     whatsIncluded: [
       'One high-fidelity 3D model of your product',
@@ -475,7 +475,7 @@ export const caseStudies: CaseStudy[] = [
         id: 'annual-corporate-summit',
         title: 'Annual Corporate Summit',
         category: 'Event Videography',
-        image: 'https://images.unsplash.com/photo-152907041287-35e9a7522029?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        image: 'https://firebasestorage.googleapis.com/v0/b/arrdublu-3.firebasestorage.app/o/gallery%2Fservices%2FEvent%20Videography%2Farrdublu_03.png?alt=media&token=11e5d8c1-6918-4811-8f47-87ddd90bea92',
         description: 'Dynamic video coverage for a major tech corporation\'s annual three-day summit.',
         link: '/discover/case-studies/annual-corporate-summit',
         dataAiHint: 'corporate summit',
@@ -580,4 +580,7 @@ export async function getCaseStudiesByIds(ids: string[]): Promise<CaseStudy[]> {
 
 
     
+
+
+
 

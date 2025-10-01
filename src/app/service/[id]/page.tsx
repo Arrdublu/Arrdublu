@@ -1,16 +1,18 @@
+
 import { getServiceById, getCaseStudiesByIds } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import { ServicePageClient } from './ServicePageClient';
 import type { CaseStudy } from '@/lib/types';
 
 interface ServicePageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
-  const service = getServiceById(params.id);
+  const { id } = await params;
+  const service = getServiceById(id);
 
   if (!service) {
     notFound();
