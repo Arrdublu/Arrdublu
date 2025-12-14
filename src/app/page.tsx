@@ -12,8 +12,19 @@ export default function Home() {
 
   return (
     <>
-      <section className="h-[60vh] md:h-[80vh] w-full">
+      <section className="h-[60vh] md:h-[80vh] w-full relative">
         <HeroSlider />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 flex items-center justify-center text-center text-white p-4">
+            <div className="relative z-10">
+                <h1 className="text-4xl md:text-7xl font-headline font-bold drop-shadow-md">
+                    Elevate Your Vision
+                </h1>
+                <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto drop-shadow-sm">
+                    Exquisite media services for the discerning client. Unparalleled quality in SEO, creative, and lifestyle content.
+                </p>
+            </div>
+        </div>
       </section>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
