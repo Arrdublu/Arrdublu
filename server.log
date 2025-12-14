@@ -1,0 +1,14 @@
+
+> nextn@0.1.0 start
+> next start
+
+   ▲ Next.js 15.5.0
+   - Local:        http://localhost:3000
+   - Network:      http://10.88.0.3:3000
+
+ ✓ Starting...
+ ✓ Ready in 1314ms
+Attempting to initialize Firebase Admin SDK...
+Firebase Admin SDK initialized successfully.
+ ⨯ upstream image response failed for https://firebasestorage.googleapis.com/v0/b/arrdublu-3.firebasestorage.app/o/arrdublu_logo_blackArtboard-1.png?alt=media&token=0c573884-0b4b-405c-ba36-5477f43a1699 404
+ ⨯ upstream image response failed for https://firebasestorage.googleapis.com/v0/b/arrdublu-3.firebasestorage.app/o/Header_Starting_Mobile_Logo.png?alt=media&token=36c8d541-3b34-4458-8dc5-1ac793933e5b 404
