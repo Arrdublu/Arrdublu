@@ -169,6 +169,31 @@ export const services: Service[] = [
     caseStudyIds: ['annual-corporate-summit'],
   },
   {
+    id: 'video-editing',
+    name: 'Video Editing',
+    category: 'Creative',
+    description: 'Professional video editing to transform your raw footage into a polished, engaging story. We handle color correction, sound mixing, transitions, and final exports for any platform.',
+    price: 300,
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx2aWRlbyUyMGVkaXRpbmd8ZW58MHx8fHwxNzY1NzE2MjgyfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    previews: [
+        'https://images.unsplash.com/photo-1579493934963-9b2f38d7c13e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1616499368319-75618f73a55a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
+    ],
+    paymentLink: 'https://book.stripe.com/placeholder_video-editing',
+    whatsIncluded: [
+        'Editing of up to 15 minutes of raw footage',
+        'Color correction and grading',
+        'Audio mixing and enhancement',
+        'Custom titles and basic motion graphics',
+        'Final export in your desired format (e.g., for YouTube, Instagram)'
+    ],
+    goodToKnow: [
+        'Price is per final minute of edited video.',
+        'Client must provide all raw footage and a clear editing brief.',
+        'Includes two rounds of revisions.'
+    ],
+  },
+  {
     id: 'livestream-basic',
     name: 'Basic Livestream Package',
     category: 'Creative',
@@ -610,6 +635,8 @@ export async function getCaseStudiesByIds(ids: string[]): Promise<CaseStudy[]> {
 
 
     
+
+
 
 
 
