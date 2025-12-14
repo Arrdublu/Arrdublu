@@ -11,14 +11,14 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center overflow-hidden">
+      <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center overflow-hidden bg-hero-background">
         <video
           src="https://firebasestorage.googleapis.com/v0/b/arrdublu-d1c06.appspot.com/o/mobile_web_wide.mp4?alt=media&token=4b5c3db0-22a1-4bea-8f3e-f5a0361d774b"
           autoPlay
           loop
           muted
           playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+          className="absolute top-0 left-0 w-full h-full object-cover -z-10 hidden md:block"
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white p-4">
