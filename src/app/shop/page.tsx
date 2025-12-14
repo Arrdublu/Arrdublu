@@ -1,6 +1,7 @@
 
 import { FreeDownloadsGrid } from '@/components/shop/FreeDownloadsGrid';
 import { PrintsGrid } from '@/components/shop/PrintsGrid';
+import { UsedEquipmentGrid } from '@/components/shop/UsedEquipmentGrid';
 import { Separator } from '@/components/ui/separator';
 
 export default function ShopPage() {
@@ -11,7 +12,7 @@ export default function ShopPage() {
           Shop
         </h1>
         <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-foreground/80">
-          Browse our collection of prints and free media assets.
+          Browse our collection of prints, free media assets, and quality used equipment.
         </p>
       </div>
       
@@ -20,6 +21,18 @@ export default function ShopPage() {
           Prints
         </h2>
         <PrintsGrid />
+      </section>
+
+      <Separator className="my-16" />
+
+      <section className="py-12">
+        <h2 className="text-3xl font-headline font-semibold mb-8 text-primary">
+          Used Equipment Resale
+        </h2>
+        <p className="mt-4 text-lg max-w-2xl mx-auto text-center text-foreground/80 mb-12">
+          Quality pre-owned gear, inspected and ready for a new home.
+        </p>
+        <UsedEquipmentGrid />
       </section>
 
       <Separator className="my-16" />
