@@ -5,28 +5,21 @@ import { Recommendations } from '@/components/services/Recommendations';
 import { CustomRequestForm } from '@/components/services/CustomRequestForm';
 import { Separator } from '@/components/ui/separator';
 import { HomePageClient } from './HomePageClient';
+import Image from 'next/image';
 
 export default function Home() {
   const categories = ['Creative', 'Lifestyle', 'SEO'];
 
   return (
     <>
-      <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center overflow-hidden bg-hero-background">
-        <video
-          src="https://firebasestorage.googleapis.com/v0/b/arrdublu-d1c06.appspot.com/o/mobile_web_wide.mp4?alt=media&token=4b5c3db0-22a1-4bea-8f3e-f5a0361d774b"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover -z-10 hidden md:block"
-        />
-        <video
-          src="https://firebasestorage.googleapis.com/v0/b/arrdublu-d1c06.firebasestorage.app/o/motion_portrait.mp4?alt=media&token=74cddd9f-390f-4a2f-b23d-84fbe7ef3042"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover -z-10 md:hidden"
+      <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center overflow-hidden">
+        <Image
+          src="https://firebasestorage.googleapis.com/v0/b/arrdublu-d1c06.firebasestorage.app/o/arrdublu_06.jpg?alt=media&token=b317a006-5cfb-4591-83fb-6f0a2f61f80b"
+          alt="Hero background"
+          fill
+          className="object-cover -z-10"
+          priority
+          data-ai-hint="creative background"
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white p-4">
