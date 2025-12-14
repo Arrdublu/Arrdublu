@@ -176,7 +176,7 @@ export const services: Service[] = [
     price: 300,
     image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx2aWRlbyUyMGVkaXRpbmd8ZW58MHx8fHwxNzY1NzE2MjgyfDA&ixlib=rb-4.1.0&q=80&w=1080',
     previews: [
-        'https://images.unsplash.com/photo-1579493934963-9b2f38d7c13e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1490810194309-344b3661ba39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx2aWRlbyUyMGVkaXRpbmd8ZW58MHx8fHwxNzY1NzQ3MTc3fDA&ixlib=rb-4.1.0&q=80&w=1080',
         'https://images.unsplash.com/photo-1616499368319-75618f73a55a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'
     ],
     paymentLink: 'https://book.stripe.com/placeholder_video-editing',
@@ -647,3 +647,6 @@ export async function getCaseStudiesByIds(ids: string[]): Promise<CaseStudy[]> {
 
 
 
+
+
+    
