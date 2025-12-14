@@ -5,19 +5,15 @@ import { Recommendations } from '@/components/services/Recommendations';
 import { CustomRequestForm } from '@/components/services/CustomRequestForm';
 import { Separator } from '@/components/ui/separator';
 import { HomePageClient } from './HomePageClient';
+import { HeroSlider } from '@/components/home/HeroSlider';
 
 export default function Home() {
   const categories = ['Creative', 'Lifestyle', 'SEO'];
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <section className="text-center py-16 md:py-24 bg-hero-background rounded-lg my-8">
-        <h1 className="text-5xl md:text-7xl font-headline font-bold text-primary-foreground">
-          Elevate Your Vision
-        </h1>
-        <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-primary-foreground/80">
-          Exquisite media services for the discerning client. Unparalleled quality in SEO, creative, and lifestyle content.
-        </p>
+      <section className="my-8">
+        <HeroSlider />
       </section>
 
       <HomePageClient />

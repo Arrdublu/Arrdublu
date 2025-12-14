@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -15,16 +16,18 @@ import placeholderImageData from '@/lib/placeholder-images.json';
 
 const slides = [
   {
-    id: 'arrbrides',
-    title: 'ArrBrides',
-    image: placeholderImageData.bride.src,
-    dataAiHint: placeholderImageData.bride.dataAiHint,
+    id: 'lancome',
+    title: 'Lancôme',
+    subtitle: 'Holidays 2025',
+    image: placeholderImageData.train.src,
+    dataAiHint: placeholderImageData.train.dataAiHint,
   },
   {
-    id: 'watchrasta',
-    title: 'watchRasta',
-    image: placeholderImageData.culture.src,
-    dataAiHint: placeholderImageData.culture.dataAiHint,
+    id: 'arrbrides',
+    title: 'ArrBrides',
+    subtitle: '',
+    image: placeholderImageData.bride.src,
+    dataAiHint: placeholderImageData.bride.dataAiHint,
   },
 ];
 
@@ -58,10 +61,15 @@ export function HeroSlider() {
                     priority
                     sizes="100vw"
                   />
-                  <div className="absolute inset-0 bg-black/40" />
-                  <h2 className="relative text-4xl md:text-7xl font-headline font-bold text-white text-center drop-shadow-md">
-                    {slide.title}
-                  </h2>
+                  <div className="absolute inset-0 bg-black/30" />
+                  <div className="relative text-center text-white drop-shadow-md">
+                    <h2 className="text-4xl md:text-7xl font-headline font-bold">
+                      {slide.title}
+                    </h2>
+                    {slide.subtitle && (
+                      <p className="mt-2 text-lg md:text-xl">{slide.subtitle}</p>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             </div>
