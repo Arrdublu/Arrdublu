@@ -20,6 +20,14 @@ export default function Home() {
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover -z-10 hidden md:block"
         />
+        <video
+          src="https://firebasestorage.googleapis.com/v0/b/arrdublu-d1c06.firebasestorage.app/o/motion_portrait.mp4?alt=media&token=74cddd9f-390f-4a2f-b23d-84fbe7ef3042"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover -z-10 md:hidden"
+        />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white p-4">
           <h1 className="text-4xl md:text-7xl font-headline font-bold drop-shadow-md">
