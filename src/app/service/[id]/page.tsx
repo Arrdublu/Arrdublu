@@ -24,31 +24,35 @@ export async function generateMetadata(
     }
   }
 
-  // optionally access and extend parent metadata
-  const previousImages = (await parent).openGraph?.images || []
+  const parentOpenGraph = (await parent).openGraph ?? {};
+  const parentTwitter = (await parent).twitter ?? {};
+
+  const imageUrl = service.image;
 
   return {
     title: `${service.name} | Arrdublu`,
-    description: service.description,
+    description: service.description.substring(0, 160),
     openGraph: {
-      title: service.name,
-      description: service.description.substring(0, 150),
+      ...parentOpenGraph,
+      title: `${service.name} | Arrdublu`,
+      description: service.description.substring(0, 160),
+      url: `/service/${service.id}`,
       images: [
         {
-          url: service.image,
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: service.name,
         },
-        ...previousImages,
       ],
     },
     twitter: {
-        card: 'summary_large_image',
-        title: service.name,
-        description: service.description.substring(0, 150),
-        images: [service.image],
-    }
+      ...parentTwitter,
+      card: 'summary_large_image',
+      title: `${service.name} | Arrdublu`,
+      description: service.description.substring(0, 160),
+      images: [imageUrl],
+    },
   }
 }
 
