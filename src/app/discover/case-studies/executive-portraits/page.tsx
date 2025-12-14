@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { SocialShare } from '@/components/magazine/SocialShare';
 import { Separator } from '@/components/ui/separator';
 import { CheckCircle, Briefcase, Eye, UserCheck } from 'lucide-react';
+import type { Metadata } from 'next';
 
 const caseStudy = {
   title: 'Executive Branding Portraits',
@@ -28,6 +29,29 @@ const caseStudy = {
     { name: 'Personal Branding Consultation', icon: CheckCircle },
     { name: 'Professional Retouching', icon: CheckCircle },
   ]
+};
+
+export const metadata: Metadata = {
+    title: `${caseStudy.title} | Arrdublu Case Study`,
+    description: caseStudy.overview,
+    openGraph: {
+        title: caseStudy.title,
+        description: caseStudy.overview,
+        images: [
+            {
+                url: caseStudy.heroImage,
+                width: 1200,
+                height: 630,
+                alt: caseStudy.title,
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: caseStudy.title,
+        description: caseStudy.overview,
+        images: [caseStudy.heroImage],
+    },
 };
 
 export default function ExecutivePortraitsPage() {
