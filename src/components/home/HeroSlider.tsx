@@ -31,13 +31,13 @@ export function HeroSlider() {
     return (
         <Carousel
             plugins={[plugin.current]}
-            className="w-full h-full"
+            className="w-full"
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
         >
-            <CarouselContent className="h-full">
+            <CarouselContent>
                 {sliderImages.map((image, index) => (
-                    <CarouselItem key={index} className="h-full relative">
+                    <CarouselItem key={index} className="h-[60vh] md:h-[80vh] relative">
                         <Image
                             src={image.src}
                             alt={image.alt}
