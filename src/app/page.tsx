@@ -12,7 +12,9 @@ export default function Home() {
 
   return (
     <>
-      <HeroSlider />
+      <section className="h-[60vh] md:h-[80vh] w-full">
+        <HeroSlider />
+      </section>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <HomePageClient />
