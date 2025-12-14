@@ -16,6 +16,8 @@ const alegreya = Alegreya({
 });
 
 const newLogoUrl = "https://firebasestorage.googleapis.com/v0/b/arrdublu-d1c06.appspot.com/o/arrdublu_logo_blackArtboard-1.png?alt=media&token=577a50cf-ae11-45c7-8a98-e023e59df2d4"
+const socialShareImageUrl = "https://images.unsplash.com/photo-1610363665796-0242a42f5394?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzbm93JTIwdHJhaW58ZW58MHx8fHwxNzY1ODcyMzMwfDA&ixlib=rb-4.1.0&q=80&w=1200"
+
 
 export const metadata: Metadata = {
   title: 'Arrdublu - Exquisite Media Services',
@@ -31,10 +33,10 @@ export const metadata: Metadata = {
     siteName: 'Arrdublu',
     images: [
       {
-        url: newLogoUrl,
-        width: 512,
-        height: 512,
-        alt: 'Arrdublu Logo',
+        url: socialShareImageUrl,
+        width: 1200,
+        height: 630,
+        alt: 'Arrdublu Exquisite Media Services',
       },
     ],
     locale: 'en_US',
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Arrdublu - Exquisite Media Services',
     description: 'Elevate your vision with our top-tier creative, lifestyle, and SEO services.',
-    images: [newLogoUrl],
+    images: [socialShareImageUrl],
   },
 };
 
