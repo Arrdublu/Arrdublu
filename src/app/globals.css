@@ -29,6 +29,7 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --hero-background: 227 70% 11%;
   }
 
   .dark {
@@ -51,6 +52,7 @@
     --border: 213 58% 17%;
     --input: 213 58% 17%;
     --ring: 22 62% 81%;
+    --hero-background: 227 70% 11%;
   }
 }
 
