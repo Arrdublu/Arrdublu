@@ -1,0 +1,10 @@
+{
+  "bride": {
+    "src": "https://images.unsplash.com/photo-1587799547893-28c03975d0b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxicmlkZXxlbnwwfHx8fDE3NjU1NzY0NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "dataAiHint": "bride wedding"
+  },
+  "culture": {
+    "src": "https://images.unsplash.com/photo-1528183429752-a97d0bfd08b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjdWx0dXJlfGVufDB8fHx8MTc2NTU3NjUwMXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "dataAiHint": "culture event"
+  }
+}
