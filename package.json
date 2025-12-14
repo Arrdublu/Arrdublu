@@ -1,3 +1,4 @@
+
 {
   "name": "nextn",
   "version": "0.1.0",
@@ -41,8 +42,6 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
-    "embla-carousel-autoplay": "^8.1.5",
-    "embla-carousel-react": "^8.1.5",
     "firebase": "^11.5.0",
     "firebase-admin": "^12.1.1",
     "framer-motion": "^11.2.12",
