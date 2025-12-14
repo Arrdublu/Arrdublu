@@ -14,12 +14,7 @@ export function ServiceActions({ service }: ServiceActionsProps) {
   const { addToCart } = useCart();
 
   const handleBookNowClick = () => {
-    if (service.paymentLink) {
-      window.open(service.paymentLink, '_blank', 'noopener,noreferrer');
-    } else {
-      // Fallback to adding to cart if no direct payment link
-      addToCart(service);
-    }
+    window.open('https://book.stripe.com/5kQ28r9YObe4b0Oc5M93y0p', '_blank', 'noopener,noreferrer');
   };
 
   const handleDepositClick = () => {
