@@ -6,15 +6,17 @@ import { Badge } from '@/components/ui/badge';
 import { SocialShare } from '@/components/magazine/SocialShare';
 import { Separator } from '@/components/ui/separator';
 import { CheckCircle } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const icons: { [key: string]: React.ElementType } = {
     CheckCircle,
 };
 
 export function ProductionMakeupCollaborationClient({ caseStudy }: { caseStudy: any }) {
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
+        setIsMounted(true);
         const script = document.createElement('script');
         script.src = 'https://www.instagram.com/embed.js';
         script.async = true;
@@ -105,12 +107,14 @@ export function ProductionMakeupCollaborationClient({ caseStudy }: { caseStudy: 
             </p>
           </section>
 
-          <section className="mb-12">
-                <h2 className="text-3xl font-headline font-semibold text-primary mb-8 text-center">From the Set</h2>
-                <div className="flex justify-center">
-                    <div className="w-full max-w-lg" dangerouslySetInnerHTML={{ __html: caseStudy.instagramEmbed }} />
-                </div>
-            </section>
+          {isMounted && (
+            <section className="mb-12">
+                  <h2 className="text-3xl font-headline font-semibold text-primary mb-8 text-center">From the Set</h2>
+                  <div className="flex justify-center">
+                      <div className="w-full max-w-lg" dangerouslySetInnerHTML={{ __html: caseStudy.instagramEmbed }} />
+                  </div>
+              </section>
+          )}
 
           <div className="text-center">
             <SocialShare url={caseStudy.url} title={caseStudy.title} />

@@ -7,15 +7,17 @@ import { Badge } from '@/components/ui/badge';
 import { SocialShare } from '@/components/magazine/SocialShare';
 import { Separator } from '@/components/ui/separator';
 import { CheckCircle } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const icons: { [key: string]: React.ElementType } = {
   CheckCircle,
 };
 
 export function GlobalRebrandClient({ caseStudy }: { caseStudy: any }) {
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
+        setIsMounted(true);
         const script = document.createElement('script');
         script.src = 'https://www.instagram.com/embed.js';
         script.async = true;
@@ -107,14 +109,16 @@ export function GlobalRebrandClient({ caseStudy }: { caseStudy: any }) {
             </p>
           </section>
           
-            <section className="mb-12">
-                <h2 className="text-3xl font-headline font-semibold text-primary mb-8 text-center">Behind The Scenes</h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                {caseStudy.instagramEmbeds.map((embed: string, index: number) => (
-                    <div key={index} className="w-full" dangerouslySetInnerHTML={{ __html: embed }} />
-                ))}
-                </div>
-            </section>
+            {isMounted && (
+                <section className="mb-12">
+                    <h2 className="text-3xl font-headline font-semibold text-primary mb-8 text-center">Behind The Scenes</h2>
+                    <div className="grid md:grid-cols-2 gap-4">
+                    {caseStudy.instagramEmbeds.map((embed: string, index: number) => (
+                        <div key={index} className="w-full" dangerouslySetInnerHTML={{ __html: embed }} />
+                    ))}
+                    </div>
+                </section>
+            )}
 
           <div className="text-center">
             <SocialShare url={caseStudy.url} title={caseStudy.title} />
